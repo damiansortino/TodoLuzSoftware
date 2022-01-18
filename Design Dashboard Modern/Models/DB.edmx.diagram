@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="622c316ff91641708e568ac6611985a1" Name="Diagram1">
+        <EntityTypeShape EntityType="todoluzdbModel.Caja" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.Cliente" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.Comprobante" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.detalleFactura" Width="2" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.estadoComprobante" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.medioPago" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.movimientoCaja" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.movimientoStock" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.Producto" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.Stock" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.Sucursal" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.tipoComprobante" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.tipoMovimientoCaja" Width="2.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.tipoMovimientoStock" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="todoluzdbModel.Usuario" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="todoluzdbModel.FK_caja_sucursal_SucursalId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_movimientoCaja_caja_CajaId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_comprobante_personaJuridica_PersonaJuridicaId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_comprobante_sucursal_SucursalId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_comprobante_tipoComprobante_TipoComprobanteId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_detalleFactura_comprobante_ComprobanteId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_movimientoCaja_comprobante_ComprobanteId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_movimientoStock_comprobante_ComprobanteId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_detalleFactura_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_movimientoStock_stock_StockId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_stock_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="todoluzdbModel.FK_stock_sucursal_SucursalId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
