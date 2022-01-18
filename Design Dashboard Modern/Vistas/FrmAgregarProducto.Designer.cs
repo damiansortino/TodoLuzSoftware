@@ -51,6 +51,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.label8 = new System.Windows.Forms.Label();
             this.cbTieneCodigoBarra = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -142,6 +143,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             resources.ApplyResources(this.btnCancelar, "btnCancelar");
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -164,12 +166,19 @@ namespace Design_Dashboard_Modern.Vistas
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
             // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FrmAgregarProducto
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Coral;
             this.CancelButton = this.btnCancelar;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbTieneCodigoBarra);
             this.Controls.Add(this.label8);
@@ -221,5 +230,6 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox cbTieneCodigoBarra;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button1;
     }
 }
