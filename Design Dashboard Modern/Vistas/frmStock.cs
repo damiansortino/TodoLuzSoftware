@@ -1,6 +1,7 @@
 ﻿using Design_Dashboard_Modern.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -51,7 +52,7 @@ namespace Design_Dashboard_Modern.Vistas
             {
                 using (todoluzdbEntities DB = new todoluzdbEntities())
                 {
-                    List<Producto> productosfiltrados = DB.Producto.ToList().FindAll(x => x.Codigo.Contains(tbFiltro.Text.Trim()));
+                    List<Producto> productosfiltrados = DB.Producto.ToList().FindAll(x=>x.Codigo.Contains(tbFiltro.Text.Trim()));
 
                     if (productosfiltrados.Count < 1)
                     {
@@ -59,7 +60,7 @@ namespace Design_Dashboard_Modern.Vistas
                     }
                     else
                     {
-                        dgvMuestraStock.DataSource = DB.Stock.ToList().FindAll(x => x.ProductoId == productosfiltrados[0].Id);
+                        dgvMuestraStock.DataSource = DB.Stock.ToList().FindAll(x=>x.ProductoId == productosfiltrados[0].Id);
                     }
                 }
 

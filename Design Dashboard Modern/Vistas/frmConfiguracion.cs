@@ -1,6 +1,7 @@
-﻿using Design_Dashboard_Modern.Models;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Design_Dashboard_Modern.Models;
 
 namespace Design_Dashboard_Modern.Vistas
 {
@@ -26,7 +27,7 @@ namespace Design_Dashboard_Modern.Vistas
         {
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
-                dgvMuestraTiposMovStock.DataSource = DB.tipoMovimientoStock.ToList().FindAll(x => x.fechaBaja == null);
+                dgvMuestraTiposMovStock.DataSource = DB.tipoMovimientoStock.ToList();
                 dgvMuestraTiposMovStock.Columns[0].Visible = false;
                 dgvMuestraTiposMovStock.Columns[2].Visible = false;
                 dgvMuestraTiposMovStock.Columns[3].Visible = false;
@@ -43,21 +44,6 @@ namespace Design_Dashboard_Modern.Vistas
             RefrescarTipoMov();
         }
 
-        private void btnBorrarMovStock_Click(object sender, System.EventArgs e)
-        {
-            using (todoluzdbEntities DB = new todoluzdbEntities())
-            {
-                tipoMovimientoStock eliminar = DB.tipoMovimientoStock.Find
-                    (dgvMuestraTiposMovStock.CurrentRow.Cells[0].Value);
-                eliminar.fechaBaja = System.DateTime.Now;
-
-                DB.Entry(eliminar).State = System.Data.Entity.EntityState.Modified;
-                DB.SaveChanges();
-                MessageBox.Show("Movimiento eliminado correctamente");
-                RefrescarTipoMov();
-
-            }
-
-        }
+        
     }
 }

@@ -51,7 +51,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.label8 = new System.Windows.Forms.Label();
             this.cbTieneCodigoBarra = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -136,17 +135,21 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // btnAgregarProducto
             // 
+            this.btnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(185)))), ((int)(((byte)(55)))));
             resources.ApplyResources(this.btnAgregarProducto, "btnAgregarProducto");
+            this.btnAgregarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.UseVisualStyleBackColor = false;
             this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             resources.ApplyResources(this.btnCancelar, "btnCancelar");
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label8
@@ -166,19 +169,12 @@ namespace Design_Dashboard_Modern.Vistas
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
             // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // FrmAgregarProducto
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Coral;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(127)))), ((int)(((byte)(70)))));
             this.CancelButton = this.btnCancelar;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbTieneCodigoBarra);
             this.Controls.Add(this.label8);
@@ -230,6 +226,5 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox cbTieneCodigoBarra;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
     }
 }
