@@ -65,6 +65,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnBorrarMovStock.TabIndex = 2;
             this.btnBorrarMovStock.Text = "Borrar";
             this.btnBorrarMovStock.UseVisualStyleBackColor = true;
+            this.btnBorrarMovStock.Click += new System.EventHandler(this.btnBorrarMovStock_Click);
             // 
             // label1
             // 
@@ -90,12 +91,13 @@ namespace Design_Dashboard_Modern.Vistas
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(1084, 804);
+            this.ClientSize = new System.Drawing.Size(1100, 843);
             this.Controls.Add(this.dgvMuestraTiposMovStock);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBorrarMovStock);
             this.Controls.Add(this.btnModificarMovStock);
             this.Controls.Add(this.btnAgregarMovStock);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConfiguracion";
             this.Text = "frmConfiguracion";
             this.Load += new System.EventHandler(this.frmConfiguracion_Load);

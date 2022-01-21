@@ -57,7 +57,7 @@ namespace Design_Dashboard_Modern
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new FrmProductos());   
+            AbrirFormHijo(new FrmProductos());
         }
 
         private void AbrirFormHijo(Object formhijo)
@@ -82,6 +82,12 @@ namespace Design_Dashboard_Modern
         {
             frmConfiguracion configuracion = new frmConfiguracion();
             AbrirFormHijo(configuracion);
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            FrmVentas formventas = new FrmVentas();
+            AbrirFormHijo(formventas);
         }
     }
 }

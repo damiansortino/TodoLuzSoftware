@@ -21,7 +21,6 @@ namespace Design_Dashboard_Modern.Models
         public System.DateTime fechaAlta { get; set; }
         public Nullable<System.DateTime> fechaBaja { get; set; }
         public int ProductoId { get; set; }
-        public string cadenaBusquedaProducto { get; set; }
         public int ComprobanteId { get; set; }
     }
 }

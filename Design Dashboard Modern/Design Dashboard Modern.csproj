@@ -168,11 +168,11 @@
     <Compile Include="Vistas\popupNuevoTipoMovStock.Designer.cs">
       <DependentUpon>popupNuevoTipoMovStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Ventas.cs">
+    <Compile Include="Vistas\FrmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Ventas.Designer.cs">
-      <DependentUpon>Ventas.cs</DependentUpon>
+    <Compile Include="Vistas\FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Design Dashboard Modern.resx">
       <DependentUpon>Design Dashboard Modern.cs</DependentUpon>
@@ -204,8 +204,8 @@
     <EmbeddedResource Include="Vistas\popupNuevoTipoMovStock.resx">
       <DependentUpon>popupNuevoTipoMovStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Ventas.resx">
-      <DependentUpon>Ventas.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

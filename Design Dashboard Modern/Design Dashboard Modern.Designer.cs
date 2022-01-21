@@ -465,6 +465,7 @@
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.Textcolor = System.Drawing.Color.LightGray;
             this.btnVentas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // btnProductos
             // 

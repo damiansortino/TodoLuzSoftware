@@ -69,8 +69,8 @@ namespace Design_Dashboard_Modern.Vistas
             // split.Panel2
             // 
             this.split.Panel2.Controls.Add(this.dgvVerProductos);
-            this.split.Size = new System.Drawing.Size(1084, 804);
-            this.split.SplitterDistance = 88;
+            this.split.Size = new System.Drawing.Size(1100, 843);
+            this.split.SplitterDistance = 92;
             this.split.TabIndex = 1;
             // 
             // pnBotonesCrud
@@ -122,7 +122,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvVerProductos.Name = "dgvVerProductos";
             this.dgvVerProductos.ReadOnly = true;
             this.dgvVerProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVerProductos.Size = new System.Drawing.Size(1084, 712);
+            this.dgvVerProductos.Size = new System.Drawing.Size(1100, 747);
             this.dgvVerProductos.TabIndex = 0;
             this.dgvVerProductos.Visible = false;
             // 
@@ -131,10 +131,10 @@ namespace Design_Dashboard_Modern.Vistas
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(89)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(1084, 804);
+            this.ClientSize = new System.Drawing.Size(1100, 843);
             this.Controls.Add(this.split);
             this.Controls.Add(this.dataGridView1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(300, 80);
             this.Name = "FrmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
