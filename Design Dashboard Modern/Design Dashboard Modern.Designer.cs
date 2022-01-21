@@ -149,11 +149,11 @@
             this.label1.AutoSize = true;
             this.AnimacionSidebar.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Ubuntu Medium", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(52, 22);
+            this.label1.Location = new System.Drawing.Point(55, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.Size = new System.Drawing.Size(88, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "MENÚ";
             // 
@@ -202,13 +202,13 @@
             this.Sidebar.Controls.Add(this.pictureBox1);
             this.AnimacionSidebarBack.SetDecoration(this.Sidebar, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this.Sidebar, BunifuAnimatorNS.DecorationType.None);
-            this.Sidebar.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
-            this.Sidebar.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
-            this.Sidebar.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
-            this.Sidebar.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.Sidebar.Location = new System.Drawing.Point(16, 24);
+            this.Sidebar.GradientBottomLeft = System.Drawing.Color.Red;
+            this.Sidebar.GradientBottomRight = System.Drawing.Color.DarkOrange;
+            this.Sidebar.GradientTopLeft = System.Drawing.Color.OrangeRed;
+            this.Sidebar.GradientTopRight = System.Drawing.Color.Coral;
+            this.Sidebar.Location = new System.Drawing.Point(12, 6);
             this.Sidebar.Name = "Sidebar";
-            this.Sidebar.Quality = 10;
+            this.Sidebar.Quality = 20;
             this.Sidebar.Size = new System.Drawing.Size(270, 695);
             this.Sidebar.TabIndex = 0;
             // 
@@ -223,6 +223,7 @@
             this.AnimacionSidebar.SetDecoration(this.btnConfiguracion, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnConfiguracion, BunifuAnimatorNS.DecorationType.None);
             this.btnConfiguracion.DisabledColor = System.Drawing.Color.Gray;
+            this.btnConfiguracion.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfiguracion.Iconcolor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnConfiguracion.Iconimage")));
             this.btnConfiguracion.Iconimage_right = null;
@@ -241,12 +242,12 @@
             this.btnConfiguracion.OnHovercolor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.OnHoverTextColor = System.Drawing.Color.White;
             this.btnConfiguracion.selected = false;
-            this.btnConfiguracion.Size = new System.Drawing.Size(252, 51);
+            this.btnConfiguracion.Size = new System.Drawing.Size(252, 58);
             this.btnConfiguracion.TabIndex = 16;
             this.btnConfiguracion.Text = "      CONFIGURACION";
             this.btnConfiguracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfiguracion.Textcolor = System.Drawing.Color.LightGray;
-            this.btnConfiguracion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnConfiguracion.Textcolor = System.Drawing.Color.Black;
+            this.btnConfiguracion.TextFont = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfiguracion.Click += new System.EventHandler(this.bunifuFlatButton2_Click);
             // 
             // btnStock
@@ -260,6 +261,7 @@
             this.AnimacionSidebar.SetDecoration(this.btnStock, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnStock, BunifuAnimatorNS.DecorationType.None);
             this.btnStock.DisabledColor = System.Drawing.Color.Gray;
+            this.btnStock.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStock.Iconcolor = System.Drawing.Color.Transparent;
             this.btnStock.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnStock.Iconimage")));
             this.btnStock.Iconimage_right = null;
@@ -278,12 +280,12 @@
             this.btnStock.OnHovercolor = System.Drawing.Color.Transparent;
             this.btnStock.OnHoverTextColor = System.Drawing.Color.White;
             this.btnStock.selected = false;
-            this.btnStock.Size = new System.Drawing.Size(252, 51);
+            this.btnStock.Size = new System.Drawing.Size(252, 58);
             this.btnStock.TabIndex = 15;
             this.btnStock.Text = "      STOCK";
             this.btnStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStock.Textcolor = System.Drawing.Color.LightGray;
-            this.btnStock.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnStock.Textcolor = System.Drawing.Color.Black;
+            this.btnStock.TextFont = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // btnCaja
@@ -297,6 +299,7 @@
             this.AnimacionSidebar.SetDecoration(this.btnCaja, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnCaja, BunifuAnimatorNS.DecorationType.None);
             this.btnCaja.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCaja.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCaja.Iconcolor = System.Drawing.Color.Transparent;
             this.btnCaja.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCaja.Iconimage")));
             this.btnCaja.Iconimage_right = null;
@@ -315,12 +318,12 @@
             this.btnCaja.OnHovercolor = System.Drawing.Color.Transparent;
             this.btnCaja.OnHoverTextColor = System.Drawing.Color.White;
             this.btnCaja.selected = false;
-            this.btnCaja.Size = new System.Drawing.Size(252, 51);
+            this.btnCaja.Size = new System.Drawing.Size(252, 58);
             this.btnCaja.TabIndex = 14;
             this.btnCaja.Text = "      CAJA";
             this.btnCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCaja.Textcolor = System.Drawing.Color.LightGray;
-            this.btnCaja.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCaja.Textcolor = System.Drawing.Color.Black;
+            this.btnCaja.TextFont = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnProveedores
             // 
@@ -333,6 +336,7 @@
             this.AnimacionSidebar.SetDecoration(this.btnProveedores, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnProveedores, BunifuAnimatorNS.DecorationType.None);
             this.btnProveedores.DisabledColor = System.Drawing.Color.Gray;
+            this.btnProveedores.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedores.Iconcolor = System.Drawing.Color.Transparent;
             this.btnProveedores.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Iconimage")));
             this.btnProveedores.Iconimage_right = null;
@@ -351,12 +355,12 @@
             this.btnProveedores.OnHovercolor = System.Drawing.Color.Transparent;
             this.btnProveedores.OnHoverTextColor = System.Drawing.Color.White;
             this.btnProveedores.selected = false;
-            this.btnProveedores.Size = new System.Drawing.Size(252, 51);
+            this.btnProveedores.Size = new System.Drawing.Size(252, 58);
             this.btnProveedores.TabIndex = 13;
             this.btnProveedores.Text = "      PROVEEDORES";
             this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.Textcolor = System.Drawing.Color.LightGray;
-            this.btnProveedores.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnProveedores.Textcolor = System.Drawing.Color.Black;
+            this.btnProveedores.TextFont = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnClientes
             // 
@@ -369,6 +373,7 @@
             this.AnimacionSidebar.SetDecoration(this.btnClientes, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnClientes, BunifuAnimatorNS.DecorationType.None);
             this.btnClientes.DisabledColor = System.Drawing.Color.Gray;
+            this.btnClientes.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.Iconcolor = System.Drawing.Color.Transparent;
             this.btnClientes.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnClientes.Iconimage")));
             this.btnClientes.Iconimage_right = null;
@@ -387,12 +392,12 @@
             this.btnClientes.OnHovercolor = System.Drawing.Color.Transparent;
             this.btnClientes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnClientes.selected = false;
-            this.btnClientes.Size = new System.Drawing.Size(252, 51);
+            this.btnClientes.Size = new System.Drawing.Size(252, 58);
             this.btnClientes.TabIndex = 12;
             this.btnClientes.Text = "      CLIENTES";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Textcolor = System.Drawing.Color.LightGray;
-            this.btnClientes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnClientes.Textcolor = System.Drawing.Color.Black;
+            this.btnClientes.TextFont = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnCompras
             // 
@@ -405,6 +410,7 @@
             this.AnimacionSidebar.SetDecoration(this.btnCompras, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnCompras, BunifuAnimatorNS.DecorationType.None);
             this.btnCompras.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCompras.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompras.Iconcolor = System.Drawing.Color.Transparent;
             this.btnCompras.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCompras.Iconimage")));
             this.btnCompras.Iconimage_right = null;
@@ -423,12 +429,12 @@
             this.btnCompras.OnHovercolor = System.Drawing.Color.Transparent;
             this.btnCompras.OnHoverTextColor = System.Drawing.Color.White;
             this.btnCompras.selected = false;
-            this.btnCompras.Size = new System.Drawing.Size(252, 51);
+            this.btnCompras.Size = new System.Drawing.Size(252, 58);
             this.btnCompras.TabIndex = 11;
             this.btnCompras.Text = "      COMPRAS";
             this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompras.Textcolor = System.Drawing.Color.LightGray;
-            this.btnCompras.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCompras.Textcolor = System.Drawing.Color.Black;
+            this.btnCompras.TextFont = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnVentas
             // 
@@ -441,6 +447,7 @@
             this.AnimacionSidebar.SetDecoration(this.btnVentas, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnVentas, BunifuAnimatorNS.DecorationType.None);
             this.btnVentas.DisabledColor = System.Drawing.Color.Gray;
+            this.btnVentas.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.Iconcolor = System.Drawing.Color.Transparent;
             this.btnVentas.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnVentas.Iconimage")));
             this.btnVentas.Iconimage_right = null;
@@ -459,12 +466,12 @@
             this.btnVentas.OnHovercolor = System.Drawing.Color.Transparent;
             this.btnVentas.OnHoverTextColor = System.Drawing.Color.White;
             this.btnVentas.selected = false;
-            this.btnVentas.Size = new System.Drawing.Size(252, 51);
+            this.btnVentas.Size = new System.Drawing.Size(252, 58);
             this.btnVentas.TabIndex = 10;
             this.btnVentas.Text = "      VENTAS";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.Textcolor = System.Drawing.Color.LightGray;
-            this.btnVentas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnVentas.Textcolor = System.Drawing.Color.Black;
+            this.btnVentas.TextFont = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // btnProductos
@@ -478,6 +485,7 @@
             this.AnimacionSidebar.SetDecoration(this.btnProductos, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnProductos, BunifuAnimatorNS.DecorationType.None);
             this.btnProductos.DisabledColor = System.Drawing.Color.Gray;
+            this.btnProductos.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.Iconcolor = System.Drawing.Color.Transparent;
             this.btnProductos.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnProductos.Iconimage")));
             this.btnProductos.Iconimage_right = null;
@@ -496,12 +504,12 @@
             this.btnProductos.OnHovercolor = System.Drawing.Color.Transparent;
             this.btnProductos.OnHoverTextColor = System.Drawing.Color.White;
             this.btnProductos.selected = false;
-            this.btnProductos.Size = new System.Drawing.Size(252, 51);
+            this.btnProductos.Size = new System.Drawing.Size(252, 58);
             this.btnProductos.TabIndex = 9;
             this.btnProductos.Text = "      PRODUCTOS";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Textcolor = System.Drawing.Color.LightGray;
-            this.btnProductos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnProductos.Textcolor = System.Drawing.Color.Black;
+            this.btnProductos.TextFont = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // bunifuFlatButton1
@@ -510,11 +518,12 @@
             this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "      DASHBOARD";
+            this.bunifuFlatButton1.ButtonText = "      INICIO";
             this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AnimacionSidebar.SetDecoration(this.bunifuFlatButton1, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.bunifuFlatButton1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
             this.bunifuFlatButton1.Iconimage_right = null;
@@ -533,12 +542,12 @@
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(252, 51);
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(252, 58);
             this.bunifuFlatButton1.TabIndex = 8;
-            this.bunifuFlatButton1.Text = "      DASHBOARD";
+            this.bunifuFlatButton1.Text = "      INICIO";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.LightGray;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Black;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // LineaSidebar
             // 
@@ -547,7 +556,7 @@
             this.AnimacionSidebar.SetDecoration(this.LineaSidebar, BunifuAnimatorNS.DecorationType.None);
             this.LineaSidebar.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.LineaSidebar.LineThickness = 1;
-            this.LineaSidebar.Location = new System.Drawing.Point(7, 68);
+            this.LineaSidebar.Location = new System.Drawing.Point(3, 84);
             this.LineaSidebar.Name = "LineaSidebar";
             this.LineaSidebar.Size = new System.Drawing.Size(252, 1);
             this.LineaSidebar.TabIndex = 7;
@@ -560,13 +569,13 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.AnimacionSidebar.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(69, 21);
+            this.label2.Font = new System.Drawing.Font("Ubuntu Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(100, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 20);
+            this.label2.Size = new System.Drawing.Size(145, 33);
             this.label2.TabIndex = 6;
-            this.label2.Text = "RHAEGAR CODE";
+            this.label2.Text = "TODO LUZ";
             // 
             // pictureBox1
             // 
@@ -574,9 +583,9 @@
             this.AnimacionSidebar.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(85, 85);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
