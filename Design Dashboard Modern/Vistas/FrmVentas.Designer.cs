@@ -30,6 +30,22 @@ namespace Design_Dashboard_Modern.Vistas
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panMediosDePago = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblSubtotalGeneral = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbDescuentos = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblTotalGeneral = new System.Windows.Forms.Label();
+            this.lblRestoPorPagar = new System.Windows.Forms.Label();
+            this.lblAcumulaDescuentos = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbEfectivo = new System.Windows.Forms.TextBox();
+            this.btnMediosDePago = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptarVenta = new System.Windows.Forms.Button();
             this.panNuevaVenta = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.tbDescuentoProducto = new System.Windows.Forms.TextBox();
@@ -45,23 +61,12 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbCantidad = new System.Windows.Forms.TextBox();
             this.tbCodigo = new System.Windows.Forms.TextBox();
             this.tbNombreProducto = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblSubtotalGeneral = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbDescuentos = new System.Windows.Forms.TextBox();
-            this.lblTotalGeneral = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblAcumulaDescuentos = new System.Windows.Forms.Label();
-            this.tbEfectivo = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblRestoPorPagar = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnQuitarProducto = new System.Windows.Forms.Button();
+            this.btnImprimirPresupuesto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panMediosDePago.SuspendLayout();
             this.panNuevaVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraDetallesProductos)).BeginInit();
             this.SuspendLayout();
@@ -76,25 +81,170 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnImprimirPresupuesto);
+            this.splitContainer1.Panel2.Controls.Add(this.btnQuitarProducto);
+            this.splitContainer1.Panel2.Controls.Add(this.panMediosDePago);
+            this.splitContainer1.Panel2.Controls.Add(this.btnMediosDePago);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Panel2.Controls.Add(this.label11);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel2.Controls.Add(this.lblRestoPorPagar);
-            this.splitContainer1.Panel2.Controls.Add(this.label8);
-            this.splitContainer1.Panel2.Controls.Add(this.tbEfectivo);
-            this.splitContainer1.Panel2.Controls.Add(this.lblAcumulaDescuentos);
-            this.splitContainer1.Panel2.Controls.Add(this.lblTotalGeneral);
-            this.splitContainer1.Panel2.Controls.Add(this.label10);
-            this.splitContainer1.Panel2.Controls.Add(this.tbDescuentos);
-            this.splitContainer1.Panel2.Controls.Add(this.label9);
-            this.splitContainer1.Panel2.Controls.Add(this.lblSubtotalGeneral);
-            this.splitContainer1.Panel2.Controls.Add(this.label7);
+            this.splitContainer1.Panel2.Controls.Add(this.btnAceptarVenta);
             this.splitContainer1.Panel2.Controls.Add(this.panNuevaVenta);
             this.splitContainer1.Size = new System.Drawing.Size(1084, 749);
             this.splitContainer1.SplitterDistance = 54;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
+            // 
+            // panMediosDePago
+            // 
+            this.panMediosDePago.Controls.Add(this.label7);
+            this.panMediosDePago.Controls.Add(this.lblSubtotalGeneral);
+            this.panMediosDePago.Controls.Add(this.label9);
+            this.panMediosDePago.Controls.Add(this.tbDescuentos);
+            this.panMediosDePago.Controls.Add(this.label11);
+            this.panMediosDePago.Controls.Add(this.label10);
+            this.panMediosDePago.Controls.Add(this.textBox1);
+            this.panMediosDePago.Controls.Add(this.lblTotalGeneral);
+            this.panMediosDePago.Controls.Add(this.lblRestoPorPagar);
+            this.panMediosDePago.Controls.Add(this.lblAcumulaDescuentos);
+            this.panMediosDePago.Controls.Add(this.label8);
+            this.panMediosDePago.Controls.Add(this.tbEfectivo);
+            this.panMediosDePago.Location = new System.Drawing.Point(15, 375);
+            this.panMediosDePago.Name = "panMediosDePago";
+            this.panMediosDePago.Size = new System.Drawing.Size(494, 288);
+            this.panMediosDePago.TabIndex = 16;
+            this.panMediosDePago.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 69);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Subtotal General";
+            // 
+            // lblSubtotalGeneral
+            // 
+            this.lblSubtotalGeneral.AutoSize = true;
+            this.lblSubtotalGeneral.Location = new System.Drawing.Point(139, 69);
+            this.lblSubtotalGeneral.Name = "lblSubtotalGeneral";
+            this.lblSubtotalGeneral.Size = new System.Drawing.Size(46, 13);
+            this.lblSubtotalGeneral.TabIndex = 2;
+            this.lblSubtotalGeneral.Text = "Subtotal";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 99);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Descuentos";
+            // 
+            // tbDescuentos
+            // 
+            this.tbDescuentos.Location = new System.Drawing.Point(140, 96);
+            this.tbDescuentos.Name = "tbDescuentos";
+            this.tbDescuentos.Size = new System.Drawing.Size(100, 20);
+            this.tbDescuentos.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 208);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 13);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Tarjetas";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 135);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(71, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Total a Pagar";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(142, 205);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 11;
+            // 
+            // lblTotalGeneral
+            // 
+            this.lblTotalGeneral.AutoSize = true;
+            this.lblTotalGeneral.Location = new System.Drawing.Point(139, 135);
+            this.lblTotalGeneral.Name = "lblTotalGeneral";
+            this.lblTotalGeneral.Size = new System.Drawing.Size(31, 13);
+            this.lblTotalGeneral.TabIndex = 6;
+            this.lblTotalGeneral.Text = "Total";
+            // 
+            // lblRestoPorPagar
+            // 
+            this.lblRestoPorPagar.AutoSize = true;
+            this.lblRestoPorPagar.Location = new System.Drawing.Point(246, 18);
+            this.lblRestoPorPagar.Name = "lblRestoPorPagar";
+            this.lblRestoPorPagar.Size = new System.Drawing.Size(62, 13);
+            this.lblRestoPorPagar.TabIndex = 10;
+            this.lblRestoPorPagar.Text = "Restan $ ...";
+            // 
+            // lblAcumulaDescuentos
+            // 
+            this.lblAcumulaDescuentos.AutoSize = true;
+            this.lblAcumulaDescuentos.Location = new System.Drawing.Point(260, 99);
+            this.lblAcumulaDescuentos.Name = "lblAcumulaDescuentos";
+            this.lblAcumulaDescuentos.Size = new System.Drawing.Size(205, 13);
+            this.lblAcumulaDescuentos.TabIndex = 7;
+            this.lblAcumulaDescuentos.Text = "Descuentos acumulados en los productos";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 170);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Efectivo";
+            // 
+            // tbEfectivo
+            // 
+            this.tbEfectivo.Location = new System.Drawing.Point(142, 167);
+            this.tbEfectivo.Name = "tbEfectivo";
+            this.tbEfectivo.Size = new System.Drawing.Size(100, 20);
+            this.tbEfectivo.TabIndex = 8;
+            // 
+            // btnMediosDePago
+            // 
+            this.btnMediosDePago.Location = new System.Drawing.Point(525, 375);
+            this.btnMediosDePago.Name = "btnMediosDePago";
+            this.btnMediosDePago.Size = new System.Drawing.Size(141, 36);
+            this.btnMediosDePago.TabIndex = 15;
+            this.btnMediosDePago.Text = "Medios de Pago";
+            this.btnMediosDePago.UseVisualStyleBackColor = true;
+            this.btnMediosDePago.Visible = false;
+            this.btnMediosDePago.Click += new System.EventHandler(this.btnMediosDePago_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(884, 510);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(141, 36);
+            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnAceptarVenta
+            // 
+            this.btnAceptarVenta.Enabled = false;
+            this.btnAceptarVenta.Location = new System.Drawing.Point(642, 510);
+            this.btnAceptarVenta.Name = "btnAceptarVenta";
+            this.btnAceptarVenta.Size = new System.Drawing.Size(141, 36);
+            this.btnAceptarVenta.TabIndex = 13;
+            this.btnAceptarVenta.Text = "Aceptar Venta";
+            this.btnAceptarVenta.UseVisualStyleBackColor = true;
             // 
             // panNuevaVenta
             // 
@@ -114,7 +264,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.panNuevaVenta.Controls.Add(this.tbNombreProducto);
             this.panNuevaVenta.Location = new System.Drawing.Point(11, 14);
             this.panNuevaVenta.Name = "panNuevaVenta";
-            this.panNuevaVenta.Size = new System.Drawing.Size(1005, 355);
+            this.panNuevaVenta.Size = new System.Drawing.Size(1027, 355);
             this.panNuevaVenta.TabIndex = 0;
             // 
             // label6
@@ -137,12 +287,12 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(926, 35);
+            this.btnAgregar.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnAgregar.Location = new System.Drawing.Point(925, 24);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(57, 42);
+            this.btnAgregar.Size = new System.Drawing.Size(99, 53);
             this.btnAgregar.TabIndex = 4;
-            this.btnAgregar.Text = "+";
+            this.btnAgregar.Text = "Agregar Producto";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -200,10 +350,10 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.dgvMuestraDetallesProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMuestraDetallesProductos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvMuestraDetallesProductos.Location = new System.Drawing.Point(0, 109);
+            this.dgvMuestraDetallesProductos.Location = new System.Drawing.Point(0, 83);
             this.dgvMuestraDetallesProductos.Name = "dgvMuestraDetallesProductos";
             this.dgvMuestraDetallesProductos.ReadOnly = true;
-            this.dgvMuestraDetallesProductos.Size = new System.Drawing.Size(1005, 246);
+            this.dgvMuestraDetallesProductos.Size = new System.Drawing.Size(1027, 272);
             this.dgvMuestraDetallesProductos.TabIndex = 5;
             this.dgvMuestraDetallesProductos.TabStop = false;
             this.dgvMuestraDetallesProductos.Visible = false;
@@ -250,140 +400,44 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNombreProducto_KeyPress);
             this.tbNombreProducto.Leave += new System.EventHandler(this.tbNombreProducto_Leave);
             // 
-            // label7
+            // btnQuitarProducto
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 388);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Subtotal General";
+            this.btnQuitarProducto.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarProducto.Location = new System.Drawing.Point(924, 371);
+            this.btnQuitarProducto.Name = "btnQuitarProducto";
+            this.btnQuitarProducto.Size = new System.Drawing.Size(114, 42);
+            this.btnQuitarProducto.TabIndex = 14;
+            this.btnQuitarProducto.Text = "Quitar Producto";
+            this.btnQuitarProducto.UseVisualStyleBackColor = true;
+            this.btnQuitarProducto.Visible = false;
             // 
-            // lblSubtotalGeneral
+            // btnImprimirPresupuesto
             // 
-            this.lblSubtotalGeneral.AutoSize = true;
-            this.lblSubtotalGeneral.Location = new System.Drawing.Point(144, 388);
-            this.lblSubtotalGeneral.Name = "lblSubtotalGeneral";
-            this.lblSubtotalGeneral.Size = new System.Drawing.Size(46, 13);
-            this.lblSubtotalGeneral.TabIndex = 2;
-            this.lblSubtotalGeneral.Text = "Subtotal";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 418);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Descuentos";
-            // 
-            // tbDescuentos
-            // 
-            this.tbDescuentos.Location = new System.Drawing.Point(145, 415);
-            this.tbDescuentos.Name = "tbDescuentos";
-            this.tbDescuentos.Size = new System.Drawing.Size(100, 20);
-            this.tbDescuentos.TabIndex = 4;
-            // 
-            // lblTotalGeneral
-            // 
-            this.lblTotalGeneral.AutoSize = true;
-            this.lblTotalGeneral.Location = new System.Drawing.Point(144, 446);
-            this.lblTotalGeneral.Name = "lblTotalGeneral";
-            this.lblTotalGeneral.Size = new System.Drawing.Size(31, 13);
-            this.lblTotalGeneral.TabIndex = 6;
-            this.lblTotalGeneral.Text = "Total";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 446);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(71, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Total a Pagar";
-            // 
-            // lblAcumulaDescuentos
-            // 
-            this.lblAcumulaDescuentos.AutoSize = true;
-            this.lblAcumulaDescuentos.Location = new System.Drawing.Point(287, 418);
-            this.lblAcumulaDescuentos.Name = "lblAcumulaDescuentos";
-            this.lblAcumulaDescuentos.Size = new System.Drawing.Size(205, 13);
-            this.lblAcumulaDescuentos.TabIndex = 7;
-            this.lblAcumulaDescuentos.Text = "Descuentos acumulados en los productos";
-            // 
-            // tbEfectivo
-            // 
-            this.tbEfectivo.Location = new System.Drawing.Point(147, 486);
-            this.tbEfectivo.Name = "tbEfectivo";
-            this.tbEfectivo.Size = new System.Drawing.Size(100, 20);
-            this.tbEfectivo.TabIndex = 8;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 489);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Efectivo";
-            // 
-            // lblRestoPorPagar
-            // 
-            this.lblRestoPorPagar.AutoSize = true;
-            this.lblRestoPorPagar.Location = new System.Drawing.Point(789, 402);
-            this.lblRestoPorPagar.Name = "lblRestoPorPagar";
-            this.lblRestoPorPagar.Size = new System.Drawing.Size(62, 13);
-            this.lblRestoPorPagar.TabIndex = 10;
-            this.lblRestoPorPagar.Text = "Restan $ ...";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 527);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 13);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Tarjetas";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(147, 524);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 11;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(448, 555);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 36);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Aceptar Venta";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(690, 555);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(141, 36);
-            this.btnCancelar.TabIndex = 14;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnImprimirPresupuesto.Enabled = false;
+            this.btnImprimirPresupuesto.Location = new System.Drawing.Point(642, 601);
+            this.btnImprimirPresupuesto.Name = "btnImprimirPresupuesto";
+            this.btnImprimirPresupuesto.Size = new System.Drawing.Size(141, 36);
+            this.btnImprimirPresupuesto.TabIndex = 17;
+            this.btnImprimirPresupuesto.Text = "Imprimir Presupuesto";
+            this.btnImprimirPresupuesto.UseVisualStyleBackColor = true;
             // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(1084, 749);
             this.Controls.Add(this.splitContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVentas";
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.Ventas_Load);
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panMediosDePago.ResumeLayout(false);
+            this.panMediosDePago.PerformLayout();
             this.panNuevaVenta.ResumeLayout(false);
             this.panNuevaVenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraDetallesProductos)).EndInit();
@@ -410,7 +464,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbDescuentoProducto;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAceptarVenta;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblRestoPorPagar;
@@ -423,5 +477,9 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblSubtotalGeneral;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panMediosDePago;
+        private System.Windows.Forms.Button btnMediosDePago;
+        private System.Windows.Forms.Button btnQuitarProducto;
+        private System.Windows.Forms.Button btnImprimirPresupuesto;
     }
 }

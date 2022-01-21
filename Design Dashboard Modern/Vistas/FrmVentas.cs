@@ -40,7 +40,7 @@ namespace Design_Dashboard_Modern.Vistas
         {
             if (tbNombreProducto.TextLength != 0)
             {
-                if (productos.FindAll(x => x.Nombre == tbNombreProducto.Text).Count == 1)
+                if (productos.FindAll(x => x.Nombre.ToUpper() == tbNombreProducto.Text.ToUpper()).Count == 1)
                 {
                     Producto encontrado = productos.Find(x => x.Nombre == tbNombreProducto.Text);
 
@@ -50,6 +50,8 @@ namespace Design_Dashboard_Modern.Vistas
                 }
 
             }
+
+            tbNombreProducto.Text = tbNombreProducto.Text.ToUpper();
         }
 
         private void tbCantidad_Leave(object sender, EventArgs e)
@@ -84,6 +86,17 @@ namespace Design_Dashboard_Modern.Vistas
                 tbSubtotalProducto.Text = "0";
                 RecargarDGV();
                 tbNombreProducto.Focus();
+
+                //actualizar el subtotal general
+                double stg = 0;
+                foreach (DataGridViewRow item in dgvMuestraDetallesProductos.Rows)
+                {
+                    stg = stg + double.Parse(item.Cells[2].Value.ToString());
+                }
+                lblSubtotalGeneral.Text = stg.ToString();
+                //fin
+
+
             }
             else
             {
@@ -91,6 +104,9 @@ namespace Design_Dashboard_Modern.Vistas
                 tbNombreProducto.Focus();
             }
 
+            //activa boton medio de pago
+            if (dgvMuestraDetallesProductos.Rows.Count < 1) btnMediosDePago.Visible = false;
+            //fin
 
         }
         private void RecargarDGV()
@@ -127,6 +143,12 @@ namespace Design_Dashboard_Modern.Vistas
             {
 
             }
+        }
+
+        private void btnMediosDePago_Click(object sender, EventArgs e)
+        {
+            panMediosDePago.Visible = true;
+
         }
     }
 }
