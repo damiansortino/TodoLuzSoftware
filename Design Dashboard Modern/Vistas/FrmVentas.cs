@@ -110,8 +110,14 @@ namespace Design_Dashboard_Modern.Vistas
                 tbNombreProducto.Focus();
             }
 
-            //activa boton medio de pago
-            if (dgvMuestraDetallesProductos.Rows.Count > 0) btnMediosDePago.Visible = true;
+            //activa boton medio de pago y quitar producto
+            if (dgvMuestraDetallesProductos.Rows.Count > 0)
+            { 
+                btnMediosDePago.Visible = true;
+                btnQuitarProducto.Visible = true;
+            }
+               
+
             //fin
 
         }
@@ -147,7 +153,7 @@ namespace Design_Dashboard_Modern.Vistas
         {
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-
+                tbCantidad.Focus();
             }
         }
 
