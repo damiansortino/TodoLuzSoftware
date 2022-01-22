@@ -40,13 +40,19 @@ namespace Design_Dashboard_Modern.Vistas
         {
             if (tbNombreProducto.TextLength != 0)
             {
+                tbNombreProducto.Text = tbNombreProducto.Text.ToUpper();
+
                 if (productos.FindAll(x => x.Nombre.ToUpper() == tbNombreProducto.Text.ToUpper()).Count == 1)
                 {
-                    Producto encontrado = productos.Find(x => x.Nombre == tbNombreProducto.Text);
+                    Producto encontrado = productos.Find(x => x.Nombre == tbNombreProducto.Text.ToUpper());
 
                     tbCodigo.Text = encontrado.Codigo;
                     tbPrecio.Text = (encontrado.PrecioCosto
                         + (encontrado.PrecioCosto * encontrado.Rentabilidad) / 100).ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado");
                 }
 
             }
@@ -105,7 +111,7 @@ namespace Design_Dashboard_Modern.Vistas
             }
 
             //activa boton medio de pago
-            if (dgvMuestraDetallesProductos.Rows.Count < 1) btnMediosDePago.Visible = false;
+            if (dgvMuestraDetallesProductos.Rows.Count > 0) btnMediosDePago.Visible = true;
             //fin
 
         }
@@ -148,7 +154,71 @@ namespace Design_Dashboard_Modern.Vistas
         private void btnMediosDePago_Click(object sender, EventArgs e)
         {
             panMediosDePago.Visible = true;
+            lblTotalGeneral.Text = lblSubtotalGeneral.Text;
+            tbEfectivo.Text = "0";
+            tbTarjetas.Text = "0";
+            btnImprimirPresupuesto.Enabled = true;
+        }
 
+        private void btnQuitarProducto_Click(object sender, EventArgs e)
+        {
+            detalles = detalles.FindAll(x=>x.ProductoId != (int)dgvMuestraDetallesProductos.Rows[dgvMuestraDetallesProductos.CurrentRow.Index].Cells[6].Value);
+        }
+
+        private void dgvMuestraDetallesProductos_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(dgvMuestraDetallesProductos.SelectedRows.Count>0)
+            {
+                btnQuitarProducto.Enabled = true;
+            }
+        }
+
+        private void tbDescuentos_Leave(object sender, EventArgs e)
+        {
+            //protejer textbox vacio
+            if (tbDescuentos.TextLength < 1) tbDescuentos.Text = "0";
+
+
+            lblTotalGeneral.Text = (double.Parse(lblSubtotalGeneral.Text) 
+                - double.Parse(tbDescuentos.Text)).ToString();
+        }
+
+        private void tbEfectivo_Leave(object sender, EventArgs e)
+        {
+            //protejer textbox vacio
+            if (tbEfectivo.TextLength < 1) tbEfectivo.Text = "0";
+            
+            double resto,efectivo,tarjetas = 0;
+            efectivo = double.Parse(tbEfectivo.Text);
+            tarjetas = double.Parse(tbTarjetas.Text);
+            resto = double.Parse(lblTotalGeneral.Text) - (efectivo + tarjetas);
+            lblRestoPorPagar.Text = "Restan $ " + resto + " por pagar.";
+            lblRestoPorPagar.Visible = true;
+            if (resto == 0)
+            {
+                lblRestoPorPagar.Visible = false;
+                btnAceptarVenta.Enabled = true;
+            }
+        }
+
+        private void tbTarjetas_Leave(object sender, EventArgs e)
+        {
+            //protejer textbox vacio
+            if (tbTarjetas.TextLength < 1) tbTarjetas.Text = "0";
+            
+            double resto, efectivo, tarjetas = 0;
+            efectivo = double.Parse(tbEfectivo.Text);
+            tarjetas = double.Parse(tbTarjetas.Text);
+            resto = double.Parse(lblTotalGeneral.Text) - (efectivo + tarjetas);
+            lblRestoPorPagar.Text = "Restan $ " + resto + " por pagar.";
+            lblRestoPorPagar.Visible = true;
+            if(resto == 0)
+            {
+                lblRestoPorPagar.Visible = false;
+                btnAceptarVenta.Enabled = true;
+            }
+
+                
         }
     }
 }

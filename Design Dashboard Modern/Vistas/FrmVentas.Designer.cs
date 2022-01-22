@@ -30,6 +30,8 @@ namespace Design_Dashboard_Modern.Vistas
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnImprimirPresupuesto = new System.Windows.Forms.Button();
+            this.btnQuitarProducto = new System.Windows.Forms.Button();
             this.panMediosDePago = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.lblSubtotalGeneral = new System.Windows.Forms.Label();
@@ -37,7 +39,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbDescuentos = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbTarjetas = new System.Windows.Forms.TextBox();
             this.lblTotalGeneral = new System.Windows.Forms.Label();
             this.lblRestoPorPagar = new System.Windows.Forms.Label();
             this.lblAcumulaDescuentos = new System.Windows.Forms.Label();
@@ -61,8 +63,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbCantidad = new System.Windows.Forms.TextBox();
             this.tbCodigo = new System.Windows.Forms.TextBox();
             this.tbNombreProducto = new System.Windows.Forms.TextBox();
-            this.btnQuitarProducto = new System.Windows.Forms.Button();
-            this.btnImprimirPresupuesto = new System.Windows.Forms.Button();
+            this.cboxCliente = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -93,6 +95,29 @@ namespace Design_Dashboard_Modern.Vistas
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
+            // btnImprimirPresupuesto
+            // 
+            this.btnImprimirPresupuesto.Enabled = false;
+            this.btnImprimirPresupuesto.Location = new System.Drawing.Point(642, 601);
+            this.btnImprimirPresupuesto.Name = "btnImprimirPresupuesto";
+            this.btnImprimirPresupuesto.Size = new System.Drawing.Size(141, 36);
+            this.btnImprimirPresupuesto.TabIndex = 17;
+            this.btnImprimirPresupuesto.Text = "Imprimir Presupuesto";
+            this.btnImprimirPresupuesto.UseVisualStyleBackColor = true;
+            // 
+            // btnQuitarProducto
+            // 
+            this.btnQuitarProducto.Enabled = false;
+            this.btnQuitarProducto.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarProducto.Location = new System.Drawing.Point(924, 371);
+            this.btnQuitarProducto.Name = "btnQuitarProducto";
+            this.btnQuitarProducto.Size = new System.Drawing.Size(114, 42);
+            this.btnQuitarProducto.TabIndex = 14;
+            this.btnQuitarProducto.Text = "Quitar Producto";
+            this.btnQuitarProducto.UseVisualStyleBackColor = true;
+            this.btnQuitarProducto.Visible = false;
+            this.btnQuitarProducto.Click += new System.EventHandler(this.btnQuitarProducto_Click);
+            // 
             // panMediosDePago
             // 
             this.panMediosDePago.Controls.Add(this.label7);
@@ -101,7 +126,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.panMediosDePago.Controls.Add(this.tbDescuentos);
             this.panMediosDePago.Controls.Add(this.label11);
             this.panMediosDePago.Controls.Add(this.label10);
-            this.panMediosDePago.Controls.Add(this.textBox1);
+            this.panMediosDePago.Controls.Add(this.tbTarjetas);
             this.panMediosDePago.Controls.Add(this.lblTotalGeneral);
             this.panMediosDePago.Controls.Add(this.lblRestoPorPagar);
             this.panMediosDePago.Controls.Add(this.lblAcumulaDescuentos);
@@ -146,6 +171,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbDescuentos.Name = "tbDescuentos";
             this.tbDescuentos.Size = new System.Drawing.Size(100, 20);
             this.tbDescuentos.TabIndex = 4;
+            this.tbDescuentos.Leave += new System.EventHandler(this.tbDescuentos_Leave);
             // 
             // label11
             // 
@@ -165,12 +191,13 @@ namespace Design_Dashboard_Modern.Vistas
             this.label10.TabIndex = 5;
             this.label10.Text = "Total a Pagar";
             // 
-            // textBox1
+            // tbTarjetas
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 205);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 11;
+            this.tbTarjetas.Location = new System.Drawing.Point(142, 205);
+            this.tbTarjetas.Name = "tbTarjetas";
+            this.tbTarjetas.Size = new System.Drawing.Size(100, 20);
+            this.tbTarjetas.TabIndex = 11;
+            this.tbTarjetas.Leave += new System.EventHandler(this.tbTarjetas_Leave);
             // 
             // lblTotalGeneral
             // 
@@ -189,6 +216,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.lblRestoPorPagar.Size = new System.Drawing.Size(62, 13);
             this.lblRestoPorPagar.TabIndex = 10;
             this.lblRestoPorPagar.Text = "Restan $ ...";
+            this.lblRestoPorPagar.Visible = false;
             // 
             // lblAcumulaDescuentos
             // 
@@ -214,6 +242,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbEfectivo.Name = "tbEfectivo";
             this.tbEfectivo.Size = new System.Drawing.Size(100, 20);
             this.tbEfectivo.TabIndex = 8;
+            this.tbEfectivo.Leave += new System.EventHandler(this.tbEfectivo_Leave);
             // 
             // btnMediosDePago
             // 
@@ -248,6 +277,8 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // panNuevaVenta
             // 
+            this.panNuevaVenta.Controls.Add(this.label12);
+            this.panNuevaVenta.Controls.Add(this.cboxCliente);
             this.panNuevaVenta.Controls.Add(this.label6);
             this.panNuevaVenta.Controls.Add(this.tbDescuentoProducto);
             this.panNuevaVenta.Controls.Add(this.btnAgregar);
@@ -262,16 +293,16 @@ namespace Design_Dashboard_Modern.Vistas
             this.panNuevaVenta.Controls.Add(this.tbCantidad);
             this.panNuevaVenta.Controls.Add(this.tbCodigo);
             this.panNuevaVenta.Controls.Add(this.tbNombreProducto);
-            this.panNuevaVenta.Location = new System.Drawing.Point(11, 14);
+            this.panNuevaVenta.Location = new System.Drawing.Point(11, 3);
             this.panNuevaVenta.Name = "panNuevaVenta";
-            this.panNuevaVenta.Size = new System.Drawing.Size(1027, 355);
+            this.panNuevaVenta.Size = new System.Drawing.Size(1027, 366);
             this.panNuevaVenta.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(733, 24);
+            this.label6.Location = new System.Drawing.Point(731, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 20);
             this.label6.TabIndex = 13;
@@ -279,7 +310,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbDescuentoProducto
             // 
-            this.tbDescuentoProducto.Location = new System.Drawing.Point(736, 57);
+            this.tbDescuentoProducto.Location = new System.Drawing.Point(734, 102);
             this.tbDescuentoProducto.Name = "tbDescuentoProducto";
             this.tbDescuentoProducto.Size = new System.Drawing.Size(88, 20);
             this.tbDescuentoProducto.TabIndex = 3;
@@ -288,7 +319,7 @@ namespace Design_Dashboard_Modern.Vistas
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnAgregar.Location = new System.Drawing.Point(925, 24);
+            this.btnAgregar.Location = new System.Drawing.Point(923, 69);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 53);
             this.btnAgregar.TabIndex = 4;
@@ -300,7 +331,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(826, 24);
+            this.label5.Location = new System.Drawing.Point(824, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 20);
             this.label5.TabIndex = 10;
@@ -310,7 +341,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(659, 24);
+            this.label4.Location = new System.Drawing.Point(657, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 20);
             this.label4.TabIndex = 9;
@@ -320,7 +351,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(566, 24);
+            this.label3.Location = new System.Drawing.Point(564, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 8;
@@ -330,7 +361,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(481, 24);
+            this.label2.Location = new System.Drawing.Point(479, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 7;
@@ -340,7 +371,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(144, 24);
+            this.label1.Location = new System.Drawing.Point(142, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 20);
             this.label1.TabIndex = 6;
@@ -350,24 +381,26 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.dgvMuestraDetallesProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMuestraDetallesProductos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvMuestraDetallesProductos.Location = new System.Drawing.Point(0, 83);
+            this.dgvMuestraDetallesProductos.Location = new System.Drawing.Point(0, 138);
             this.dgvMuestraDetallesProductos.Name = "dgvMuestraDetallesProductos";
             this.dgvMuestraDetallesProductos.ReadOnly = true;
-            this.dgvMuestraDetallesProductos.Size = new System.Drawing.Size(1027, 272);
+            this.dgvMuestraDetallesProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMuestraDetallesProductos.Size = new System.Drawing.Size(1027, 228);
             this.dgvMuestraDetallesProductos.TabIndex = 5;
             this.dgvMuestraDetallesProductos.TabStop = false;
             this.dgvMuestraDetallesProductos.Visible = false;
+            this.dgvMuestraDetallesProductos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvMuestraDetallesProductos_MouseClick);
             // 
             // tbSubtotalProducto
             // 
-            this.tbSubtotalProducto.Location = new System.Drawing.Point(830, 57);
+            this.tbSubtotalProducto.Location = new System.Drawing.Point(828, 102);
             this.tbSubtotalProducto.Name = "tbSubtotalProducto";
             this.tbSubtotalProducto.Size = new System.Drawing.Size(70, 20);
             this.tbSubtotalProducto.TabIndex = 4;
             // 
             // tbPrecio
             // 
-            this.tbPrecio.Location = new System.Drawing.Point(631, 57);
+            this.tbPrecio.Location = new System.Drawing.Point(629, 102);
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.ReadOnly = true;
             this.tbPrecio.Size = new System.Drawing.Size(99, 20);
@@ -376,7 +409,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbCantidad
             // 
-            this.tbCantidad.Location = new System.Drawing.Point(584, 57);
+            this.tbCantidad.Location = new System.Drawing.Point(582, 102);
             this.tbCantidad.Name = "tbCantidad";
             this.tbCantidad.Size = new System.Drawing.Size(41, 20);
             this.tbCantidad.TabIndex = 2;
@@ -384,7 +417,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbCodigo
             // 
-            this.tbCodigo.Location = new System.Drawing.Point(447, 57);
+            this.tbCodigo.Location = new System.Drawing.Point(445, 102);
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(131, 20);
             this.tbCodigo.TabIndex = 1;
@@ -393,33 +426,30 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.tbNombreProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbNombreProducto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.tbNombreProducto.Location = new System.Drawing.Point(4, 57);
+            this.tbNombreProducto.Location = new System.Drawing.Point(2, 102);
             this.tbNombreProducto.Name = "tbNombreProducto";
             this.tbNombreProducto.Size = new System.Drawing.Size(437, 20);
             this.tbNombreProducto.TabIndex = 0;
             this.tbNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNombreProducto_KeyPress);
             this.tbNombreProducto.Leave += new System.EventHandler(this.tbNombreProducto_Leave);
             // 
-            // btnQuitarProducto
+            // cboxCliente
             // 
-            this.btnQuitarProducto.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarProducto.Location = new System.Drawing.Point(924, 371);
-            this.btnQuitarProducto.Name = "btnQuitarProducto";
-            this.btnQuitarProducto.Size = new System.Drawing.Size(114, 42);
-            this.btnQuitarProducto.TabIndex = 14;
-            this.btnQuitarProducto.Text = "Quitar Producto";
-            this.btnQuitarProducto.UseVisualStyleBackColor = true;
-            this.btnQuitarProducto.Visible = false;
+            this.cboxCliente.FormattingEnabled = true;
+            this.cboxCliente.Location = new System.Drawing.Point(68, 3);
+            this.cboxCliente.Name = "cboxCliente";
+            this.cboxCliente.Size = new System.Drawing.Size(121, 21);
+            this.cboxCliente.TabIndex = 14;
             // 
-            // btnImprimirPresupuesto
+            // label12
             // 
-            this.btnImprimirPresupuesto.Enabled = false;
-            this.btnImprimirPresupuesto.Location = new System.Drawing.Point(642, 601);
-            this.btnImprimirPresupuesto.Name = "btnImprimirPresupuesto";
-            this.btnImprimirPresupuesto.Size = new System.Drawing.Size(141, 36);
-            this.btnImprimirPresupuesto.TabIndex = 17;
-            this.btnImprimirPresupuesto.Text = "Imprimir Presupuesto";
-            this.btnImprimirPresupuesto.UseVisualStyleBackColor = true;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 1);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 20);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Cliente";
             // 
             // FrmVentas
             // 
@@ -466,7 +496,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptarVenta;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbTarjetas;
         private System.Windows.Forms.Label lblRestoPorPagar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbEfectivo;
@@ -481,5 +511,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Button btnMediosDePago;
         private System.Windows.Forms.Button btnQuitarProducto;
         private System.Windows.Forms.Button btnImprimirPresupuesto;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cboxCliente;
     }
 }
