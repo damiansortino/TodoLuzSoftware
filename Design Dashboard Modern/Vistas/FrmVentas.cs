@@ -220,5 +220,44 @@ namespace Design_Dashboard_Modern.Vistas
 
                 
         }
+
+        private void btnAceptarVenta_Click(object sender, EventArgs e)
+        {
+            if (ValidarSumas())
+            {
+
+            }
+        }
+
+        private bool ValidarSumas()
+        {
+            double total, descuento, efectivo, tarjeta;
+
+            total = double.Parse(lblTotalGeneral.Text);
+            descuento = double.Parse(tbDescuentos.Text);
+            efectivo = double.Parse(tbEfectivo.Text);
+            tarjeta = double.Parse(tbTarjetas.Text);
+
+            if(total-descuento == (efectivo + tarjeta))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        private void tbDescuentos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+
+        }
     }
 }

@@ -171,6 +171,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbDescuentos.Name = "tbDescuentos";
             this.tbDescuentos.Size = new System.Drawing.Size(100, 20);
             this.tbDescuentos.TabIndex = 4;
+            this.tbDescuentos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbDescuentos.Leave += new System.EventHandler(this.tbDescuentos_Leave);
             // 
             // label11
@@ -197,6 +198,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbTarjetas.Name = "tbTarjetas";
             this.tbTarjetas.Size = new System.Drawing.Size(100, 20);
             this.tbTarjetas.TabIndex = 11;
+            this.tbTarjetas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbTarjetas.Leave += new System.EventHandler(this.tbTarjetas_Leave);
             // 
             // lblTotalGeneral
@@ -242,6 +244,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbEfectivo.Name = "tbEfectivo";
             this.tbEfectivo.Size = new System.Drawing.Size(100, 20);
             this.tbEfectivo.TabIndex = 8;
+            this.tbEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbEfectivo.Leave += new System.EventHandler(this.tbEfectivo_Leave);
             // 
             // btnMediosDePago
@@ -274,6 +277,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnAceptarVenta.TabIndex = 13;
             this.btnAceptarVenta.Text = "Aceptar Venta";
             this.btnAceptarVenta.UseVisualStyleBackColor = true;
+            this.btnAceptarVenta.Click += new System.EventHandler(this.btnAceptarVenta_Click);
             // 
             // panNuevaVenta
             // 
@@ -314,6 +318,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbDescuentoProducto.Name = "tbDescuentoProducto";
             this.tbDescuentoProducto.Size = new System.Drawing.Size(88, 20);
             this.tbDescuentoProducto.TabIndex = 3;
+            this.tbDescuentoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbDescuentoProducto.Leave += new System.EventHandler(this.tbDescuentoProducto_Leave);
             // 
             // btnAgregar
