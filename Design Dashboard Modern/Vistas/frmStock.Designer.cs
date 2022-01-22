@@ -29,6 +29,7 @@ namespace Design_Dashboard_Modern.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStock));
             this.label1 = new System.Windows.Forms.Label();
             this.tbFiltro = new System.Windows.Forms.TextBox();
             this.btnStockxProducto = new System.Windows.Forms.Button();
@@ -46,8 +47,12 @@ namespace Design_Dashboard_Modern.Vistas
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.cboxTipoMovStock = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraStock)).BeginInit();
             this.panelMovimientosStock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -61,10 +66,10 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbFiltro
             // 
-            this.tbFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFiltro.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbFiltro.Location = new System.Drawing.Point(12, 33);
             this.tbFiltro.Name = "tbFiltro";
-            this.tbFiltro.Size = new System.Drawing.Size(344, 24);
+            this.tbFiltro.Size = new System.Drawing.Size(344, 25);
             this.tbFiltro.TabIndex = 1;
             this.tbFiltro.Text = "Código del Producto";
             this.tbFiltro.Enter += new System.EventHandler(this.tbFiltro_Enter);
@@ -113,6 +118,8 @@ namespace Design_Dashboard_Modern.Vistas
             // panelMovimientosStock
             // 
             this.panelMovimientosStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(127)))), ((int)(((byte)(70)))));
+            this.panelMovimientosStock.Controls.Add(this.pictureBox2);
+            this.panelMovimientosStock.Controls.Add(this.pictureBox1);
             this.panelMovimientosStock.Controls.Add(this.tbCodigoProductoMovStock);
             this.panelMovimientosStock.Controls.Add(this.button5);
             this.panelMovimientosStock.Controls.Add(this.button4);
@@ -132,10 +139,10 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbCodigoProductoMovStock
             // 
-            this.tbCodigoProductoMovStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCodigoProductoMovStock.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCodigoProductoMovStock.Location = new System.Drawing.Point(99, 101);
             this.tbCodigoProductoMovStock.Name = "tbCodigoProductoMovStock";
-            this.tbCodigoProductoMovStock.Size = new System.Drawing.Size(232, 24);
+            this.tbCodigoProductoMovStock.Size = new System.Drawing.Size(232, 25);
             this.tbCodigoProductoMovStock.TabIndex = 14;
             this.tbCodigoProductoMovStock.Text = "Código del Producto";
             // 
@@ -169,7 +176,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(234, 280);
+            this.button2.Location = new System.Drawing.Point(260, 277);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(3);
             this.button2.Size = new System.Drawing.Size(97, 46);
@@ -184,7 +191,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(43, 280);
+            this.button1.Location = new System.Drawing.Point(69, 277);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(3);
             this.button1.Size = new System.Drawing.Size(96, 46);
@@ -246,12 +253,32 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // cboxTipoMovStock
             // 
-            this.cboxTipoMovStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxTipoMovStock.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxTipoMovStock.FormattingEnabled = true;
             this.cboxTipoMovStock.Location = new System.Drawing.Point(181, 23);
             this.cboxTipoMovStock.Name = "cboxTipoMovStock";
-            this.cboxTipoMovStock.Size = new System.Drawing.Size(183, 26);
+            this.cboxTipoMovStock.Size = new System.Drawing.Size(183, 29);
             this.cboxTipoMovStock.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(211, 283);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(18, 283);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
             // 
             // frmStock
             // 
@@ -272,6 +299,8 @@ namespace Design_Dashboard_Modern.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraStock)).EndInit();
             this.panelMovimientosStock.ResumeLayout(false);
             this.panelMovimientosStock.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,5 +325,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboxTipoMovStock;
         private System.Windows.Forms.TextBox tbCodigoProductoMovStock;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

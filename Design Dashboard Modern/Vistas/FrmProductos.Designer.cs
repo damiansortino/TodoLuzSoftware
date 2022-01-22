@@ -29,6 +29,7 @@ namespace Design_Dashboard_Modern.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductos));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.split = new System.Windows.Forms.SplitContainer();
             this.pnBotonesCrud = new System.Windows.Forms.Panel();
@@ -36,6 +37,9 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dgvVerProductos = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.split)).BeginInit();
             this.split.Panel1.SuspendLayout();
@@ -43,6 +47,9 @@ namespace Design_Dashboard_Modern.Vistas
             this.split.SuspendLayout();
             this.pnBotonesCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -75,12 +82,15 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // pnBotonesCrud
             // 
+            this.pnBotonesCrud.Controls.Add(this.pictureBox3);
+            this.pnBotonesCrud.Controls.Add(this.pictureBox2);
+            this.pnBotonesCrud.Controls.Add(this.pictureBox1);
             this.pnBotonesCrud.Controls.Add(this.btnAgregar);
             this.pnBotonesCrud.Controls.Add(this.btnEliminar);
             this.pnBotonesCrud.Controls.Add(this.btnModificar);
             this.pnBotonesCrud.Location = new System.Drawing.Point(3, 5);
             this.pnBotonesCrud.Name = "pnBotonesCrud";
-            this.pnBotonesCrud.Size = new System.Drawing.Size(353, 75);
+            this.pnBotonesCrud.Size = new System.Drawing.Size(439, 75);
             this.pnBotonesCrud.TabIndex = 3;
             // 
             // btnAgregar
@@ -90,7 +100,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgregar.Location = new System.Drawing.Point(9, 17);
+            this.btnAgregar.Location = new System.Drawing.Point(42, 16);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(95, 40);
             this.btnAgregar.TabIndex = 0;
@@ -105,7 +115,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminar.Location = new System.Drawing.Point(244, 15);
+            this.btnEliminar.Location = new System.Drawing.Point(351, 14);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(85, 44);
             this.btnEliminar.TabIndex = 2;
@@ -120,7 +130,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Ubuntu", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(123, 17);
+            this.btnModificar.Location = new System.Drawing.Point(196, 16);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(98, 40);
             this.btnModificar.TabIndex = 1;
@@ -141,6 +151,36 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvVerProductos.Size = new System.Drawing.Size(1084, 664);
             this.dgvVerProductos.TabIndex = 0;
             this.dgvVerProductos.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(314, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(146, 21);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 33);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
             // 
             // FrmProductos
             // 
@@ -164,6 +204,9 @@ namespace Design_Dashboard_Modern.Vistas
             this.split.ResumeLayout(false);
             this.pnBotonesCrud.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,5 +220,8 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel pnBotonesCrud;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
