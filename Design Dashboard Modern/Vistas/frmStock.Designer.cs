@@ -47,17 +47,20 @@ namespace Design_Dashboard_Modern.Vistas
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.cboxTipoMovStock = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraStock)).BeginInit();
             this.panelMovimientosStock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Ubuntu", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(382, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 29);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Stock";
             // 
@@ -67,7 +70,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbFiltro.Location = new System.Drawing.Point(12, 33);
             this.tbFiltro.Name = "tbFiltro";
             this.tbFiltro.Size = new System.Drawing.Size(344, 25);
-            this.tbFiltro.TabIndex = 0;
+            this.tbFiltro.TabIndex = 1;
             this.tbFiltro.Text = "Código del Producto";
             this.tbFiltro.Enter += new System.EventHandler(this.tbFiltro_Enter);
             // 
@@ -81,7 +84,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnStockxProducto.Name = "btnStockxProducto";
             this.btnStockxProducto.Padding = new System.Windows.Forms.Padding(3);
             this.btnStockxProducto.Size = new System.Drawing.Size(202, 52);
-            this.btnStockxProducto.TabIndex = 1;
+            this.btnStockxProducto.TabIndex = 2;
             this.btnStockxProducto.Text = "Ver Stock Por Producto";
             this.btnStockxProducto.UseVisualStyleBackColor = false;
             this.btnStockxProducto.Click += new System.EventHandler(this.btnStockxProducto_Click);
@@ -106,7 +109,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvMuestraStock.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(88)))), ((int)(((byte)(86)))));
             this.dgvMuestraStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMuestraStock.Location = new System.Drawing.Point(12, 144);
-            this.dgvMuestraStock.MultiSelect = false;
             this.dgvMuestraStock.Name = "dgvMuestraStock";
             this.dgvMuestraStock.ReadOnly = true;
             this.dgvMuestraStock.RowHeadersVisible = false;
@@ -116,6 +118,8 @@ namespace Design_Dashboard_Modern.Vistas
             // panelMovimientosStock
             // 
             this.panelMovimientosStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(127)))), ((int)(((byte)(70)))));
+            this.panelMovimientosStock.Controls.Add(this.pictureBox2);
+            this.panelMovimientosStock.Controls.Add(this.pictureBox1);
             this.panelMovimientosStock.Controls.Add(this.tbCodigoProductoMovStock);
             this.panelMovimientosStock.Controls.Add(this.button5);
             this.panelMovimientosStock.Controls.Add(this.button4);
@@ -172,15 +176,12 @@ namespace Design_Dashboard_Modern.Vistas
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(214, 277);
+            this.button2.Location = new System.Drawing.Point(260, 277);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(3);
-            this.button2.Size = new System.Drawing.Size(143, 46);
+            this.button2.Size = new System.Drawing.Size(97, 46);
             this.button2.TabIndex = 11;
             this.button2.Text = "Cancelar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -190,15 +191,12 @@ namespace Design_Dashboard_Modern.Vistas
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(23, 277);
+            this.button1.Location = new System.Drawing.Point(69, 277);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(3);
-            this.button1.Size = new System.Drawing.Size(142, 46);
+            this.button1.Size = new System.Drawing.Size(96, 46);
             this.button1.TabIndex = 10;
             this.button1.Text = "Aceptar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             // 
             // textBox1
@@ -262,6 +260,26 @@ namespace Design_Dashboard_Modern.Vistas
             this.cboxTipoMovStock.Size = new System.Drawing.Size(183, 29);
             this.cboxTipoMovStock.TabIndex = 4;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(211, 283);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(18, 283);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +299,8 @@ namespace Design_Dashboard_Modern.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraStock)).EndInit();
             this.panelMovimientosStock.ResumeLayout(false);
             this.panelMovimientosStock.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,5 +325,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboxTipoMovStock;
         private System.Windows.Forms.TextBox tbCodigoProductoMovStock;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
