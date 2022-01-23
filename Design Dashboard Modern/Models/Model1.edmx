@@ -457,48 +457,32 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cuit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="razonSocial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="nombreFantasia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="direccion1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="direccion2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="numeroTelefono1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="numeroTelefono2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
-          <Property Name="Discriminator" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ClienteId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ProveedorId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="porcentajeRentabilidad" Type="Double" />
-          <Property Name="NombreyApellido" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NombreyApellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DNI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FechaNac" Type="DateTime" Precision="0" />
           <Property Name="direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="numeroTelefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="comprobante" Relationship="todoluzdbModel.FK_comprobante_Cliente" FromRole="Cliente" ToRole="comprobante1" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
+          <Property Name="porcentajeRentabilidad" Type="Double" />
         </EntityType>
-        <EntityType Name="Comprobante">
+        <EntityType Name="comprobante">
           <Key>
-            <PropertyRef Name="ComprobanteId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ComprobanteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoComprobanteId" Type="Int32" Nullable="false" />
+          <Property Name="ClienteId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
           <Property Name="codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="importe" Type="Double" Nullable="false" />
           <Property Name="bonificacion" Type="Double" Nullable="false" />
           <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="fechaBaja" Type="DateTime" Precision="7" />
-          <Property Name="ClienteId" Type="Int32" Nullable="false" />
-          <Property Name="TipoComprobanteId" Type="Int32" Nullable="false" />
-          <Property Name="SucursalId" Type="Int32" Nullable="false" />
           <Property Name="efectivo" Type="Double" Nullable="false" />
           <Property Name="tarjeta" Type="Double" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tarjeta1" Type="Double" />
-          <Property Name="Tarjeta2" Type="Double" />
-          <Property Name="TarjDebito" Type="Double" />
-          <Property Name="Transferencia" Type="Double" />
-          <Property Name="GedNet" Type="Double" />
-          <Property Name="Mercadopago" Type="Double" />
+          <Property Name="CtaCte" Type="Double" Nullable="false" />
           </EntityType>
         <EntityType Name="detalleFactura">
           <Key>
@@ -511,17 +495,8 @@
           <Property Name="fechaAlta" Type="DateTime" Precision="7" />
           <Property Name="fechaBaja" Type="DateTime" Precision="7" />
           <Property Name="ProductoId" Type="Int32" Nullable="false" />
-          <Property Name="cadenaBusquedaProducto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ComprobanteId" Type="Int32" />
-          <NavigationProperty Name="comprobante" Relationship="todoluzdbModel.FK_detalleFactura_comprobante_ComprobanteId1" FromRole="detalleFactura" ToRole="comprobante1" />
           </EntityType>
-        <EntityType Name="estadoComprobante">
-          <Key>
-            <PropertyRef Name="EstadoComprobanteId" />
-          </Key>
-          <Property Name="EstadoComprobanteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombreEstadoComprobante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="medioPago">
           <Key>
             <PropertyRef Name="Id" />
@@ -548,7 +523,6 @@
           <Property Name="tipoMovimientoCajaId" Type="Int32" Nullable="false" />
           <Property Name="CajaId" Type="Int32" Nullable="false" />
           <Property Name="ComprobanteId" Type="Int32" />
-          <NavigationProperty Name="comprobante" Relationship="todoluzdbModel.FK_movimientoCaja_comprobante_ComprobanteId1" FromRole="movimientoCaja" ToRole="comprobante1" />
           </EntityType>
         <EntityType Name="movimientoStock">
           <Key>
@@ -564,7 +538,6 @@
           <Property Name="StockId" Type="Int32" Nullable="false" />
           <Property Name="ComprobanteId" Type="Int32" />
           <Property Name="TipoMovimientoStockId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="comprobante" Relationship="todoluzdbModel.FK_movimientoStock_comprobante_ComprobanteId1" FromRole="movimientoStock" ToRole="comprobante1" />
           </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -581,7 +554,7 @@
           <Property Name="Rentabilidad" Type="Double" Nullable="false" />
           <Property Name="PrecioCosto" Type="Double" Nullable="false" />
           <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="Stock">
           <Key>
             <PropertyRef Name="StockId" />
@@ -616,7 +589,6 @@
           </Key>
           <Property Name="TipoComprobanteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombreTipoComprobante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="comprobante" Relationship="todoluzdbModel.FK_comprobante_tipoComprobante_TipoComprobanteId1" FromRole="tipoComprobante" ToRole="comprobante1" />
         </EntityType>
         <EntityType Name="tipoMovimientoCaja">
           <Key>
@@ -638,25 +610,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NormalizedUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="NormalizedEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEnd" Type="DateTimeOffset" Precision="7" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="Pass" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" />
           <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FechaBaja" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="comprobante" Relationship="todoluzdbModel.FK_comprobante_Usuario" FromRole="Usuario" ToRole="comprobante1" />
         </EntityType>
         <Association Name="FK_caja_sucursal_SucursalId">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1">
@@ -686,31 +646,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_comprobante_personaJuridica_PersonaJuridicaId">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Comprobante" Type="Self.Comprobante" Multiplicity="*" />
+        <Association Name="FK_comprobante_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Comprobante">
+            <Dependent Role="comprobante">
               <PropertyRef Name="ClienteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_comprobante_sucursal_SucursalId">
-          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Comprobante" Type="Self.Comprobante" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sucursal">
-              <PropertyRef Name="SucursalId" />
-            </Principal>
-            <Dependent Role="Comprobante">
-              <PropertyRef Name="SucursalId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -718,22 +662,34 @@
           <End Role="tipoComprobante" Type="Self.tipoComprobante" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Comprobante" Type="Self.Comprobante" Multiplicity="*" />
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipoComprobante">
               <PropertyRef Name="TipoComprobanteId" />
             </Principal>
-            <Dependent Role="Comprobante">
+            <Dependent Role="comprobante">
               <PropertyRef Name="TipoComprobanteId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_comprobante_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="comprobante">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_detalleFactura_comprobante_ComprobanteId">
-          <End Role="Comprobante" Type="Self.Comprobante" Multiplicity="1" />
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
           <End Role="detalleFactura" Type="Self.detalleFactura" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Comprobante">
-              <PropertyRef Name="ComprobanteId" />
+            <Principal Role="comprobante">
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="detalleFactura">
               <PropertyRef Name="ComprobanteId" />
@@ -741,11 +697,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_movimientoCaja_comprobante_ComprobanteId">
-          <End Role="Comprobante" Type="Self.Comprobante" Multiplicity="0..1" />
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
           <End Role="movimientoCaja" Type="Self.movimientoCaja" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Comprobante">
-              <PropertyRef Name="ComprobanteId" />
+            <Principal Role="comprobante">
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="movimientoCaja">
               <PropertyRef Name="ComprobanteId" />
@@ -753,11 +709,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_movimientoStock_comprobante_ComprobanteId">
-          <End Role="Comprobante" Type="Self.Comprobante" Multiplicity="0..1" />
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
           <End Role="movimientoStock" Type="Self.movimientoStock" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Comprobante">
-              <PropertyRef Name="ComprobanteId" />
+            <Principal Role="comprobante">
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="movimientoStock">
               <PropertyRef Name="ComprobanteId" />
@@ -847,9 +803,8 @@
         <EntityContainer Name="todoluzdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Caja" EntityType="Self.Caja" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
-          <EntitySet Name="Comprobante" EntityType="Self.Comprobante" />
+          <EntitySet Name="comprobante" EntityType="Self.comprobante" />
           <EntitySet Name="detalleFactura" EntityType="Self.detalleFactura" />
-          <EntitySet Name="estadoComprobante" EntityType="Self.estadoComprobante" />
           <EntitySet Name="medioPago" EntityType="Self.medioPago" />
           <EntitySet Name="movimientoCaja" EntityType="Self.movimientoCaja" />
           <EntitySet Name="movimientoStock" EntityType="Self.movimientoStock" />
@@ -869,28 +824,28 @@
             <End Role="Caja" EntitySet="Caja" />
             <End Role="movimientoCaja" EntitySet="movimientoCaja" />
           </AssociationSet>
-          <AssociationSet Name="FK_comprobante_personaJuridica_PersonaJuridicaId" Association="Self.FK_comprobante_personaJuridica_PersonaJuridicaId">
+          <AssociationSet Name="FK_comprobante_Cliente" Association="Self.FK_comprobante_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Comprobante" EntitySet="Comprobante" />
-          </AssociationSet>
-          <AssociationSet Name="FK_comprobante_sucursal_SucursalId" Association="Self.FK_comprobante_sucursal_SucursalId">
-            <End Role="Sucursal" EntitySet="Sucursal" />
-            <End Role="Comprobante" EntitySet="Comprobante" />
+            <End Role="comprobante" EntitySet="comprobante" />
           </AssociationSet>
           <AssociationSet Name="FK_comprobante_tipoComprobante_TipoComprobanteId" Association="Self.FK_comprobante_tipoComprobante_TipoComprobanteId">
             <End Role="tipoComprobante" EntitySet="tipoComprobante" />
-            <End Role="Comprobante" EntitySet="Comprobante" />
+            <End Role="comprobante" EntitySet="comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comprobante_Usuario" Association="Self.FK_comprobante_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="comprobante" EntitySet="comprobante" />
           </AssociationSet>
           <AssociationSet Name="FK_detalleFactura_comprobante_ComprobanteId" Association="Self.FK_detalleFactura_comprobante_ComprobanteId">
-            <End Role="Comprobante" EntitySet="Comprobante" />
+            <End Role="comprobante" EntitySet="comprobante" />
             <End Role="detalleFactura" EntitySet="detalleFactura" />
           </AssociationSet>
           <AssociationSet Name="FK_movimientoCaja_comprobante_ComprobanteId" Association="Self.FK_movimientoCaja_comprobante_ComprobanteId">
-            <End Role="Comprobante" EntitySet="Comprobante" />
+            <End Role="comprobante" EntitySet="comprobante" />
             <End Role="movimientoCaja" EntitySet="movimientoCaja" />
           </AssociationSet>
           <AssociationSet Name="FK_movimientoStock_comprobante_ComprobanteId" Association="Self.FK_movimientoStock_comprobante_ComprobanteId">
-            <End Role="Comprobante" EntitySet="Comprobante" />
+            <End Role="comprobante" EntitySet="comprobante" />
             <End Role="movimientoStock" EntitySet="movimientoStock" />
           </AssociationSet>
           <AssociationSet Name="FK_detalleFactura_Producto" Association="Self.FK_detalleFactura_Producto">
@@ -917,129 +872,7 @@
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="Stock" EntitySet="Stock" />
           </AssociationSet>
-          <EntitySet Name="comprobante1Set" EntityType="todoluzdbModel.comprobante1" />
-          <AssociationSet Name="FK_comprobante_Cliente" Association="todoluzdbModel.FK_comprobante_Cliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="comprobante1" EntitySet="comprobante1Set" />
-          </AssociationSet>
-          <AssociationSet Name="FK_comprobante_tipoComprobante_TipoComprobanteId1" Association="todoluzdbModel.FK_comprobante_tipoComprobante_TipoComprobanteId1">
-            <End Role="tipoComprobante" EntitySet="tipoComprobante" />
-            <End Role="comprobante1" EntitySet="comprobante1Set" />
-          </AssociationSet>
-          <AssociationSet Name="FK_comprobante_Usuario" Association="todoluzdbModel.FK_comprobante_Usuario">
-            <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="comprobante1" EntitySet="comprobante1Set" />
-          </AssociationSet>
-          <AssociationSet Name="FK_detalleFactura_comprobante_ComprobanteId1" Association="todoluzdbModel.FK_detalleFactura_comprobante_ComprobanteId1">
-            <End Role="comprobante1" EntitySet="comprobante1Set" />
-            <End Role="detalleFactura" EntitySet="detalleFactura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientoCaja_comprobante_ComprobanteId1" Association="todoluzdbModel.FK_movimientoCaja_comprobante_ComprobanteId1">
-            <End Role="comprobante1" EntitySet="comprobante1Set" />
-            <End Role="movimientoCaja" EntitySet="movimientoCaja" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientoStock_comprobante_ComprobanteId1" Association="todoluzdbModel.FK_movimientoStock_comprobante_ComprobanteId1">
-            <End Role="comprobante1" EntitySet="comprobante1Set" />
-            <End Role="movimientoStock" EntitySet="movimientoStock" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="comprobante1">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TipoComprobanteId" Type="Int32" Nullable="false" />
-          <Property Name="ClienteId" Type="Int32" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="importe" Type="Double" Nullable="false" />
-          <Property Name="bonificacion" Type="Double" Nullable="false" />
-          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
-          <Property Name="efectivo" Type="Double" Nullable="false" />
-          <Property Name="tarjeta" Type="Double" Nullable="false" />
-          <Property Name="CtaCte" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="todoluzdbModel.FK_comprobante_Cliente" FromRole="comprobante1" ToRole="Cliente" />
-          <NavigationProperty Name="tipoComprobante" Relationship="todoluzdbModel.FK_comprobante_tipoComprobante_TipoComprobanteId1" FromRole="comprobante1" ToRole="tipoComprobante" />
-          <NavigationProperty Name="Usuario" Relationship="todoluzdbModel.FK_comprobante_Usuario" FromRole="comprobante1" ToRole="Usuario" />
-          <NavigationProperty Name="detalleFactura" Relationship="todoluzdbModel.FK_detalleFactura_comprobante_ComprobanteId1" FromRole="comprobante1" ToRole="detalleFactura" />
-          <NavigationProperty Name="movimientoCaja" Relationship="todoluzdbModel.FK_movimientoCaja_comprobante_ComprobanteId1" FromRole="comprobante1" ToRole="movimientoCaja" />
-          <NavigationProperty Name="movimientoStock" Relationship="todoluzdbModel.FK_movimientoStock_comprobante_ComprobanteId1" FromRole="comprobante1" ToRole="movimientoStock" />
-        </EntityType>
-        <Association Name="FK_comprobante_Cliente">
-          <End Type="todoluzdbModel.Cliente" Role="Cliente" Multiplicity="0..1" />
-          <End Type="todoluzdbModel.comprobante1" Role="comprobante1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cliente">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="comprobante1">
-              <PropertyRef Name="ClienteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_comprobante_tipoComprobante_TipoComprobanteId1">
-          <End Type="todoluzdbModel.tipoComprobante" Role="tipoComprobante" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="todoluzdbModel.comprobante1" Role="comprobante1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tipoComprobante">
-              <PropertyRef Name="TipoComprobanteId" />
-            </Principal>
-            <Dependent Role="comprobante1">
-              <PropertyRef Name="TipoComprobanteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_comprobante_Usuario">
-          <End Type="todoluzdbModel.Usuario" Role="Usuario" Multiplicity="0..1" />
-          <End Type="todoluzdbModel.comprobante1" Role="comprobante1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="comprobante1">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_detalleFactura_comprobante_ComprobanteId1">
-          <End Type="todoluzdbModel.comprobante1" Role="comprobante1" Multiplicity="0..1" />
-          <End Type="todoluzdbModel.detalleFactura" Role="detalleFactura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="comprobante1">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="detalleFactura">
-              <PropertyRef Name="ComprobanteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_movimientoCaja_comprobante_ComprobanteId1">
-          <End Type="todoluzdbModel.comprobante1" Role="comprobante1" Multiplicity="0..1" />
-          <End Type="todoluzdbModel.movimientoCaja" Role="movimientoCaja" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="comprobante1">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="movimientoCaja">
-              <PropertyRef Name="ComprobanteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_movimientoStock_comprobante_ComprobanteId1">
-          <End Type="todoluzdbModel.comprobante1" Role="comprobante1" Multiplicity="0..1" />
-          <End Type="todoluzdbModel.movimientoStock" Role="movimientoStock" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="comprobante1">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="movimientoStock">
-              <PropertyRef Name="ComprobanteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1060,17 +893,35 @@
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="todoluzdbModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="numeroTelefono" ColumnName="numeroTelefono" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="NombreyApellido" ColumnName="NombreyApellido" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="cuit" ColumnName="cuit" />
+                <ScalarProperty Name="NombreyApellido" ColumnName="NombreyApellido" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="numeroTelefono" ColumnName="numeroTelefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
                 <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
                 <ScalarProperty Name="porcentajeRentabilidad" ColumnName="porcentajeRentabilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comprobante">
+            <EntityTypeMapping TypeName="todoluzdbModel.comprobante">
+              <MappingFragment StoreEntitySet="comprobante">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TipoComprobanteId" ColumnName="TipoComprobanteId" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="bonificacion" ColumnName="bonificacion" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+                <ScalarProperty Name="efectivo" ColumnName="efectivo" />
+                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+                <ScalarProperty Name="CtaCte" ColumnName="CtaCte" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1210,31 +1061,13 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="todoluzdbModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
-                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-                <ScalarProperty Name="Pass" ColumnName="Pass" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="comprobante1Set">
-            <EntityTypeMapping TypeName="todoluzdbModel.comprobante1">
-              <MappingFragment StoreEntitySet="comprobante">
-                <ScalarProperty Name="CtaCte" ColumnName="CtaCte" />
-                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
-                <ScalarProperty Name="efectivo" ColumnName="efectivo" />
-                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
-                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
-                <ScalarProperty Name="bonificacion" ColumnName="bonificacion" />
-                <ScalarProperty Name="importe" ColumnName="importe" />
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
-                <ScalarProperty Name="TipoComprobanteId" ColumnName="TipoComprobanteId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

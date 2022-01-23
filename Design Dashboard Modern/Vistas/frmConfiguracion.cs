@@ -27,7 +27,7 @@ namespace Design_Dashboard_Modern.Vistas
         {
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
-                dgvMuestraTiposMovStock.DataSource = DB.tipoMovimientoStock.ToList();
+                dgvMuestraTiposMovStock.DataSource = DB.tipoMovimientoStock.ToList().FindAll(x=>x.fechaBaja==null);
                 dgvMuestraTiposMovStock.Columns[0].Visible = false;
                 dgvMuestraTiposMovStock.Columns[2].Visible = false;
                 dgvMuestraTiposMovStock.Columns[3].Visible = false;
