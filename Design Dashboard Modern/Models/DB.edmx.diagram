@@ -35,6 +35,13 @@
         <AssociationConnector Association="todoluzdbModel.FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId" ManuallyRouted="false" />
         <AssociationConnector Association="todoluzdbModel.FK_stock_Producto" ManuallyRouted="false" />
         <AssociationConnector Association="todoluzdbModel.FK_stock_sucursal_SucursalId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="todoluzdbModel.comprobante1" Width="1.5" PointX="13" PointY="4.75" />
+        <AssociationConnector Association="todoluzdbModel.FK_comprobante_Cliente" />
+        <AssociationConnector Association="todoluzdbModel.FK_comprobante_tipoComprobante_TipoComprobanteId1" />
+        <AssociationConnector Association="todoluzdbModel.FK_comprobante_Usuario" />
+        <AssociationConnector Association="todoluzdbModel.FK_detalleFactura_comprobante_ComprobanteId1" />
+        <AssociationConnector Association="todoluzdbModel.FK_movimientoCaja_comprobante_ComprobanteId1" />
+        <AssociationConnector Association="todoluzdbModel.FK_movimientoStock_comprobante_ComprobanteId1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
