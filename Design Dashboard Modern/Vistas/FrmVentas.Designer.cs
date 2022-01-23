@@ -42,7 +42,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbTarjetas = new System.Windows.Forms.TextBox();
             this.lblTotalGeneral = new System.Windows.Forms.Label();
             this.lblRestoPorPagar = new System.Windows.Forms.Label();
-            this.lblAcumulaDescuentos = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tbEfectivo = new System.Windows.Forms.TextBox();
             this.btnMediosDePago = new System.Windows.Forms.Button();
@@ -100,7 +99,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnImprimirPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(207)))), ((int)(((byte)(77)))));
             this.btnImprimirPresupuesto.Enabled = false;
             this.btnImprimirPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimirPresupuesto.Location = new System.Drawing.Point(785, 602);
+            this.btnImprimirPresupuesto.Location = new System.Drawing.Point(744, 602);
             this.btnImprimirPresupuesto.Name = "btnImprimirPresupuesto";
             this.btnImprimirPresupuesto.Size = new System.Drawing.Size(145, 54);
             this.btnImprimirPresupuesto.TabIndex = 17;
@@ -112,7 +111,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnQuitarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
             this.btnQuitarProducto.Enabled = false;
             this.btnQuitarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarProducto.Location = new System.Drawing.Point(938, 375);
+            this.btnQuitarProducto.Location = new System.Drawing.Point(897, 375);
             this.btnQuitarProducto.Name = "btnQuitarProducto";
             this.btnQuitarProducto.Size = new System.Drawing.Size(133, 62);
             this.btnQuitarProducto.TabIndex = 14;
@@ -132,13 +131,12 @@ namespace Design_Dashboard_Modern.Vistas
             this.panMediosDePago.Controls.Add(this.tbTarjetas);
             this.panMediosDePago.Controls.Add(this.lblTotalGeneral);
             this.panMediosDePago.Controls.Add(this.lblRestoPorPagar);
-            this.panMediosDePago.Controls.Add(this.lblAcumulaDescuentos);
             this.panMediosDePago.Controls.Add(this.label8);
             this.panMediosDePago.Controls.Add(this.tbEfectivo);
             this.panMediosDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panMediosDePago.Location = new System.Drawing.Point(15, 375);
             this.panMediosDePago.Name = "panMediosDePago";
-            this.panMediosDePago.Size = new System.Drawing.Size(594, 275);
+            this.panMediosDePago.Size = new System.Drawing.Size(511, 275);
             this.panMediosDePago.TabIndex = 16;
             this.panMediosDePago.Visible = false;
             // 
@@ -178,7 +176,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbDescuentos.Name = "tbDescuentos";
             this.tbDescuentos.Size = new System.Drawing.Size(100, 22);
             this.tbDescuentos.TabIndex = 4;
-            this.tbDescuentos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbDescuentos.Leave += new System.EventHandler(this.tbDescuentos_Leave);
             // 
             // label11
@@ -207,7 +204,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbTarjetas.Name = "tbTarjetas";
             this.tbTarjetas.Size = new System.Drawing.Size(100, 22);
             this.tbTarjetas.TabIndex = 11;
-            this.tbTarjetas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbTarjetas.Leave += new System.EventHandler(this.tbTarjetas_Leave);
             // 
             // lblTotalGeneral
@@ -225,22 +221,12 @@ namespace Design_Dashboard_Modern.Vistas
             this.lblRestoPorPagar.AutoSize = true;
             this.lblRestoPorPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRestoPorPagar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblRestoPorPagar.Location = new System.Drawing.Point(232, 14);
+            this.lblRestoPorPagar.Location = new System.Drawing.Point(58, 12);
             this.lblRestoPorPagar.Name = "lblRestoPorPagar";
             this.lblRestoPorPagar.Size = new System.Drawing.Size(115, 24);
             this.lblRestoPorPagar.TabIndex = 10;
             this.lblRestoPorPagar.Text = "Restan $ ...";
             this.lblRestoPorPagar.Visible = false;
-            // 
-            // lblAcumulaDescuentos
-            // 
-            this.lblAcumulaDescuentos.AutoSize = true;
-            this.lblAcumulaDescuentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAcumulaDescuentos.Location = new System.Drawing.Point(331, 101);
-            this.lblAcumulaDescuentos.Name = "lblAcumulaDescuentos";
-            this.lblAcumulaDescuentos.Size = new System.Drawing.Size(259, 16);
-            this.lblAcumulaDescuentos.TabIndex = 7;
-            this.lblAcumulaDescuentos.Text = "Descuentos acumulados en los productos";
             // 
             // label8
             // 
@@ -258,13 +244,12 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbEfectivo.Name = "tbEfectivo";
             this.tbEfectivo.Size = new System.Drawing.Size(100, 22);
             this.tbEfectivo.TabIndex = 8;
-            this.tbEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbEfectivo.Leave += new System.EventHandler(this.tbEfectivo_Leave);
             // 
             // btnMediosDePago
             // 
             this.btnMediosDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMediosDePago.Location = new System.Drawing.Point(642, 375);
+            this.btnMediosDePago.Location = new System.Drawing.Point(601, 375);
             this.btnMediosDePago.Name = "btnMediosDePago";
             this.btnMediosDePago.Size = new System.Drawing.Size(141, 36);
             this.btnMediosDePago.TabIndex = 15;
@@ -278,7 +263,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(913, 510);
+            this.btnCancelar.Location = new System.Drawing.Point(872, 510);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(145, 54);
             this.btnCancelar.TabIndex = 14;
@@ -290,7 +275,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnAceptarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(185)))), ((int)(((byte)(55)))));
             this.btnAceptarVenta.Enabled = false;
             this.btnAceptarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptarVenta.Location = new System.Drawing.Point(684, 514);
+            this.btnAceptarVenta.Location = new System.Drawing.Point(643, 514);
             this.btnAceptarVenta.Name = "btnAceptarVenta";
             this.btnAceptarVenta.Size = new System.Drawing.Size(145, 54);
             this.btnAceptarVenta.TabIndex = 13;
@@ -356,7 +341,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbDescuentoProducto.Name = "tbDescuentoProducto";
             this.tbDescuentoProducto.Size = new System.Drawing.Size(88, 20);
             this.tbDescuentoProducto.TabIndex = 3;
-            this.tbDescuentoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbDescuentoProducto.Leave += new System.EventHandler(this.tbDescuentoProducto_Leave);
             // 
             // btnAgregar
@@ -527,7 +511,6 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label lblRestoPorPagar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbEfectivo;
-        private System.Windows.Forms.Label lblAcumulaDescuentos;
         private System.Windows.Forms.Label lblTotalGeneral;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbDescuentos;

@@ -14,13 +14,6 @@ namespace Design_Dashboard_Modern.Vistas
             InitializeComponent();
         }
 
-
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             panelMovimientosStock.Visible = true;
@@ -39,7 +32,7 @@ namespace Design_Dashboard_Modern.Vistas
 
                 foreach (tipoMovimientoStock itemstock in DB.tipoMovimientoStock.ToList())
                 {
-                    autocompletadotipomovstock.Add(itemstock.nombreTipoMovimientoStock);
+                    if(itemstock.fechaBaja==null) autocompletadotipomovstock.Add(itemstock.nombreTipoMovimientoStock);
                 }
                 cboxTipoMovStock.DataSource = autocompletadotipomovstock;
 

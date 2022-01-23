@@ -44,6 +44,24 @@ namespace Design_Dashboard_Modern.Vistas
             RefrescarTipoMov();
         }
 
-        
+        private void btnBorrarMovStock_Click(object sender, System.EventArgs e)
+        {
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+                tipoMovimientoStock eliminar = (tipoMovimientoStock)dgvMuestraTiposMovStock.CurrentRow.DataBoundItem;
+                eliminar.fechaBaja = System.DateTime.Now;
+
+                DB.Entry(eliminar).State = System.Data.Entity.EntityState.Modified;
+                DB.SaveChanges();
+                MessageBox.Show("Movimiento eliminado");
+                btnBorrarMovStock.Enabled = false;
+            }
+        }
+
+        private void dgvMuestraTiposMovStock_Click(object sender, System.EventArgs e)
+        {
+            btnBorrarMovStock.Enabled = true;
+            btnModificarMovStock.Enabled = true;
+        }
     }
 }
