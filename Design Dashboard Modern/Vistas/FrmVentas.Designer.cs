@@ -29,6 +29,7 @@ namespace Design_Dashboard_Modern.Vistas
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnImprimirPresupuesto = new System.Windows.Forms.Button();
             this.btnQuitarProducto = new System.Windows.Forms.Button();
@@ -99,7 +100,8 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.btnImprimirPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(207)))), ((int)(((byte)(77)))));
             this.btnImprimirPresupuesto.Enabled = false;
-            this.btnImprimirPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirPresupuesto.Font = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirPresupuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimirPresupuesto.Location = new System.Drawing.Point(785, 602);
             this.btnImprimirPresupuesto.Name = "btnImprimirPresupuesto";
             this.btnImprimirPresupuesto.Size = new System.Drawing.Size(145, 54);
@@ -111,11 +113,11 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.btnQuitarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
             this.btnQuitarProducto.Enabled = false;
-            this.btnQuitarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarProducto.Font = new System.Drawing.Font("Ubuntu Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitarProducto.Location = new System.Drawing.Point(938, 375);
             this.btnQuitarProducto.Name = "btnQuitarProducto";
             this.btnQuitarProducto.Size = new System.Drawing.Size(133, 62);
-            this.btnQuitarProducto.TabIndex = 14;
+            this.btnQuitarProducto.TabIndex = 7;
             this.btnQuitarProducto.Text = "Quitar Producto";
             this.btnQuitarProducto.UseVisualStyleBackColor = false;
             this.btnQuitarProducto.Visible = false;
@@ -145,38 +147,39 @@ namespace Design_Dashboard_Modern.Vistas
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(149, 24);
+            this.label7.Size = new System.Drawing.Size(156, 24);
             this.label7.TabIndex = 1;
             this.label7.Text = "Subtotal General";
             // 
             // lblSubtotalGeneral
             // 
             this.lblSubtotalGeneral.AutoSize = true;
-            this.lblSubtotalGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotalGeneral.Location = new System.Drawing.Point(231, 69);
+            this.lblSubtotalGeneral.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtotalGeneral.Location = new System.Drawing.Point(270, 74);
             this.lblSubtotalGeneral.Name = "lblSubtotalGeneral";
-            this.lblSubtotalGeneral.Size = new System.Drawing.Size(77, 24);
+            this.lblSubtotalGeneral.Size = new System.Drawing.Size(84, 24);
             this.lblSubtotalGeneral.TabIndex = 2;
             this.lblSubtotalGeneral.Text = "Subtotal";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 101);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 24);
+            this.label9.Size = new System.Drawing.Size(113, 24);
             this.label9.TabIndex = 3;
             this.label9.Text = "Descuentos";
             // 
             // tbDescuentos
             // 
-            this.tbDescuentos.Location = new System.Drawing.Point(232, 96);
+            this.tbDescuentos.Font = new System.Drawing.Font("Ubuntu Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDescuentos.Location = new System.Drawing.Point(271, 101);
             this.tbDescuentos.Name = "tbDescuentos";
-            this.tbDescuentos.Size = new System.Drawing.Size(100, 22);
+            this.tbDescuentos.Size = new System.Drawing.Size(100, 25);
             this.tbDescuentos.TabIndex = 4;
             this.tbDescuentos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbDescuentos.Leave += new System.EventHandler(this.tbDescuentos_Leave);
@@ -184,28 +187,29 @@ namespace Design_Dashboard_Modern.Vistas
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(3, 216);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(76, 24);
+            this.label11.Size = new System.Drawing.Size(77, 24);
             this.label11.TabIndex = 12;
             this.label11.Text = "Tarjetas";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(3, 139);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(120, 24);
+            this.label10.Size = new System.Drawing.Size(121, 24);
             this.label10.TabIndex = 5;
             this.label10.Text = "Total a Pagar";
             // 
             // tbTarjetas
             // 
-            this.tbTarjetas.Location = new System.Drawing.Point(234, 205);
+            this.tbTarjetas.Font = new System.Drawing.Font("Ubuntu Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTarjetas.Location = new System.Drawing.Point(273, 210);
             this.tbTarjetas.Name = "tbTarjetas";
-            this.tbTarjetas.Size = new System.Drawing.Size(100, 22);
+            this.tbTarjetas.Size = new System.Drawing.Size(100, 25);
             this.tbTarjetas.TabIndex = 11;
             this.tbTarjetas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbTarjetas.Leave += new System.EventHandler(this.tbTarjetas_Leave);
@@ -213,10 +217,10 @@ namespace Design_Dashboard_Modern.Vistas
             // lblTotalGeneral
             // 
             this.lblTotalGeneral.AutoSize = true;
-            this.lblTotalGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalGeneral.Location = new System.Drawing.Point(231, 135);
+            this.lblTotalGeneral.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalGeneral.Location = new System.Drawing.Point(270, 135);
             this.lblTotalGeneral.Name = "lblTotalGeneral";
-            this.lblTotalGeneral.Size = new System.Drawing.Size(51, 24);
+            this.lblTotalGeneral.Size = new System.Drawing.Size(53, 24);
             this.lblTotalGeneral.TabIndex = 6;
             this.lblTotalGeneral.Text = "Total";
             // 
@@ -225,7 +229,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.lblRestoPorPagar.AutoSize = true;
             this.lblRestoPorPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRestoPorPagar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblRestoPorPagar.Location = new System.Drawing.Point(232, 14);
+            this.lblRestoPorPagar.Location = new System.Drawing.Point(271, 19);
             this.lblRestoPorPagar.Name = "lblRestoPorPagar";
             this.lblRestoPorPagar.Size = new System.Drawing.Size(115, 24);
             this.lblRestoPorPagar.TabIndex = 10;
@@ -235,39 +239,40 @@ namespace Design_Dashboard_Modern.Vistas
             // lblAcumulaDescuentos
             // 
             this.lblAcumulaDescuentos.AutoSize = true;
-            this.lblAcumulaDescuentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAcumulaDescuentos.Location = new System.Drawing.Point(331, 101);
+            this.lblAcumulaDescuentos.Font = new System.Drawing.Font("Ubuntu", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcumulaDescuentos.Location = new System.Drawing.Point(370, 106);
             this.lblAcumulaDescuentos.Name = "lblAcumulaDescuentos";
-            this.lblAcumulaDescuentos.Size = new System.Drawing.Size(259, 16);
+            this.lblAcumulaDescuentos.Size = new System.Drawing.Size(211, 16);
             this.lblAcumulaDescuentos.TabIndex = 7;
             this.lblAcumulaDescuentos.Text = "Descuentos acumulados en los productos";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 176);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 24);
+            this.label8.Size = new System.Drawing.Size(82, 24);
             this.label8.TabIndex = 9;
             this.label8.Text = "Efectivo";
             // 
             // tbEfectivo
             // 
-            this.tbEfectivo.Location = new System.Drawing.Point(234, 167);
+            this.tbEfectivo.Font = new System.Drawing.Font("Ubuntu Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEfectivo.Location = new System.Drawing.Point(273, 172);
             this.tbEfectivo.Name = "tbEfectivo";
-            this.tbEfectivo.Size = new System.Drawing.Size(100, 22);
+            this.tbEfectivo.Size = new System.Drawing.Size(100, 25);
             this.tbEfectivo.TabIndex = 8;
             this.tbEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbEfectivo.Leave += new System.EventHandler(this.tbEfectivo_Leave);
             // 
             // btnMediosDePago
             // 
-            this.btnMediosDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMediosDePago.Font = new System.Drawing.Font("Ubuntu Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMediosDePago.Location = new System.Drawing.Point(642, 375);
             this.btnMediosDePago.Name = "btnMediosDePago";
             this.btnMediosDePago.Size = new System.Drawing.Size(141, 36);
-            this.btnMediosDePago.TabIndex = 15;
+            this.btnMediosDePago.TabIndex = 6;
             this.btnMediosDePago.Text = "Medios de Pago";
             this.btnMediosDePago.UseVisualStyleBackColor = true;
             this.btnMediosDePago.Visible = false;
@@ -277,24 +282,30 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(913, 510);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(145, 54);
-            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnAceptarVenta
             // 
             this.btnAceptarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(185)))), ((int)(((byte)(55)))));
             this.btnAceptarVenta.Enabled = false;
-            this.btnAceptarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptarVenta.Location = new System.Drawing.Point(684, 514);
+            this.btnAceptarVenta.Font = new System.Drawing.Font("Ubuntu Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptarVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptarVenta.Image")));
+            this.btnAceptarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAceptarVenta.Location = new System.Drawing.Point(658, 510);
             this.btnAceptarVenta.Name = "btnAceptarVenta";
-            this.btnAceptarVenta.Size = new System.Drawing.Size(145, 54);
-            this.btnAceptarVenta.TabIndex = 13;
+            this.btnAceptarVenta.Size = new System.Drawing.Size(175, 61);
+            this.btnAceptarVenta.TabIndex = 11;
             this.btnAceptarVenta.Text = "Aceptar Venta";
+            this.btnAceptarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAceptarVenta.UseVisualStyleBackColor = false;
             this.btnAceptarVenta.Click += new System.EventHandler(this.btnAceptarVenta_Click);
             // 
@@ -337,8 +348,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.cboxCliente.FormattingEnabled = true;
             this.cboxCliente.Location = new System.Drawing.Point(86, 3);
             this.cboxCliente.Name = "cboxCliente";
-            this.cboxCliente.Size = new System.Drawing.Size(121, 28);
-            this.cboxCliente.TabIndex = 14;
+            this.cboxCliente.Size = new System.Drawing.Size(164, 28);
+            this.cboxCliente.TabIndex = 0;
             // 
             // label6
             // 
@@ -355,7 +366,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbDescuentoProducto.Location = new System.Drawing.Point(760, 102);
             this.tbDescuentoProducto.Name = "tbDescuentoProducto";
             this.tbDescuentoProducto.Size = new System.Drawing.Size(88, 20);
-            this.tbDescuentoProducto.TabIndex = 3;
+            this.tbDescuentoProducto.TabIndex = 4;
             this.tbDescuentoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescuentos_KeyPress);
             this.tbDescuentoProducto.Leave += new System.EventHandler(this.tbDescuentoProducto_Leave);
             // 
@@ -367,7 +378,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnAgregar.Location = new System.Drawing.Point(948, 69);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 53);
-            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar Producto";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -424,14 +435,17 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // dgvMuestraDetallesProductos
             // 
+            this.dgvMuestraDetallesProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMuestraDetallesProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMuestraDetallesProductos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMuestraDetallesProductos.Location = new System.Drawing.Point(0, 138);
+            this.dgvMuestraDetallesProductos.MultiSelect = false;
             this.dgvMuestraDetallesProductos.Name = "dgvMuestraDetallesProductos";
             this.dgvMuestraDetallesProductos.ReadOnly = true;
+            this.dgvMuestraDetallesProductos.RowHeadersVisible = false;
             this.dgvMuestraDetallesProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMuestraDetallesProductos.Size = new System.Drawing.Size(1060, 228);
-            this.dgvMuestraDetallesProductos.TabIndex = 5;
+            this.dgvMuestraDetallesProductos.TabIndex = 18;
             this.dgvMuestraDetallesProductos.TabStop = false;
             this.dgvMuestraDetallesProductos.Visible = false;
             this.dgvMuestraDetallesProductos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvMuestraDetallesProductos_MouseClick);
@@ -441,7 +455,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbSubtotalProducto.Location = new System.Drawing.Point(865, 102);
             this.tbSubtotalProducto.Name = "tbSubtotalProducto";
             this.tbSubtotalProducto.Size = new System.Drawing.Size(70, 20);
-            this.tbSubtotalProducto.TabIndex = 4;
+            this.tbSubtotalProducto.TabIndex = 14;
             // 
             // tbPrecio
             // 
@@ -449,7 +463,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.ReadOnly = true;
             this.tbPrecio.Size = new System.Drawing.Size(99, 20);
-            this.tbPrecio.TabIndex = 3;
+            this.tbPrecio.TabIndex = 14;
             this.tbPrecio.TabStop = false;
             // 
             // tbCantidad
@@ -457,7 +471,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbCantidad.Location = new System.Drawing.Point(590, 102);
             this.tbCantidad.Name = "tbCantidad";
             this.tbCantidad.Size = new System.Drawing.Size(41, 20);
-            this.tbCantidad.TabIndex = 2;
+            this.tbCantidad.TabIndex = 3;
             this.tbCantidad.Leave += new System.EventHandler(this.tbCantidad_Leave);
             // 
             // tbCodigo
@@ -465,7 +479,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbCodigo.Location = new System.Drawing.Point(445, 102);
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(131, 20);
-            this.tbCodigo.TabIndex = 1;
+            this.tbCodigo.TabIndex = 2;
             // 
             // tbNombreProducto
             // 
@@ -474,7 +488,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbNombreProducto.Location = new System.Drawing.Point(2, 102);
             this.tbNombreProducto.Name = "tbNombreProducto";
             this.tbNombreProducto.Size = new System.Drawing.Size(437, 20);
-            this.tbNombreProducto.TabIndex = 0;
+            this.tbNombreProducto.TabIndex = 1;
             this.tbNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNombreProducto_KeyPress);
             this.tbNombreProducto.Leave += new System.EventHandler(this.tbNombreProducto_Leave);
             // 
