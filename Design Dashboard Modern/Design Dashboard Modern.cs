@@ -89,5 +89,11 @@ namespace Design_Dashboard_Modern
             FrmVentas formventas = new FrmVentas();
             AbrirFormHijo(formventas);
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            frmClientes formclientes = new frmClientes();
+            AbrirFormHijo(formclientes);
+        }
     }
 }

@@ -112,11 +112,11 @@ namespace Design_Dashboard_Modern.Vistas
 
             //activa boton medio de pago y quitar producto
             if (dgvMuestraDetallesProductos.Rows.Count > 0)
-            { 
+            {
                 btnMediosDePago.Visible = true;
                 btnQuitarProducto.Visible = true;
             }
-               
+
 
             //fin
 
@@ -151,7 +151,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void tbNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 tbCantidad.Focus();
             }
@@ -168,12 +168,12 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnQuitarProducto_Click(object sender, EventArgs e)
         {
-            detalles = detalles.FindAll(x=>x.ProductoId != (int)dgvMuestraDetallesProductos.Rows[dgvMuestraDetallesProductos.CurrentRow.Index].Cells[6].Value);
+            detalles = detalles.FindAll(x => x.ProductoId != (int)dgvMuestraDetallesProductos.Rows[dgvMuestraDetallesProductos.CurrentRow.Index].Cells[6].Value);
         }
 
         private void dgvMuestraDetallesProductos_MouseClick(object sender, MouseEventArgs e)
         {
-            if(dgvMuestraDetallesProductos.SelectedRows.Count>0)
+            if (dgvMuestraDetallesProductos.SelectedRows.Count > 0)
             {
                 btnQuitarProducto.Enabled = true;
             }
@@ -185,7 +185,7 @@ namespace Design_Dashboard_Modern.Vistas
             if (tbDescuentos.TextLength < 1) tbDescuentos.Text = "0";
 
 
-            lblTotalGeneral.Text = (double.Parse(lblSubtotalGeneral.Text) 
+            lblTotalGeneral.Text = (double.Parse(lblSubtotalGeneral.Text)
                 - double.Parse(tbDescuentos.Text)).ToString();
         }
 
@@ -193,8 +193,8 @@ namespace Design_Dashboard_Modern.Vistas
         {
             //protejer textbox vacio
             if (tbEfectivo.TextLength < 1) tbEfectivo.Text = "0";
-            
-            double resto,efectivo,tarjetas = 0;
+
+            double resto, efectivo, tarjetas = 0;
             efectivo = double.Parse(tbEfectivo.Text);
             tarjetas = double.Parse(tbTarjetas.Text);
             resto = double.Parse(lblTotalGeneral.Text) - (efectivo + tarjetas);
@@ -211,20 +211,20 @@ namespace Design_Dashboard_Modern.Vistas
         {
             //protejer textbox vacio
             if (tbTarjetas.TextLength < 1) tbTarjetas.Text = "0";
-            
+
             double resto, efectivo, tarjetas = 0;
             efectivo = double.Parse(tbEfectivo.Text);
             tarjetas = double.Parse(tbTarjetas.Text);
             resto = double.Parse(lblTotalGeneral.Text) - (efectivo + tarjetas);
             lblRestoPorPagar.Text = "Restan $ " + resto + " por pagar.";
             lblRestoPorPagar.Visible = true;
-            if(resto == 0)
+            if (resto == 0)
             {
                 lblRestoPorPagar.Visible = false;
                 btnAceptarVenta.Enabled = true;
             }
 
-                
+
         }
 
         private void btnAceptarVenta_Click(object sender, EventArgs e)
@@ -244,7 +244,7 @@ namespace Design_Dashboard_Modern.Vistas
             efectivo = double.Parse(tbEfectivo.Text);
             tarjeta = double.Parse(tbTarjetas.Text);
 
-            if(total-descuento == (efectivo + tarjeta))
+            if (total - descuento == (efectivo + tarjeta))
             {
                 return true;
             }

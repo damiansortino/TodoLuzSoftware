@@ -114,6 +114,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.Controls.Add(this.btnBorrarMovStock);
             this.Controls.Add(this.btnModificarMovStock);
             this.Controls.Add(this.btnAgregarMovStock);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConfiguracion";
             this.Text = "frmConfiguracion";
             this.Load += new System.EventHandler(this.frmConfiguracion_Load);

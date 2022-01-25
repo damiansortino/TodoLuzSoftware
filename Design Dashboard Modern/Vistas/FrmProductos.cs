@@ -66,6 +66,7 @@ namespace Design_Dashboard_Modern.Vistas
         {
             FrmAgregarProducto agregar = new FrmAgregarProducto();
             agregar.ShowDialog();
+            Refrescar();
         }
 
         private void FrmProductos_Enter(object sender, EventArgs e)
