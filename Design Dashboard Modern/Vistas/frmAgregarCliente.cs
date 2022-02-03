@@ -65,7 +65,7 @@ namespace Design_Dashboard_Modern.Vistas
             }
             else
             {
-                
+
                 using (todoluzdbEntities DB = new todoluzdbEntities())
                 {
                     editar.NombreyApellido = tbApellidoyNombre.Text.ToUpper();

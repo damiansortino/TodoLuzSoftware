@@ -12,6 +12,7 @@ namespace Design_Dashboard_Modern.Vistas
         List<Producto> productos = new List<Producto>();
         AutoCompleteStringCollection nombresproductos = new AutoCompleteStringCollection();
         List<detalleFactura> detalles = new List<detalleFactura>();
+        List<Cliente> clientes = new List<Cliente>();
         public FrmVentas()
         {
             InitializeComponent();
@@ -30,10 +31,22 @@ namespace Design_Dashboard_Modern.Vistas
                 {
                     nombresproductos.Add(item.Nombre);
                 }
+                foreach (Cliente cli in DB.Cliente)
+                {
+                    if (cli.fechaBaja == null)
+                    {
+                        clientes.Add(cli);
+                    }
+                }
+
             }
 
             tbNombreProducto.AutoCompleteCustomSource = nombresproductos;
             tbNombreProducto.Focus();
+
+            cboxCliente.ValueMember = "Id";
+            cboxCliente.DisplayMember = "NombreyApellido";
+            cboxCliente.DataSource = clientes;
         }
 
         private void tbNombreProducto_Leave(object sender, EventArgs e)
@@ -102,7 +115,6 @@ namespace Design_Dashboard_Modern.Vistas
                 lblSubtotalGeneral.Text = stg.ToString();
                 //fin
 
-
             }
             else
             {
@@ -110,11 +122,12 @@ namespace Design_Dashboard_Modern.Vistas
                 tbNombreProducto.Focus();
             }
 
-            //activa boton medio de pago y quitar producto
+            //activa boton medio de pago y quitar producto, desactiva cb cliente
             if (dgvMuestraDetallesProductos.Rows.Count > 0)
             {
                 btnMediosDePago.Visible = true;
                 btnQuitarProducto.Visible = true;
+                cboxCliente.Enabled = false;
             }
 
 
@@ -163,7 +176,10 @@ namespace Design_Dashboard_Modern.Vistas
             lblTotalGeneral.Text = lblSubtotalGeneral.Text;
             tbEfectivo.Text = "0";
             tbTarjetas.Text = "0";
+            tbDescuentos.Text = "0";
+            tbCtaCte.Text = "0";
             btnImprimirPresupuesto.Enabled = true;
+
         }
 
         private void btnQuitarProducto_Click(object sender, EventArgs e)
@@ -223,28 +239,50 @@ namespace Design_Dashboard_Modern.Vistas
                 lblRestoPorPagar.Visible = false;
                 btnAceptarVenta.Enabled = true;
             }
-
-
         }
 
         private void btnAceptarVenta_Click(object sender, EventArgs e)
         {
-            if (ValidarSumas())
+            using (todoluzdbEntities DB = new todoluzdbEntities())
             {
+                if (ValidarSumas())
+                {
+                    comprobante comprobante = new comprobante();
+                    comprobante.bonificacion = double.Parse(tbDescuentos.Text);
+                    comprobante.ClienteId = int.Parse(cboxCliente.ValueMember.ToString());
+                    comprobante.fechaAlta = System.DateTime.Now;
+                    comprobante.importe = double.Parse(lblTotalGeneral.Text);
+                    comprobante.efectivo = double.Parse(tbEfectivo.Text);
+                    comprobante.CtaCte = double.Parse(tbCtaCte.Text);
+                    comprobante.tarjeta = double.Parse(tbTarjetas.Text);
+                    comprobante.TipoComprobanteId = 1;
+
+                    DB.comprobante.Add(comprobante);
+                    DB.SaveChanges();
+
+                    MessageBox.Show("Nuevo comprobante creado correctamente");
+                }
+
+
+
+
 
             }
+
         }
 
         private bool ValidarSumas()
         {
-            double total, descuento, efectivo, tarjeta;
+            double total, descuento, efectivo, tarjeta, ctacte;
 
             total = double.Parse(lblTotalGeneral.Text);
             descuento = double.Parse(tbDescuentos.Text);
             efectivo = double.Parse(tbEfectivo.Text);
             tarjeta = double.Parse(tbTarjetas.Text);
+            ctacte = double.Parse(tbCtaCte.Text);//ver
 
-            if (total - descuento == (efectivo + tarjeta))
+
+            if (total - descuento == (efectivo + tarjeta) + ctacte)
             {
                 return true;
             }
@@ -255,5 +293,31 @@ namespace Design_Dashboard_Modern.Vistas
 
         }
 
+        private void tbCodigo_Leave(object sender, EventArgs e)
+        {
+            if (tbCodigo.TextLength != 0)
+            {
+                if (productos.Contains(productos.Find(x => x.Codigo.ToUpper() == tbCodigo.Text.Trim().ToUpper())))
+                {
+                    Producto encontrado = productos.Find(x => x.Codigo.ToUpper() == tbCodigo.Text.Trim().ToUpper());
+
+                    tbNombreProducto.Text = encontrado.Nombre;
+                    tbPrecio.Text = (encontrado.PrecioCosto
+                        + (encontrado.PrecioCosto * encontrado.Rentabilidad) / 100).ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado");
+                }
+
+            }
+
+            tbNombreProducto.Text = tbNombreProducto.Text.ToUpper();
+        }
+
+        private void tbCtaCte_Leave(object sender, EventArgs e)
+        {
+            if (tbCtaCte.Text == "" || tbCtaCte.Text == null) tbCtaCte.Text = "0";
+        }
     }
 }

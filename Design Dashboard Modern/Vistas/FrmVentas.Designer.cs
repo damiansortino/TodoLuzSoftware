@@ -33,6 +33,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnImprimirPresupuesto = new System.Windows.Forms.Button();
             this.btnQuitarProducto = new System.Windows.Forms.Button();
             this.panMediosDePago = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbCtaCte = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblSubtotalGeneral = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -122,6 +124,8 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // panMediosDePago
             // 
+            this.panMediosDePago.Controls.Add(this.label13);
+            this.panMediosDePago.Controls.Add(this.tbCtaCte);
             this.panMediosDePago.Controls.Add(this.label7);
             this.panMediosDePago.Controls.Add(this.lblSubtotalGeneral);
             this.panMediosDePago.Controls.Add(this.label9);
@@ -140,11 +144,29 @@ namespace Design_Dashboard_Modern.Vistas
             this.panMediosDePago.TabIndex = 16;
             this.panMediosDePago.Visible = false;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(3, 228);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(70, 24);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "Cta Cte";
+            // 
+            // tbCtaCte
+            // 
+            this.tbCtaCte.Location = new System.Drawing.Point(229, 230);
+            this.tbCtaCte.Name = "tbCtaCte";
+            this.tbCtaCte.Size = new System.Drawing.Size(100, 22);
+            this.tbCtaCte.TabIndex = 13;
+            this.tbCtaCte.Leave += new System.EventHandler(this.tbCtaCte_Leave);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 65);
+            this.label7.Location = new System.Drawing.Point(3, 38);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(149, 24);
             this.label7.TabIndex = 1;
@@ -154,7 +176,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.lblSubtotalGeneral.AutoSize = true;
             this.lblSubtotalGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotalGeneral.Location = new System.Drawing.Point(231, 69);
+            this.lblSubtotalGeneral.Location = new System.Drawing.Point(231, 38);
             this.lblSubtotalGeneral.Name = "lblSubtotalGeneral";
             this.lblSubtotalGeneral.Size = new System.Drawing.Size(77, 24);
             this.lblSubtotalGeneral.TabIndex = 2;
@@ -164,7 +186,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 101);
+            this.label9.Location = new System.Drawing.Point(3, 74);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(110, 24);
             this.label9.TabIndex = 3;
@@ -172,7 +194,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbDescuentos
             // 
-            this.tbDescuentos.Location = new System.Drawing.Point(232, 96);
+            this.tbDescuentos.Location = new System.Drawing.Point(229, 77);
             this.tbDescuentos.Name = "tbDescuentos";
             this.tbDescuentos.Size = new System.Drawing.Size(100, 22);
             this.tbDescuentos.TabIndex = 4;
@@ -182,7 +204,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 216);
+            this.label11.Location = new System.Drawing.Point(3, 189);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 24);
             this.label11.TabIndex = 12;
@@ -192,7 +214,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 139);
+            this.label10.Location = new System.Drawing.Point(3, 112);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(120, 24);
             this.label10.TabIndex = 5;
@@ -200,7 +222,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbTarjetas
             // 
-            this.tbTarjetas.Location = new System.Drawing.Point(234, 205);
+            this.tbTarjetas.Location = new System.Drawing.Point(229, 192);
             this.tbTarjetas.Name = "tbTarjetas";
             this.tbTarjetas.Size = new System.Drawing.Size(100, 22);
             this.tbTarjetas.TabIndex = 11;
@@ -210,7 +232,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.lblTotalGeneral.AutoSize = true;
             this.lblTotalGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalGeneral.Location = new System.Drawing.Point(231, 135);
+            this.lblTotalGeneral.Location = new System.Drawing.Point(225, 112);
             this.lblTotalGeneral.Name = "lblTotalGeneral";
             this.lblTotalGeneral.Size = new System.Drawing.Size(51, 24);
             this.lblTotalGeneral.TabIndex = 6;
@@ -221,7 +243,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.lblRestoPorPagar.AutoSize = true;
             this.lblRestoPorPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRestoPorPagar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblRestoPorPagar.Location = new System.Drawing.Point(58, 12);
+            this.lblRestoPorPagar.Location = new System.Drawing.Point(57, 4);
             this.lblRestoPorPagar.Name = "lblRestoPorPagar";
             this.lblRestoPorPagar.Size = new System.Drawing.Size(115, 24);
             this.lblRestoPorPagar.TabIndex = 10;
@@ -232,7 +254,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 176);
+            this.label8.Location = new System.Drawing.Point(3, 149);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 24);
             this.label8.TabIndex = 9;
@@ -240,7 +262,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbEfectivo
             // 
-            this.tbEfectivo.Location = new System.Drawing.Point(234, 167);
+            this.tbEfectivo.Location = new System.Drawing.Point(229, 152);
             this.tbEfectivo.Name = "tbEfectivo";
             this.tbEfectivo.Size = new System.Drawing.Size(100, 22);
             this.tbEfectivo.TabIndex = 8;
@@ -322,7 +344,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.cboxCliente.FormattingEnabled = true;
             this.cboxCliente.Location = new System.Drawing.Point(86, 3);
             this.cboxCliente.Name = "cboxCliente";
-            this.cboxCliente.Size = new System.Drawing.Size(121, 28);
+            this.cboxCliente.Size = new System.Drawing.Size(247, 28);
             this.cboxCliente.TabIndex = 14;
             // 
             // label6
@@ -450,6 +472,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(131, 20);
             this.tbCodigo.TabIndex = 1;
+            this.tbCodigo.Leave += new System.EventHandler(this.tbCodigo_Leave);
             // 
             // tbNombreProducto
             // 
@@ -523,5 +546,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Button btnImprimirPresupuesto;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cboxCliente;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tbCtaCte;
     }
 }
