@@ -243,13 +243,15 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnAceptarVenta_Click(object sender, EventArgs e)
         {
+            btnAceptarVenta.Enabled = false;
+
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
                 if (ValidarSumas())
                 {
                     comprobante comprobante = new comprobante();
                     comprobante.bonificacion = double.Parse(tbDescuentos.Text);
-                    comprobante.ClienteId = int.Parse(cboxCliente.ValueMember.ToString());
+                    comprobante.ClienteId = int.Parse(cboxCliente.SelectedValue.ToString());
                     comprobante.fechaAlta = System.DateTime.Now;
                     comprobante.importe = double.Parse(lblTotalGeneral.Text);
                     comprobante.efectivo = double.Parse(tbEfectivo.Text);
@@ -260,12 +262,16 @@ namespace Design_Dashboard_Modern.Vistas
                     DB.comprobante.Add(comprobante);
                     DB.SaveChanges();
 
+                    var registroactualizado = DB.Set<comprobante>().OrderByDescending(t => t.Id).FirstOrDefault();
+
+                    comprobante.codigo = "XV001-" + registroactualizado.Id.ToString();
+
+                    DB.Entry(comprobante).State = System.Data.Entity.EntityState.Modified;
+
+                    DB.SaveChanges();
+
                     MessageBox.Show("Nuevo comprobante creado correctamente");
                 }
-
-
-
-
 
             }
 
