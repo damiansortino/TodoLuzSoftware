@@ -42,26 +42,29 @@ namespace Design_Dashboard_Modern.Vistas
             // tbUsuario
             // 
             this.tbUsuario.BackColor = System.Drawing.Color.White;
-            this.tbUsuario.Location = new System.Drawing.Point(199, 107);
+            this.tbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsuario.Location = new System.Drawing.Point(146, 67);
             this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(156, 20);
+            this.tbUsuario.Size = new System.Drawing.Size(188, 26);
             this.tbUsuario.TabIndex = 0;
             // 
             // tbContraseña
             // 
             this.tbContraseña.BackColor = System.Drawing.Color.White;
-            this.tbContraseña.Location = new System.Drawing.Point(199, 133);
+            this.tbContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbContraseña.Location = new System.Drawing.Point(146, 107);
             this.tbContraseña.Name = "tbContraseña";
             this.tbContraseña.PasswordChar = '*';
-            this.tbContraseña.Size = new System.Drawing.Size(156, 20);
+            this.tbContraseña.Size = new System.Drawing.Size(188, 26);
             this.tbContraseña.TabIndex = 1;
             // 
             // btnIngresar
             // 
             this.btnIngresar.BackColor = System.Drawing.Color.Transparent;
-            this.btnIngresar.Location = new System.Drawing.Point(177, 186);
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.Location = new System.Drawing.Point(174, 187);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(75, 23);
+            this.btnIngresar.Size = new System.Drawing.Size(100, 32);
             this.btnIngresar.TabIndex = 2;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
@@ -83,10 +86,11 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.linkOlvide.AutoSize = true;
             this.linkOlvide.BackColor = System.Drawing.Color.Transparent;
+            this.linkOlvide.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkOlvide.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.linkOlvide.Location = new System.Drawing.Point(19, 233);
+            this.linkOlvide.Location = new System.Drawing.Point(11, 241);
             this.linkOlvide.Name = "linkOlvide";
-            this.linkOlvide.Size = new System.Drawing.Size(106, 13);
+            this.linkOlvide.Size = new System.Drawing.Size(156, 20);
             this.linkOlvide.TabIndex = 4;
             this.linkOlvide.TabStop = true;
             this.linkOlvide.Text = "Olvidé mi contraseña";
@@ -96,10 +100,11 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.linkCrearUsuario.AutoSize = true;
             this.linkCrearUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.linkCrearUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkCrearUsuario.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.linkCrearUsuario.Location = new System.Drawing.Point(283, 233);
+            this.linkCrearUsuario.Location = new System.Drawing.Point(247, 241);
             this.linkCrearUsuario.Name = "linkCrearUsuario";
-            this.linkCrearUsuario.Size = new System.Drawing.Size(117, 13);
+            this.linkCrearUsuario.Size = new System.Drawing.Size(173, 20);
             this.linkCrearUsuario.TabIndex = 5;
             this.linkCrearUsuario.TabStop = true;
             this.linkCrearUsuario.Text = "Crear un nuevo usuario";
@@ -109,9 +114,10 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(140, 110);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(63, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(61, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "usuario";
             // 
@@ -119,9 +125,10 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(120, 136);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(32, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Contraseña";
             // 

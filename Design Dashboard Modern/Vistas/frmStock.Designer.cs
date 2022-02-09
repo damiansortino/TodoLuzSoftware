@@ -43,12 +43,13 @@ namespace Design_Dashboard_Modern.Vistas
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.cboxTipoMovStock = new System.Windows.Forms.ComboBox();
+            this.maskedtbCantidad = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraStock)).BeginInit();
             this.panelMovimientosStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -118,6 +119,8 @@ namespace Design_Dashboard_Modern.Vistas
             // panelMovimientosStock
             // 
             this.panelMovimientosStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(127)))), ((int)(((byte)(70)))));
+            this.panelMovimientosStock.Controls.Add(this.label4);
+            this.panelMovimientosStock.Controls.Add(this.maskedtbCantidad);
             this.panelMovimientosStock.Controls.Add(this.pictureBox2);
             this.panelMovimientosStock.Controls.Add(this.pictureBox1);
             this.panelMovimientosStock.Controls.Add(this.tbCodigoProductoMovStock);
@@ -125,7 +128,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.panelMovimientosStock.Controls.Add(this.button4);
             this.panelMovimientosStock.Controls.Add(this.button2);
             this.panelMovimientosStock.Controls.Add(this.button1);
-            this.panelMovimientosStock.Controls.Add(this.textBox1);
             this.panelMovimientosStock.Controls.Add(this.label3);
             this.panelMovimientosStock.Controls.Add(this.radioButton2);
             this.panelMovimientosStock.Controls.Add(this.radioButton1);
@@ -165,6 +167,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbCodigoProductoMovStock.Size = new System.Drawing.Size(232, 24);
             this.tbCodigoProductoMovStock.TabIndex = 14;
             this.tbCodigoProductoMovStock.Text = "Código del Producto";
+            this.tbCodigoProductoMovStock.Enter += new System.EventHandler(this.tbCodigoProductoMovStock_Enter);
+            this.tbCodigoProductoMovStock.Leave += new System.EventHandler(this.tbCodigoProductoMovStock_Leave);
             // 
             // button5
             // 
@@ -177,6 +181,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.button5.TabIndex = 13;
             this.button5.Text = "-";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -189,6 +194,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.button4.TabIndex = 12;
             this.button4.Text = "+";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -218,14 +224,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.button1.TabIndex = 10;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(214, 211);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(43, 22);
-            this.textBox1.TabIndex = 9;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -280,6 +279,26 @@ namespace Design_Dashboard_Modern.Vistas
             this.cboxTipoMovStock.Size = new System.Drawing.Size(183, 28);
             this.cboxTipoMovStock.TabIndex = 4;
             // 
+            // maskedtbCantidad
+            // 
+            this.maskedtbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedtbCantidad.Location = new System.Drawing.Point(214, 206);
+            this.maskedtbCantidad.Mask = "999999";
+            this.maskedtbCantidad.Name = "maskedtbCantidad";
+            this.maskedtbCantidad.PromptChar = ' ';
+            this.maskedtbCantidad.Size = new System.Drawing.Size(45, 26);
+            this.maskedtbCantidad.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(116, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 20);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Código del producto";
+            // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,7 +337,6 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
@@ -327,5 +345,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.TextBox tbCodigoProductoMovStock;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.MaskedTextBox maskedtbCantidad;
+        private System.Windows.Forms.Label label4;
     }
 }
