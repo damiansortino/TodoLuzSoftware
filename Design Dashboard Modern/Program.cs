@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Design_Dashboard_Modern.Vistas;
+using System;
 using System.Windows.Forms;
-using Design_Dashboard_Modern.Vistas;
 
 namespace Design_Dashboard_Modern
 {
@@ -14,7 +14,7 @@ namespace Design_Dashboard_Modern
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+
             Application.Run(new FrmLogin());
         }
     }

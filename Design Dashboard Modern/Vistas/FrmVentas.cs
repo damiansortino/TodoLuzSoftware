@@ -249,6 +249,7 @@ namespace Design_Dashboard_Modern.Vistas
             {
                 if (ValidarSumas())
                 {
+                    #region crear comprobante en base de datos
                     comprobante comprobante = new comprobante();
                     comprobante.bonificacion = double.Parse(tbDescuentos.Text);
                     comprobante.ClienteId = int.Parse(cboxCliente.SelectedValue.ToString());
@@ -258,7 +259,7 @@ namespace Design_Dashboard_Modern.Vistas
                     comprobante.CtaCte = double.Parse(tbCtaCte.Text);
                     comprobante.tarjeta = double.Parse(tbTarjetas.Text);
                     comprobante.TipoComprobanteId = 1;
-
+                    comprobante.UserId = UsuarioActivo.Id;
                     DB.comprobante.Add(comprobante);
                     DB.SaveChanges();
 
@@ -269,8 +270,57 @@ namespace Design_Dashboard_Modern.Vistas
                     DB.Entry(comprobante).State = System.Data.Entity.EntityState.Modified;
 
                     DB.SaveChanges();
+                    #endregion
 
-                    MessageBox.Show("Nuevo comprobante creado correctamente");
+                    #region Guardar detalles en base de datos
+                    foreach (detalleFactura det in detalles)
+                    {
+                        det.ComprobanteId = registroactualizado.Id;
+                        det.fechaAlta = registroactualizado.fechaAlta;
+                        DB.detalleFactura.Add(det);
+                        DB.SaveChanges();
+                    }
+                    #endregion
+
+                    #region Actualizar stock
+                    foreach (detalleFactura alpha in detalles)
+                    {
+                        if (DB.Stock.ToList().FindAll(x=>x.ProductoId == alpha.ProductoId).Count > 0)
+                        {
+
+                        }
+
+                    }
+
+
+
+                    #endregion
+
+                    #region Crear movimiento de stock
+
+
+
+
+                    #endregion
+                    
+                    #region Actualizar Caja
+
+
+
+
+                    #endregion
+
+                    #region Crear movimiento de Caja
+
+                    #endregion
+                    
+                    MessageBox.Show("Venta Cargada Correctamente");
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Revise el/los medios de pago");
                 }
 
             }
@@ -279,16 +329,15 @@ namespace Design_Dashboard_Modern.Vistas
 
         private bool ValidarSumas()
         {
-            double total, descuento, efectivo, tarjeta, ctacte;
+            double total, efectivo, tarjeta, ctacte;
 
             total = double.Parse(lblTotalGeneral.Text);
-            descuento = double.Parse(tbDescuentos.Text);
             efectivo = double.Parse(tbEfectivo.Text);
             tarjeta = double.Parse(tbTarjetas.Text);
-            ctacte = double.Parse(tbCtaCte.Text);//ver
+            ctacte = double.Parse(tbCtaCte.Text);
 
 
-            if (total - descuento == (efectivo + tarjeta) + ctacte)
+            if (total == (efectivo + tarjeta) + ctacte)
             {
                 return true;
             }

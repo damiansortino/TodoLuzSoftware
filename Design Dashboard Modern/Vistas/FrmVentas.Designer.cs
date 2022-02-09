@@ -30,6 +30,8 @@ namespace Design_Dashboard_Modern.Vistas
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnImprimirPresupuesto = new System.Windows.Forms.Button();
             this.btnQuitarProducto = new System.Windows.Forms.Button();
             this.panMediosDePago = new System.Windows.Forms.Panel();
@@ -67,6 +69,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbCodigo = new System.Windows.Forms.TextBox();
             this.tbNombreProducto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panMediosDePago.SuspendLayout();
@@ -82,6 +85,11 @@ namespace Design_Dashboard_Modern.Vistas
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnImprimirPresupuesto);
@@ -95,6 +103,24 @@ namespace Design_Dashboard_Modern.Vistas
             this.splitContainer1.SplitterDistance = 54;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(131, 11);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 34);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Ver Ventas";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 34);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Nueva Venta";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnImprimirPresupuesto
             // 
@@ -497,6 +523,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.Name = "FrmVentas";
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.Ventas_Load);
+            this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -548,5 +575,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.ComboBox cboxCliente;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbCtaCte;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

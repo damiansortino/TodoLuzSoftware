@@ -16,7 +16,6 @@ namespace Design_Dashboard_Modern.Models
     {
         public int StockId { get; set; }
         public int cantidad { get; set; }
-        public int SucursalId { get; set; }
         public int ProductoId { get; set; }
     }
 }

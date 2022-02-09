@@ -10,13 +10,13 @@
 namespace Design_Dashboard_Modern.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Sucursal
+    public partial class sp_helpdiagrams_Result
     {
-        public int SucursalId { get; set; }
-        public string nombreSucursal { get; set; }
-        public System.DateTime fechaAlta { get; set; }
-        public Nullable<System.DateTime> fechaBaja { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

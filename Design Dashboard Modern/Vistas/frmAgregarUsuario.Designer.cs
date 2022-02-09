@@ -204,7 +204,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(93, 477);
+            this.btnAceptar.Location = new System.Drawing.Point(106, 443);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 24;
@@ -215,7 +215,7 @@ namespace Design_Dashboard_Modern.Vistas
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(282, 477);
+            this.btnCancelar.Location = new System.Drawing.Point(295, 443);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 25;

@@ -10,13 +10,10 @@
 namespace Design_Dashboard_Modern.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Caja
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int CajaId { get; set; }
-        public System.DateTime fechaCaja { get; set; }
-        public Nullable<System.DateTime> fechaCierreCaja { get; set; }
-        public double montoCaja { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

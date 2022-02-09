@@ -39,7 +39,10 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.dgvVerProductos = new System.Windows.Forms.DataGridView();
+            this.Buscar = new System.Windows.Forms.DataGridView();
+            this.tbFiltro = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.split)).BeginInit();
             this.split.Panel1.SuspendLayout();
@@ -49,7 +52,7 @@ namespace Design_Dashboard_Modern.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVerProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Buscar)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -71,11 +74,14 @@ namespace Design_Dashboard_Modern.Vistas
             // split.Panel1
             // 
             this.split.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(127)))), ((int)(((byte)(70)))));
+            this.split.Panel1.Controls.Add(this.btnRefrescar);
+            this.split.Panel1.Controls.Add(this.btnBuscar);
+            this.split.Panel1.Controls.Add(this.tbFiltro);
             this.split.Panel1.Controls.Add(this.pnBotonesCrud);
             // 
             // split.Panel2
             // 
-            this.split.Panel2.Controls.Add(this.dgvVerProductos);
+            this.split.Panel2.Controls.Add(this.Buscar);
             this.split.Size = new System.Drawing.Size(1084, 749);
             this.split.SplitterDistance = 81;
             this.split.TabIndex = 1;
@@ -168,19 +174,60 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // dgvVerProductos
+            // Buscar
             // 
-            this.dgvVerProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(88)))), ((int)(((byte)(86)))));
-            this.dgvVerProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVerProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvVerProductos.Location = new System.Drawing.Point(0, 0);
-            this.dgvVerProductos.MultiSelect = false;
-            this.dgvVerProductos.Name = "dgvVerProductos";
-            this.dgvVerProductos.ReadOnly = true;
-            this.dgvVerProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVerProductos.Size = new System.Drawing.Size(1084, 664);
-            this.dgvVerProductos.TabIndex = 0;
-            this.dgvVerProductos.Visible = false;
+            this.Buscar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(88)))), ((int)(((byte)(86)))));
+            this.Buscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Buscar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Buscar.Location = new System.Drawing.Point(0, 0);
+            this.Buscar.MultiSelect = false;
+            this.Buscar.Name = "Buscar";
+            this.Buscar.ReadOnly = true;
+            this.Buscar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Buscar.Size = new System.Drawing.Size(1084, 664);
+            this.Buscar.TabIndex = 0;
+            this.Buscar.Visible = false;
+            // 
+            // tbFiltro
+            // 
+            this.tbFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFiltro.Location = new System.Drawing.Point(458, 12);
+            this.tbFiltro.Name = "tbFiltro";
+            this.tbFiltro.Size = new System.Drawing.Size(283, 22);
+            this.tbFiltro.TabIndex = 4;
+            this.tbFiltro.Text = "Ingrese aquí el nombre o código de producto";
+            this.tbFiltro.Enter += new System.EventHandler(this.tbFiltro_Enter);
+            this.tbFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFiltro_KeyPress);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(185)))), ((int)(((byte)(55)))));
+            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscar.Location = new System.Drawing.Point(555, 38);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(95, 40);
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(185)))), ((int)(((byte)(55)))));
+            this.btnRefrescar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefrescar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefrescar.Location = new System.Drawing.Point(766, 12);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(162, 51);
+            this.btnRefrescar.TabIndex = 8;
+            this.btnRefrescar.Text = "Ver todos los productos";
+            this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmProductos
             // 
@@ -199,6 +246,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.Enter += new System.EventHandler(this.FrmProductos_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.split.Panel1.ResumeLayout(false);
+            this.split.Panel1.PerformLayout();
             this.split.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.split)).EndInit();
             this.split.ResumeLayout(false);
@@ -206,7 +254,7 @@ namespace Design_Dashboard_Modern.Vistas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVerProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Buscar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,7 +263,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.SplitContainer split;
-        private System.Windows.Forms.DataGridView dgvVerProductos;
+        private System.Windows.Forms.DataGridView Buscar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
@@ -223,5 +271,8 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox tbFiltro;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }

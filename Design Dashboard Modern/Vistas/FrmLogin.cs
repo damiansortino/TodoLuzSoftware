@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Design_Dashboard_Modern.Models;
+using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Design_Dashboard_Modern.Models;
-using System.Linq;
 
 namespace Design_Dashboard_Modern.Vistas
 {
@@ -33,8 +27,8 @@ namespace Design_Dashboard_Modern.Vistas
                           where d.UserName == tbUsuario.Text && d.Pass == spass
                           select d;
 
-                
-                if (lst.Count()>0)
+
+                if (lst.Count() > 0)
                 {
                     //UsuarioActivo activo = new UsuarioActivo();
                     Usuario usuariolog = DB.Usuario.ToList().FindAll(x => x.UserName == tbUsuario.Text)[0];
@@ -44,10 +38,10 @@ namespace Design_Dashboard_Modern.Vistas
 
                     this.Hide();
                     Main programa = new Main();
-                    programa.FormClosed += (s,args) => this.Close();
+                    programa.FormClosed += (s, args) => this.Close();
                     programa.Show();
 
-                    MessageBox.Show("Bienvenido "+UsuarioActivo.ApellidoyNombre);
+                    MessageBox.Show("Bienvenido " + UsuarioActivo.ApellidoyNombre);
 
                     /*
                     activo.ApellidoyNombre = usuariolog.ApellidoyNombre;
@@ -61,7 +55,7 @@ namespace Design_Dashboard_Modern.Vistas
                 {
                     MessageBox.Show("Usuario No encontrado");
                 }
-                
+
 
             }
         }

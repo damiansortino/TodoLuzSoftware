@@ -23,36 +23,65 @@ namespace Design_Dashboard_Modern.Vistas
         #region Helper
         private void Refrescar()
         {
-            dgvVerProductos.DataSource = null;
+            Buscar.DataSource = null;
 
             using (todoluzdbEntities db = new todoluzdbEntities())
             {
-                var lst = from d in db.Producto select d;
+                var lst = (from d in db.Stock
+                           join e in db.Producto
+                           on d.ProductoId equals e.Id where e.FechaBaja == null
+                           orderby e.Id ascending
+                           select new
+                           {
+                               Codigo = e.Codigo,
+                               Nombre = e.Nombre,
+                               Marca = e.Marca,
+                               Modelo = e.Modelo,
+                               Color = e.Color,
+                               Precio = e.PrecioCosto + (e.PrecioCosto * e.Rentabilidad) / 100,
+                               Disponible = d.cantidad
+                           }).ToList();
 
-                //List<Producto> productosnuevos = from Producto in db.Producto;
-                List<Producto> products = lst.ToList();
-                products = products.FindAll(x => x.FechaBaja == null);
-
-                dgvVerProductos.DataSource = products;
+                Buscar.DataSource = lst;
             }
-            dgvVerProductos.Visible = true;
+            Buscar.Visible = true;
         }
-        private void AbrirFormHijo(Object formhijo)
-        {
-            if (this.split.Panel2.Controls.Count > 0) this.split.Panel2.Controls.RemoveAt(0);
 
-            Form fh = formhijo as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.split.Panel2.Controls.Add(fh);
-            this.split.Panel2.Tag = fh;
-            fh.Show();
+        private void BuscaFiltro(string filtro)
+        {
+            Buscar.DataSource = null;
+
+            using (todoluzdbEntities db = new todoluzdbEntities())
+            {
+                var lst = (from d in db.Stock
+                           join e in db.Producto
+                           on d.ProductoId equals e.Id
+                           where e.FechaBaja == null && (e.Nombre.Contains(filtro)||e.Codigo.Contains(filtro))
+                           orderby e.Id ascending
+                           select new
+                           {
+                               Codigo = e.Codigo,
+                               Nombre = e.Nombre,
+                               Marca = e.Marca,
+                               Modelo = e.Modelo,
+                               Color = e.Color,
+                               Precio = e.PrecioCosto + (e.PrecioCosto * e.Rentabilidad) / 100,
+                               Disponible = d.cantidad
+                           }).ToList();
+
+                Buscar.DataSource = lst;
+            }
+            Buscar.Visible = true;
         }
+
+
+
+
         private int? GetId()
         {
             try
             {
-                return int.Parse(dgvVerProductos.Rows[dgvVerProductos.CurrentRow.Index].Cells[0].Value.ToString());
+                return int.Parse(Buscar.Rows[Buscar.CurrentRow.Index].Cells[0].Value.ToString());
             }
             catch (Exception)
             {
@@ -83,6 +112,7 @@ namespace Design_Dashboard_Modern.Vistas
                 FrmAgregarProducto modificar = new FrmAgregarProducto(id);
                 modificar.ShowDialog();
             }
+            Refrescar();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -105,5 +135,28 @@ namespace Design_Dashboard_Modern.Vistas
 
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscaFiltro(tbFiltro.Text.Trim());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Refrescar();
+        }
+
+        private void tbFiltro_Enter(object sender, EventArgs e)
+        {
+            tbFiltro.Text = "";
+        }
+
+        private void tbFiltro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled=true;
+                btnBuscar.PerformClick();   
+            }
+        }
     }
 }

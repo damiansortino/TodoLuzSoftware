@@ -45,7 +45,6 @@ namespace Design_Dashboard_Modern.Vistas
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             AgregarProducto();
-
         }
 
         private void cbTieneCodigoBarra_CheckStateChanged(object sender, EventArgs e)
@@ -95,6 +94,14 @@ namespace Design_Dashboard_Modern.Vistas
                             oproducto.Codigo = tbCódigo.Text;
                             db.Producto.Add(oproducto);
                             db.SaveChanges();
+                            
+                            var registroMasActualizado = db.Set<Producto>().OrderByDescending(t => t.Id).FirstOrDefault();
+
+                            Stock stockproducto = new Stock();
+                            stockproducto.cantidad = 0;
+                            stockproducto.ProductoId = registroMasActualizado.Id;
+                            db.Stock.Add(stockproducto);
+                            db.SaveChanges();
                             MessageBox.Show("Producto Agregado Correctamente");
                             this.Close();
                         }
@@ -109,6 +116,13 @@ namespace Design_Dashboard_Modern.Vistas
 
                             db.Entry(oproducto).State = System.Data.Entity.EntityState.Modified;
                             db.SaveChanges();
+
+                            Stock stockproducto = new Stock();
+                            stockproducto.cantidad = 0;
+                            stockproducto.ProductoId = registroMasActualizado.Id;
+                            db.Stock.Add(stockproducto);
+                            db.SaveChanges();
+
                             MessageBox.Show("Producto Agregado Correctamente");
                             this.Close();
                         }

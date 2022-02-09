@@ -1,12 +1,5 @@
 ﻿using Design_Dashboard_Modern.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Design_Dashboard_Modern.Vistas
@@ -26,29 +19,51 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Usuario nuevo = new Usuario();
-
-            using (todoluzdbEntities DB = new todoluzdbEntities())
+            if (ValidarCampos())
             {
-                nuevo.UserName = tbUsuario.Text;
-                nuevo.Pass = Encrypt.GetSHA256(tbContraseña.Text);
-                nuevo.Email = tbMail.Text;
-                nuevo.ApellidoyNombre = tbApellidoyNombre.Text;
-                nuevo.DNI = tbDNI.Text;
-                nuevo.FechadeNac = dtpFechaNac.Value.ToString();
-                nuevo.Direccion = tbDireccion.Text;
-                nuevo.Telefono = tbTelefono.Text;
-                nuevo.TipoUser = cbTipoUser.Text;
-                nuevo.FechaAlta = System.DateTime.Now;
+                using (todoluzdbEntities DB = new todoluzdbEntities())
+                {
+                    Usuario nuevo = new Usuario();
+                    nuevo.UserName = tbUsuario.Text;
+                    nuevo.Pass = Encrypt.GetSHA256(tbContraseña.Text);
+                    nuevo.Email = tbMail.Text;
+                    nuevo.ApellidoyNombre = tbApellidoyNombre.Text;
+                    nuevo.DNI = tbDNI.Text;
+                    nuevo.FechadeNac = dtpFechaNac.Value.ToString();
+                    nuevo.Direccion = tbDireccion.Text;
+                    nuevo.Telefono = tbTelefono.Text;
+                    nuevo.TipoUser = cbTipoUser.Text;
+                    nuevo.FechaAlta = System.DateTime.Now;
 
-                DB.Usuario.Add(nuevo);
-                DB.SaveChanges();
+                    DB.Usuario.Add(nuevo);
+                    DB.SaveChanges();
 
-                MessageBox.Show("Usuario Agregado Correctamente");
-                this.Close();
+                    MessageBox.Show("Usuario Agregado Correctamente");
+                    this.Close();
+                }
             }
+            else
+            {
+                MessageBox.Show("Debe completar todos los datos para poder crear" +
+                    " un nuevo usuario y el nombre de usuario debe ser mayor a 3 caracteres.");
+            }
+            
+
+
 
         }
 
+
+        private bool ValidarCampos()
+        {
+            foreach (Control item in this.Controls)
+            {
+                if (item is TextBox && item.Text == string.Empty) return false;
+            }
+
+            if (tbUsuario.TextLength < 3) return false;
+
+            return true;
+        }
     }
 }
