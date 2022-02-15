@@ -30,8 +30,7 @@ namespace Design_Dashboard_Modern.Vistas
 
                 if (lst.Count() > 0)
                 {
-                    //UsuarioActivo activo = new UsuarioActivo();
-                    Usuario usuariolog = DB.Usuario.ToList().FindAll(x => x.UserName == tbUsuario.Text)[0];
+                    Usuario usuariolog = DB.Usuario.ToList().Find(x => x.UserName == tbUsuario.Text);
                     UsuarioActivo.ApellidoyNombre = usuariolog.ApellidoyNombre;
                     UsuarioActivo.Id = usuariolog.Id;
                     UsuarioActivo.TipoUsuario = usuariolog.TipoUser;
@@ -40,8 +39,6 @@ namespace Design_Dashboard_Modern.Vistas
                     Main programa = new Main();
                     programa.FormClosed += (s, args) => this.Close();
                     programa.Show();
-
-                    MessageBox.Show("Bienvenido " + UsuarioActivo.ApellidoyNombre);
 
                     /*
                     activo.ApellidoyNombre = usuariolog.ApellidoyNombre;

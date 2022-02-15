@@ -47,7 +47,7 @@ namespace Design_Dashboard_Modern.Vistas
                 MessageBox.Show("Debe completar todos los datos para poder crear" +
                     " un nuevo usuario y el nombre de usuario debe ser mayor a 3 caracteres.");
             }
-            
+
 
 
 

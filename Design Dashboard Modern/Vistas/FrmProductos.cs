@@ -1,6 +1,5 @@
 ﻿using Design_Dashboard_Modern.Models;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -29,7 +28,8 @@ namespace Design_Dashboard_Modern.Vistas
             {
                 var lst = (from d in db.Stock
                            join e in db.Producto
-                           on d.ProductoId equals e.Id where e.FechaBaja == null
+                           on d.ProductoId equals e.Id
+                           where e.FechaBaja == null
                            orderby e.Id ascending
                            select new
                            {
@@ -56,7 +56,7 @@ namespace Design_Dashboard_Modern.Vistas
                 var lst = (from d in db.Stock
                            join e in db.Producto
                            on d.ProductoId equals e.Id
-                           where e.FechaBaja == null && (e.Nombre.Contains(filtro)||e.Codigo.Contains(filtro))
+                           where e.FechaBaja == null && (e.Nombre.Contains(filtro) || e.Codigo.Contains(filtro))
                            orderby e.Id ascending
                            select new
                            {
@@ -152,10 +152,10 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void tbFiltro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                e.Handled=true;
-                btnBuscar.PerformClick();   
+                e.Handled = true;
+                btnBuscar.PerformClick();
             }
         }
     }

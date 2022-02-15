@@ -13,6 +13,8 @@ namespace Design_Dashboard_Modern.Vistas
         AutoCompleteStringCollection nombresproductos = new AutoCompleteStringCollection();
         List<detalleFactura> detalles = new List<detalleFactura>();
         List<Cliente> clientes = new List<Cliente>();
+        Cliente clisel = new Cliente();
+
         public FrmVentas()
         {
             InitializeComponent();
@@ -58,10 +60,11 @@ namespace Design_Dashboard_Modern.Vistas
                 if (productos.FindAll(x => x.Nombre.ToUpper() == tbNombreProducto.Text.ToUpper()).Count == 1)
                 {
                     Producto encontrado = productos.Find(x => x.Nombre == tbNombreProducto.Text.ToUpper());
+                    clisel = (Cliente)cboxCliente.SelectedItem;
 
                     tbCodigo.Text = encontrado.Codigo;
                     tbPrecio.Text = (encontrado.PrecioCosto
-                        + (encontrado.PrecioCosto * encontrado.Rentabilidad) / 100).ToString();
+                        + (encontrado.PrecioCosto * clisel.porcentajeRentabilidad / 100)).ToString();
                 }
                 else
                 {
@@ -96,6 +99,7 @@ namespace Design_Dashboard_Modern.Vistas
                 agregar.cantidad = int.Parse(tbCantidad.Text);
                 agregar.subtotal = double.Parse(tbSubtotalProducto.Text);
                 agregar.ProductoId = prod.Id;
+                
                 detalles.Add(agregar);
                 tbNombreProducto.Text = "";
                 tbCodigo.Text = "";
@@ -285,7 +289,7 @@ namespace Design_Dashboard_Modern.Vistas
                     #region Actualizar stock
                     foreach (detalleFactura alpha in detalles)
                     {
-                        if (DB.Stock.ToList().FindAll(x=>x.ProductoId == alpha.ProductoId).Count > 0)
+                        if (DB.Stock.ToList().FindAll(x => x.ProductoId == alpha.ProductoId).Count > 0)
                         {
 
                         }
@@ -302,7 +306,7 @@ namespace Design_Dashboard_Modern.Vistas
 
 
                     #endregion
-                    
+
                     #region Actualizar Caja
 
 
@@ -313,7 +317,7 @@ namespace Design_Dashboard_Modern.Vistas
                     #region Crear movimiento de Caja
 
                     #endregion
-                    
+
                     MessageBox.Show("Venta Cargada Correctamente");
                     this.Close();
 
@@ -358,7 +362,7 @@ namespace Design_Dashboard_Modern.Vistas
 
                     tbNombreProducto.Text = encontrado.Nombre;
                     tbPrecio.Text = (encontrado.PrecioCosto
-                        + (encontrado.PrecioCosto * encontrado.Rentabilidad) / 100).ToString();
+                        + (encontrado.PrecioCosto * clisel.porcentajeRentabilidad) / 100).ToString();
                 }
                 else
                 {

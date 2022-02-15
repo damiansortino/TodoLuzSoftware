@@ -94,7 +94,7 @@ namespace Design_Dashboard_Modern.Vistas
                             oproducto.Codigo = tbCódigo.Text;
                             db.Producto.Add(oproducto);
                             db.SaveChanges();
-                            
+
                             var registroMasActualizado = db.Set<Producto>().OrderByDescending(t => t.Id).FirstOrDefault();
 
                             Stock stockproducto = new Stock();

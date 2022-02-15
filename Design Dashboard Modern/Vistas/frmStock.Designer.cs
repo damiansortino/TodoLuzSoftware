@@ -36,6 +36,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.button3 = new System.Windows.Forms.Button();
             this.dgvMuestraStock = new System.Windows.Forms.DataGridView();
             this.panelMovimientosStock = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.maskedtbCantidad = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbCodigoProductoMovStock = new System.Windows.Forms.TextBox();
@@ -48,8 +50,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.cboxTipoMovStock = new System.Windows.Forms.ComboBox();
-            this.maskedtbCantidad = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblStockActual = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraStock)).BeginInit();
             this.panelMovimientosStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -119,6 +121,8 @@ namespace Design_Dashboard_Modern.Vistas
             // panelMovimientosStock
             // 
             this.panelMovimientosStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(127)))), ((int)(((byte)(70)))));
+            this.panelMovimientosStock.Controls.Add(this.lblStockActual);
+            this.panelMovimientosStock.Controls.Add(this.label5);
             this.panelMovimientosStock.Controls.Add(this.label4);
             this.panelMovimientosStock.Controls.Add(this.maskedtbCantidad);
             this.panelMovimientosStock.Controls.Add(this.pictureBox2);
@@ -138,6 +142,27 @@ namespace Design_Dashboard_Modern.Vistas
             this.panelMovimientosStock.Size = new System.Drawing.Size(383, 341);
             this.panelMovimientosStock.TabIndex = 7;
             this.panelMovimientosStock.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(116, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 20);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Código del producto";
+            // 
+            // maskedtbCantidad
+            // 
+            this.maskedtbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedtbCantidad.Location = new System.Drawing.Point(204, 240);
+            this.maskedtbCantidad.Mask = "999999";
+            this.maskedtbCantidad.Name = "maskedtbCantidad";
+            this.maskedtbCantidad.PromptChar = ' ';
+            this.maskedtbCantidad.Size = new System.Drawing.Size(45, 26);
+            this.maskedtbCantidad.TabIndex = 16;
+            this.maskedtbCantidad.Text = "0";
             // 
             // pictureBox2
             // 
@@ -173,7 +198,7 @@ namespace Design_Dashboard_Modern.Vistas
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(176, 206);
+            this.button5.Location = new System.Drawing.Point(166, 235);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Padding = new System.Windows.Forms.Padding(3);
@@ -186,7 +211,7 @@ namespace Design_Dashboard_Modern.Vistas
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(264, 206);
+            this.button4.Location = new System.Drawing.Point(254, 235);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(3);
@@ -230,7 +255,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(84, 215);
+            this.label3.Location = new System.Drawing.Point(80, 240);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 20);
             this.label3.TabIndex = 8;
@@ -279,25 +304,26 @@ namespace Design_Dashboard_Modern.Vistas
             this.cboxTipoMovStock.Size = new System.Drawing.Size(183, 28);
             this.cboxTipoMovStock.TabIndex = 4;
             // 
-            // maskedtbCantidad
+            // label5
             // 
-            this.maskedtbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedtbCantidad.Location = new System.Drawing.Point(214, 206);
-            this.maskedtbCantidad.Mask = "999999";
-            this.maskedtbCantidad.Name = "maskedtbCantidad";
-            this.maskedtbCantidad.PromptChar = ' ';
-            this.maskedtbCantidad.Size = new System.Drawing.Size(45, 26);
-            this.maskedtbCantidad.TabIndex = 16;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(67, 196);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 20);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Stock actual";
             // 
-            // label4
+            // lblStockActual
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(116, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(151, 20);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Código del producto";
+            this.lblStockActual.AutoSize = true;
+            this.lblStockActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockActual.Location = new System.Drawing.Point(182, 196);
+            this.lblStockActual.Name = "lblStockActual";
+            this.lblStockActual.Size = new System.Drawing.Size(109, 20);
+            this.lblStockActual.TabIndex = 19;
+            this.lblStockActual.Text = "Stock actual";
+            this.lblStockActual.Visible = false;
             // 
             // frmStock
             // 
@@ -347,5 +373,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.MaskedTextBox maskedtbCantidad;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblStockActual;
+        private System.Windows.Forms.Label label5;
     }
 }

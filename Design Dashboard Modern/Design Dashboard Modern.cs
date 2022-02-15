@@ -1,6 +1,7 @@
 ﻿using Design_Dashboard_Modern.Vistas;
 using System;
 using System.Windows.Forms;
+using Design_Dashboard_Modern.Models;
 
 namespace Design_Dashboard_Modern
 {
@@ -96,5 +97,53 @@ namespace Design_Dashboard_Modern
             AbrirFormHijo(formclientes);
         }
 
+        private void Main_Load(object sender, EventArgs e)
+        {
+            ComprobarUsuario();
+
+        }
+
+        private void ComprobarUsuario()
+        {
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+
+                lblUsuarioActivo.Text = UsuarioActivo.ApellidoyNombre;
+                lblUsuarioActivo2.Text = DB.Usuario.Find(UsuarioActivo.Id).UserName;
+
+                if(UsuarioActivo.TipoUsuario == "Ventas")
+                {
+                    btnCaja.Visible = false;
+                    btnConfiguracion.Visible = false;
+                    btnCtasCtes.Visible = false;
+                    btnInicio.Visible = false;
+                    btnVerVentas.Visible = false;
+                    btnVentas.Visible = false;
+                }
+
+                /*
+                if (UsuarioActivo.TipoUsuario == "Ventas")
+                {
+                    btnCaja.Visible = false;
+                    btnConfiguracion.Visible = false;
+                    btnCtasCtes.Visible = false;
+                    btnInicio.Visible = false;
+                    btnVerVentas.Visible = false;
+                    btnVentas.Visible = false;
+                }
+                */
+
+
+
+                //agregar límites de funcionalidad.
+
+            }
+            
+        }
+
+        private void linkCerrarCesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
