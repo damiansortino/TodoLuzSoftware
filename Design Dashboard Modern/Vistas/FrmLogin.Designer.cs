@@ -57,6 +57,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbContraseña.PasswordChar = '*';
             this.tbContraseña.Size = new System.Drawing.Size(188, 26);
             this.tbContraseña.TabIndex = 1;
+            this.tbContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbContraseña_KeyPress);
             // 
             // btnIngresar
             // 

@@ -207,6 +207,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // Buscar
             // 
+            this.Buscar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Buscar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(88)))), ((int)(((byte)(86)))));
             this.Buscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Buscar.Dock = System.Windows.Forms.DockStyle.Fill;

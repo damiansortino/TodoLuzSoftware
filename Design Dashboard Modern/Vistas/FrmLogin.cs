@@ -62,5 +62,14 @@ namespace Design_Dashboard_Modern.Vistas
             frmAgregarUsuario nuevousuario = new frmAgregarUsuario();
             nuevousuario.ShowDialog();
         }
+
+        private void tbContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                btnIngresar.PerformClick();
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -121,6 +121,16 @@ namespace Design_Dashboard_Modern
                     btnVentas.Visible = false;
                 }
 
+                if (UsuarioActivo.TipoUsuario == "Carga de Productos")
+                {
+                    btnCaja.Visible = false;
+                    btnConfiguracion.Visible = false;
+                    btnCtasCtes.Visible = false;
+                    btnInicio.Visible = false;
+                    btnVerVentas.Visible = false;
+                    btnVentas.Visible = false;
+                }
+
                 /*
                 if (UsuarioActivo.TipoUsuario == "Ventas")
                 {
