@@ -50,6 +50,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptarVenta = new System.Windows.Forms.Button();
             this.panNuevaVenta = new System.Windows.Forms.Panel();
+            this.cbNombreProducto = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cboxCliente = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbPrecio = new System.Windows.Forms.TextBox();
             this.tbCantidad = new System.Windows.Forms.TextBox();
             this.tbCodigo = new System.Windows.Forms.TextBox();
-            this.tbNombreProducto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -307,6 +307,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // panNuevaVenta
             // 
+            this.panNuevaVenta.Controls.Add(this.cbNombreProducto);
             this.panNuevaVenta.Controls.Add(this.label12);
             this.panNuevaVenta.Controls.Add(this.cboxCliente);
             this.panNuevaVenta.Controls.Add(this.label6);
@@ -322,11 +323,22 @@ namespace Design_Dashboard_Modern.Vistas
             this.panNuevaVenta.Controls.Add(this.tbPrecio);
             this.panNuevaVenta.Controls.Add(this.tbCantidad);
             this.panNuevaVenta.Controls.Add(this.tbCodigo);
-            this.panNuevaVenta.Controls.Add(this.tbNombreProducto);
             this.panNuevaVenta.Location = new System.Drawing.Point(11, 3);
             this.panNuevaVenta.Name = "panNuevaVenta";
             this.panNuevaVenta.Size = new System.Drawing.Size(1060, 366);
             this.panNuevaVenta.TabIndex = 0;
+            // 
+            // cbNombreProducto
+            // 
+            this.cbNombreProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbNombreProducto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNombreProducto.FormattingEnabled = true;
+            this.cbNombreProducto.Location = new System.Drawing.Point(3, 97);
+            this.cbNombreProducto.Name = "cbNombreProducto";
+            this.cbNombreProducto.Size = new System.Drawing.Size(479, 28);
+            this.cbNombreProducto.TabIndex = 16;
+            this.cbNombreProducto.SelectionChangeCommitted += new System.EventHandler(this.cbNombreProducto_SelectionChangeCommitted);
             // 
             // label12
             // 
@@ -351,7 +363,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(751, 69);
+            this.label6.Location = new System.Drawing.Point(723, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 24);
             this.label6.TabIndex = 13;
@@ -359,7 +371,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbDescuentoProducto
             // 
-            this.tbDescuentoProducto.Location = new System.Drawing.Point(760, 102);
+            this.tbDescuentoProducto.Location = new System.Drawing.Point(727, 102);
             this.tbDescuentoProducto.Name = "tbDescuentoProducto";
             this.tbDescuentoProducto.Size = new System.Drawing.Size(88, 20);
             this.tbDescuentoProducto.TabIndex = 3;
@@ -392,7 +404,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(669, 69);
+            this.label4.Location = new System.Drawing.Point(615, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 24);
             this.label4.TabIndex = 9;
@@ -402,7 +414,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(566, 69);
+            this.label3.Location = new System.Drawing.Point(496, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 24);
             this.label3.TabIndex = 8;
@@ -412,7 +424,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(480, 69);
+            this.label2.Location = new System.Drawing.Point(476, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 24);
             this.label2.TabIndex = 7;
@@ -451,7 +463,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbPrecio
             // 
-            this.tbPrecio.Location = new System.Drawing.Point(647, 102);
+            this.tbPrecio.Location = new System.Drawing.Point(593, 102);
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.ReadOnly = true;
             this.tbPrecio.Size = new System.Drawing.Size(99, 20);
@@ -460,7 +472,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbCantidad
             // 
-            this.tbCantidad.Location = new System.Drawing.Point(590, 102);
+            this.tbCantidad.Location = new System.Drawing.Point(520, 102);
             this.tbCantidad.Name = "tbCantidad";
             this.tbCantidad.Size = new System.Drawing.Size(41, 20);
             this.tbCantidad.TabIndex = 2;
@@ -468,22 +480,11 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // tbCodigo
             // 
-            this.tbCodigo.Location = new System.Drawing.Point(445, 102);
+            this.tbCodigo.Location = new System.Drawing.Point(553, 8);
             this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(131, 20);
+            this.tbCodigo.Size = new System.Drawing.Size(460, 20);
             this.tbCodigo.TabIndex = 1;
             this.tbCodigo.Leave += new System.EventHandler(this.tbCodigo_Leave);
-            // 
-            // tbNombreProducto
-            // 
-            this.tbNombreProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.tbNombreProducto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.tbNombreProducto.Location = new System.Drawing.Point(2, 102);
-            this.tbNombreProducto.Name = "tbNombreProducto";
-            this.tbNombreProducto.Size = new System.Drawing.Size(437, 20);
-            this.tbNombreProducto.TabIndex = 0;
-            this.tbNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNombreProducto_KeyPress);
-            this.tbNombreProducto.Leave += new System.EventHandler(this.tbNombreProducto_Leave);
             // 
             // FrmVentas
             // 
@@ -524,7 +525,6 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.TextBox tbPrecio;
         private System.Windows.Forms.TextBox tbCantidad;
         private System.Windows.Forms.TextBox tbCodigo;
-        private System.Windows.Forms.TextBox tbNombreProducto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbDescuentoProducto;
         private System.Windows.Forms.Button btnCancelar;
@@ -548,5 +548,6 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.ComboBox cboxCliente;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbCtaCte;
+        private System.Windows.Forms.ComboBox cbNombreProducto;
     }
 }

@@ -30,7 +30,6 @@ namespace Design_Dashboard_Modern.Vistas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStock));
-            this.label1 = new System.Windows.Forms.Label();
             this.tbFiltro = new System.Windows.Forms.TextBox();
             this.btnStockxProducto = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -52,25 +51,17 @@ namespace Design_Dashboard_Modern.Vistas
             this.cboxTipoMovStock = new System.Windows.Forms.ComboBox();
             this.tbCantidad = new System.Windows.Forms.TextBox();
             this.cbProducto = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraStock)).BeginInit();
             this.panelMovimientosStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(382, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Stock";
-            // 
             // tbFiltro
             // 
             this.tbFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFiltro.Location = new System.Drawing.Point(12, 33);
+            this.tbFiltro.Location = new System.Drawing.Point(12, 113);
             this.tbFiltro.Name = "tbFiltro";
             this.tbFiltro.Size = new System.Drawing.Size(344, 24);
             this.tbFiltro.TabIndex = 1;
@@ -83,7 +74,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnStockxProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockxProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStockxProducto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnStockxProducto.Location = new System.Drawing.Point(12, 74);
+            this.btnStockxProducto.Location = new System.Drawing.Point(12, 154);
             this.btnStockxProducto.Name = "btnStockxProducto";
             this.btnStockxProducto.Padding = new System.Windows.Forms.Padding(3);
             this.btnStockxProducto.Size = new System.Drawing.Size(202, 52);
@@ -98,7 +89,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(220, 74);
+            this.button3.Location = new System.Drawing.Point(220, 154);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(3);
             this.button3.Size = new System.Drawing.Size(227, 52);
@@ -111,7 +102,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.dgvMuestraStock.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(88)))), ((int)(((byte)(86)))));
             this.dgvMuestraStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMuestraStock.Location = new System.Drawing.Point(12, 144);
+            this.dgvMuestraStock.Location = new System.Drawing.Point(12, 224);
             this.dgvMuestraStock.Name = "dgvMuestraStock";
             this.dgvMuestraStock.ReadOnly = true;
             this.dgvMuestraStock.RowHeadersVisible = false;
@@ -137,7 +128,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.panelMovimientosStock.Controls.Add(this.radioButton1);
             this.panelMovimientosStock.Controls.Add(this.label2);
             this.panelMovimientosStock.Controls.Add(this.cboxTipoMovStock);
-            this.panelMovimientosStock.Location = new System.Drawing.Point(468, 12);
+            this.panelMovimientosStock.Location = new System.Drawing.Point(468, 92);
             this.panelMovimientosStock.Name = "panelMovimientosStock";
             this.panelMovimientosStock.Size = new System.Drawing.Size(383, 341);
             this.panelMovimientosStock.TabIndex = 7;
@@ -316,6 +307,8 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // cbProducto
             // 
+            this.cbProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbProducto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProducto.FormattingEnabled = true;
             this.cbProducto.Location = new System.Drawing.Point(3, 93);
@@ -323,18 +316,28 @@ namespace Design_Dashboard_Modern.Vistas
             this.cbProducto.Size = new System.Drawing.Size(377, 28);
             this.cbProducto.TabIndex = 21;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(283, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 18);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Stock";
+            // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
             this.ClientSize = new System.Drawing.Size(1084, 749);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panelMovimientosStock);
             this.Controls.Add(this.dgvMuestraStock);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnStockxProducto);
             this.Controls.Add(this.tbFiltro);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmStock";
             this.Text = "Form1";
@@ -350,8 +353,6 @@ namespace Design_Dashboard_Modern.Vistas
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbFiltro;
         private System.Windows.Forms.Button btnStockxProducto;
         private System.Windows.Forms.Button button3;
@@ -373,5 +374,6 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbCantidad;
         private System.Windows.Forms.ComboBox cbProducto;
+        private System.Windows.Forms.Label label1;
     }
 }

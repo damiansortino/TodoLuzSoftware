@@ -32,6 +32,7 @@ namespace Design_Dashboard_Modern.Vistas
                 tbPreciodeCosto.Text = oproducto.PrecioCosto.ToString();
                 tbRentabilidad.Text = oproducto.Rentabilidad.ToString();
                 tbCódigo.Text = oproducto.Codigo;
+                tbStockInicial.Text = db.Stock.ToList().Find(x => x.ProductoId == id).cantidad.ToString();
             }
         }
 
@@ -151,15 +152,6 @@ namespace Design_Dashboard_Modern.Vistas
                             db.SaveChanges();
                         }
 
-                        else
-                        {
-                            db.Entry(modif).State = System.Data.Entity.EntityState.Modified;
-                            db.SaveChanges();
-                            modif.Codigo = db.Set<Producto>().OrderByDescending(t => t.Id).FirstOrDefault().Id.ToString();
-                            db.Entry(modif).State = System.Data.Entity.EntityState.Modified;
-                            db.SaveChanges();
-                        }
-
                         Stock stockproducto = db.Stock.ToList().Find(x => x.ProductoId == id);
                         stockproducto.cantidad = int.Parse(tbStockInicial.Text);
                         stockproducto.ProductoId = (int)id;
@@ -176,5 +168,19 @@ namespace Design_Dashboard_Modern.Vistas
 
         }
         #endregion
+
+        private void tbCódigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                tbStockInicial.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void FrmAgregarProducto_Load(object sender, EventArgs e)
+        {
+            tbNombre.Focus();
+        }
     }
 }

@@ -101,7 +101,7 @@ namespace Design_Dashboard_Modern
         {
             frmHome home = new frmHome();
             ComprobarUsuario();
-            AbrirFormHijo(home);          
+            AbrirFormHijo(home);
         }
 
         private void ComprobarUsuario()

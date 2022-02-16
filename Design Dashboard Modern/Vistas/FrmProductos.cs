@@ -15,6 +15,18 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
+            /*
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+                foreach (Producto item in DB.Producto.ToList())
+                {
+                    if(DB.Stock.ToList().FindAll(x=>x.ProductoId == item.Id).Count>0)
+                }
+            }
+            */
+
+
+
             Refrescar();
             pnBotonesCrud.Visible = true;
         }

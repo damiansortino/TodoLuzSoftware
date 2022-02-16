@@ -31,10 +31,10 @@ namespace Design_Dashboard_Modern.Vistas
         {
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
-                
+
                 List<tipoMovimientoStock> tms = DB.tipoMovimientoStock.ToList()
                     .FindAll(x => x.fechaBaja == null);
-                List<Producto> listprod = DB.Producto.ToList().FindAll(x=>x.FechaBaja == null);
+                List<Producto> listprod = DB.Producto.ToList().FindAll(x => x.FechaBaja == null);
 
                 cboxTipoMovStock.DataSource = tms;
                 cboxTipoMovStock.DisplayMember = "nombreTipoMovimientoStock";
@@ -171,7 +171,7 @@ namespace Design_Dashboard_Modern.Vistas
         {
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
-                if (radioButton1.Checked == true || radioButton2.Checked == true)  return true;
+                if (radioButton1.Checked == true || radioButton2.Checked == true) return true;
                 else
                 {
                     return false;
