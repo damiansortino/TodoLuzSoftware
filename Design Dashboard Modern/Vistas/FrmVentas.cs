@@ -99,7 +99,7 @@ namespace Design_Dashboard_Modern.Vistas
                 agregar.cantidad = int.Parse(tbCantidad.Text);
                 agregar.subtotal = double.Parse(tbSubtotalProducto.Text);
                 agregar.ProductoId = prod.Id;
-                
+
                 detalles.Add(agregar);
                 tbNombreProducto.Text = "";
                 tbCodigo.Text = "";

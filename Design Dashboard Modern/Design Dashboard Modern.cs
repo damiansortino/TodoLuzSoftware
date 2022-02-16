@@ -1,7 +1,7 @@
-﻿using Design_Dashboard_Modern.Vistas;
+﻿using Design_Dashboard_Modern.Models;
+using Design_Dashboard_Modern.Vistas;
 using System;
 using System.Windows.Forms;
-using Design_Dashboard_Modern.Models;
 
 namespace Design_Dashboard_Modern
 {
@@ -99,8 +99,9 @@ namespace Design_Dashboard_Modern
 
         private void Main_Load(object sender, EventArgs e)
         {
+            frmHome home = new frmHome();
             ComprobarUsuario();
-
+            AbrirFormHijo(home);          
         }
 
         private void ComprobarUsuario()
@@ -111,7 +112,7 @@ namespace Design_Dashboard_Modern
                 lblUsuarioActivo.Text = UsuarioActivo.ApellidoyNombre;
                 lblUsuarioActivo2.Text = DB.Usuario.Find(UsuarioActivo.Id).UserName;
 
-                if(UsuarioActivo.TipoUsuario == "Ventas")
+                if (UsuarioActivo.TipoUsuario == "Ventas")
                 {
                     btnCaja.Visible = false;
                     btnConfiguracion.Visible = false;
@@ -148,12 +149,18 @@ namespace Design_Dashboard_Modern
                 //agregar límites de funcionalidad.
 
             }
-            
+
         }
 
         private void linkCerrarCesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            frmHome home = new frmHome();
+            AbrirFormHijo(home);
         }
     }
 }

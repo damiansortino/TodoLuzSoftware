@@ -65,7 +65,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void tbContraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 btnIngresar.PerformClick();
                 e.Handled = true;

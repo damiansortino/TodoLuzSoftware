@@ -32,8 +32,6 @@ namespace Design_Dashboard_Modern.Vistas
                 tbPreciodeCosto.Text = oproducto.PrecioCosto.ToString();
                 tbRentabilidad.Text = oproducto.Rentabilidad.ToString();
                 tbCódigo.Text = oproducto.Codigo;
-
-
             }
         }
 
@@ -65,6 +63,8 @@ namespace Design_Dashboard_Modern.Vistas
         #region Metodos
         private void AgregarProducto()
         {
+            if (tbStockInicial.TextLength < 1) tbStockInicial.Text = "0";
+
             using (todoluzdbEntities db = new todoluzdbEntities())
             {
                 if (((tbNombre.TextLength < 4) || (tbRentabilidad == null)) || (double.Parse(tbPreciodeCosto.Text) == 0))
@@ -77,6 +77,7 @@ namespace Design_Dashboard_Modern.Vistas
 
                     if (id == null)
                     {
+
                         Producto oproducto = new Producto();
                         oproducto.Nombre = tbNombre.Text.ToUpper();
                         oproducto.Descripcion = tbDescripción.Text.ToUpper();
@@ -87,7 +88,6 @@ namespace Design_Dashboard_Modern.Vistas
                         oproducto.PrecioCosto = double.Parse(tbPreciodeCosto.Text);
                         oproducto.FechaAlta = DateTime.Now;
 
-                        //se comprueba si tiene codigo de barras y se confirma la operacion de agregado
 
                         if (cbTieneCodigoBarra.Checked)
                         {
@@ -97,8 +97,10 @@ namespace Design_Dashboard_Modern.Vistas
 
                             var registroMasActualizado = db.Set<Producto>().OrderByDescending(t => t.Id).FirstOrDefault();
 
+                            //crear el stock
+
                             Stock stockproducto = new Stock();
-                            stockproducto.cantidad = 0;
+                            stockproducto.cantidad = int.Parse(tbStockInicial.Text);
                             stockproducto.ProductoId = registroMasActualizado.Id;
                             db.Stock.Add(stockproducto);
                             db.SaveChanges();
@@ -117,8 +119,9 @@ namespace Design_Dashboard_Modern.Vistas
                             db.Entry(oproducto).State = System.Data.Entity.EntityState.Modified;
                             db.SaveChanges();
 
+                            //crea el stock
                             Stock stockproducto = new Stock();
-                            stockproducto.cantidad = 0;
+                            stockproducto.cantidad = int.Parse(tbStockInicial.Text);
                             stockproducto.ProductoId = registroMasActualizado.Id;
                             db.Stock.Add(stockproducto);
                             db.SaveChanges();
@@ -127,23 +130,42 @@ namespace Design_Dashboard_Modern.Vistas
                             this.Close();
                         }
 
-                        
-                        
                     }
                     else
                     {
+                        Producto modif = db.Producto.Find(id);
 
-                        oproducto.Nombre = tbNombre.Text.ToUpper();
-                        oproducto.Descripcion = tbDescripción.Text.ToUpper();
-                        oproducto.Marca = tbMarca.Text.ToUpper();
-                        oproducto.Modelo = tbModelo.Text.ToUpper();
-                        oproducto.Color = tbColor.Text.ToUpper();
-                        oproducto.Rentabilidad = double.Parse(tbRentabilidad.Text);
-                        oproducto.PrecioCosto = double.Parse(tbPreciodeCosto.Text);
-                        if (tbCódigo.Text != null) oproducto.Codigo = tbCódigo.Text;
 
-                        db.Entry(oproducto).State = System.Data.Entity.EntityState.Modified;
+                        modif.Nombre = tbNombre.Text.ToUpper();
+                        modif.Descripcion = tbDescripción.Text.ToUpper();
+                        modif.Marca = tbMarca.Text.ToUpper();
+                        modif.Modelo = tbModelo.Text.ToUpper();
+                        modif.Color = tbColor.Text.ToUpper();
+                        modif.Rentabilidad = double.Parse(tbRentabilidad.Text);
+                        modif.PrecioCosto = double.Parse(tbPreciodeCosto.Text);
+
+                        if (cbTieneCodigoBarra.Checked)
+                        {
+                            modif.Codigo = tbCódigo.Text;
+                            db.Entry(modif).State = System.Data.Entity.EntityState.Modified;
+                            db.SaveChanges();
+                        }
+
+                        else
+                        {
+                            db.Entry(modif).State = System.Data.Entity.EntityState.Modified;
+                            db.SaveChanges();
+                            modif.Codigo = db.Set<Producto>().OrderByDescending(t => t.Id).FirstOrDefault().Id.ToString();
+                            db.Entry(modif).State = System.Data.Entity.EntityState.Modified;
+                            db.SaveChanges();
+                        }
+
+                        Stock stockproducto = db.Stock.ToList().Find(x => x.ProductoId == id);
+                        stockproducto.cantidad = int.Parse(tbStockInicial.Text);
+                        stockproducto.ProductoId = (int)id;
+                        db.Entry(stockproducto).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
+
                         MessageBox.Show("Producto modificado Correctamente");
                         this.Close();
                     }

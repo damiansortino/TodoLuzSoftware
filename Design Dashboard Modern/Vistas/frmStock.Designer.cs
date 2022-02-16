@@ -36,11 +36,11 @@ namespace Design_Dashboard_Modern.Vistas
             this.button3 = new System.Windows.Forms.Button();
             this.dgvMuestraStock = new System.Windows.Forms.DataGridView();
             this.panelMovimientosStock = new System.Windows.Forms.Panel();
+            this.lblStockActual = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedtbCantidad = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tbCodigoProductoMovStock = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -50,8 +50,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.cboxTipoMovStock = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblStockActual = new System.Windows.Forms.Label();
+            this.tbCantidad = new System.Windows.Forms.TextBox();
+            this.cbProducto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraStock)).BeginInit();
             this.panelMovimientosStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -121,13 +121,13 @@ namespace Design_Dashboard_Modern.Vistas
             // panelMovimientosStock
             // 
             this.panelMovimientosStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(127)))), ((int)(((byte)(70)))));
+            this.panelMovimientosStock.Controls.Add(this.cbProducto);
+            this.panelMovimientosStock.Controls.Add(this.tbCantidad);
             this.panelMovimientosStock.Controls.Add(this.lblStockActual);
             this.panelMovimientosStock.Controls.Add(this.label5);
             this.panelMovimientosStock.Controls.Add(this.label4);
-            this.panelMovimientosStock.Controls.Add(this.maskedtbCantidad);
             this.panelMovimientosStock.Controls.Add(this.pictureBox2);
             this.panelMovimientosStock.Controls.Add(this.pictureBox1);
-            this.panelMovimientosStock.Controls.Add(this.tbCodigoProductoMovStock);
             this.panelMovimientosStock.Controls.Add(this.button5);
             this.panelMovimientosStock.Controls.Add(this.button4);
             this.panelMovimientosStock.Controls.Add(this.button2);
@@ -143,26 +143,36 @@ namespace Design_Dashboard_Modern.Vistas
             this.panelMovimientosStock.TabIndex = 7;
             this.panelMovimientosStock.Visible = false;
             // 
+            // lblStockActual
+            // 
+            this.lblStockActual.AutoSize = true;
+            this.lblStockActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockActual.Location = new System.Drawing.Point(182, 196);
+            this.lblStockActual.Name = "lblStockActual";
+            this.lblStockActual.Size = new System.Drawing.Size(109, 20);
+            this.lblStockActual.TabIndex = 19;
+            this.lblStockActual.Text = "Stock actual";
+            this.lblStockActual.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(67, 196);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 20);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Stock actual";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(116, 77);
+            this.label4.Location = new System.Drawing.Point(149, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(151, 20);
+            this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Código del producto";
-            // 
-            // maskedtbCantidad
-            // 
-            this.maskedtbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedtbCantidad.Location = new System.Drawing.Point(204, 240);
-            this.maskedtbCantidad.Mask = "999999";
-            this.maskedtbCantidad.Name = "maskedtbCantidad";
-            this.maskedtbCantidad.PromptChar = ' ';
-            this.maskedtbCantidad.Size = new System.Drawing.Size(45, 26);
-            this.maskedtbCantidad.TabIndex = 16;
-            this.maskedtbCantidad.Text = "0";
+            this.label4.Text = "Producto";
             // 
             // pictureBox2
             // 
@@ -183,17 +193,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-            // 
-            // tbCodigoProductoMovStock
-            // 
-            this.tbCodigoProductoMovStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCodigoProductoMovStock.Location = new System.Drawing.Point(69, 101);
-            this.tbCodigoProductoMovStock.Name = "tbCodigoProductoMovStock";
-            this.tbCodigoProductoMovStock.Size = new System.Drawing.Size(232, 24);
-            this.tbCodigoProductoMovStock.TabIndex = 14;
-            this.tbCodigoProductoMovStock.Text = "Código del Producto";
-            this.tbCodigoProductoMovStock.Enter += new System.EventHandler(this.tbCodigoProductoMovStock_Enter);
-            this.tbCodigoProductoMovStock.Leave += new System.EventHandler(this.tbCodigoProductoMovStock_Leave);
             // 
             // button5
             // 
@@ -304,26 +303,25 @@ namespace Design_Dashboard_Modern.Vistas
             this.cboxTipoMovStock.Size = new System.Drawing.Size(183, 28);
             this.cboxTipoMovStock.TabIndex = 4;
             // 
-            // label5
+            // tbCantidad
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(67, 196);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 20);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Stock actual";
+            this.tbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCantidad.Location = new System.Drawing.Point(204, 238);
+            this.tbCantidad.Name = "tbCantidad";
+            this.tbCantidad.Size = new System.Drawing.Size(45, 24);
+            this.tbCantidad.TabIndex = 20;
+            this.tbCantidad.Text = "0";
+            this.tbCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbCantidad.Leave += new System.EventHandler(this.tbCantidad_Leave);
             // 
-            // lblStockActual
+            // cbProducto
             // 
-            this.lblStockActual.AutoSize = true;
-            this.lblStockActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockActual.Location = new System.Drawing.Point(182, 196);
-            this.lblStockActual.Name = "lblStockActual";
-            this.lblStockActual.Size = new System.Drawing.Size(109, 20);
-            this.lblStockActual.TabIndex = 19;
-            this.lblStockActual.Text = "Stock actual";
-            this.lblStockActual.Visible = false;
+            this.cbProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProducto.FormattingEnabled = true;
+            this.cbProducto.Location = new System.Drawing.Point(3, 93);
+            this.cbProducto.Name = "cbProducto";
+            this.cbProducto.Size = new System.Drawing.Size(377, 28);
+            this.cbProducto.TabIndex = 21;
             // 
             // frmStock
             // 
@@ -368,12 +366,12 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboxTipoMovStock;
-        private System.Windows.Forms.TextBox tbCodigoProductoMovStock;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.MaskedTextBox maskedtbCantidad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblStockActual;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbCantidad;
+        private System.Windows.Forms.ComboBox cbProducto;
     }
 }

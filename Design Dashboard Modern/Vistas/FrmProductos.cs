@@ -33,6 +33,7 @@ namespace Design_Dashboard_Modern.Vistas
                            orderby e.Id ascending
                            select new
                            {
+                               IdProducto = e.Id,
                                Codigo = e.Codigo,
                                Nombre = e.Nombre,
                                Marca = e.Marca,
@@ -42,7 +43,9 @@ namespace Design_Dashboard_Modern.Vistas
                                Disponible = d.cantidad
                            }).ToList();
 
+
                 Buscar.DataSource = lst;
+                Buscar.Columns[0].Visible = false;
             }
             Buscar.Visible = true;
         }
@@ -106,12 +109,10 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            int? id = GetId();
-            if (id != null)
-            {
-                FrmAgregarProducto modificar = new FrmAgregarProducto(id);
-                modificar.ShowDialog();
-            }
+            int id = (int)Buscar.CurrentRow.Cells[0].Value;
+
+            FrmAgregarProducto modificar = new FrmAgregarProducto(id);
+            modificar.ShowDialog();
             Refrescar();
         }
 

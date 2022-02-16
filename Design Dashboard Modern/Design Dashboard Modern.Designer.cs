@@ -33,6 +33,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.MenuTop = new System.Windows.Forms.Panel();
+            this.linkCerrarCesion = new System.Windows.Forms.LinkLabel();
+            this.lblUsuarioActivo2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.Restaurar = new System.Windows.Forms.PictureBox();
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Maximizar = new System.Windows.Forms.PictureBox();
@@ -41,6 +44,7 @@
             this.MenuSidebar = new System.Windows.Forms.PictureBox();
             this.SidebarWrapper = new System.Windows.Forms.Panel();
             this.Sidebar = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.lblUsuarioActivo = new System.Windows.Forms.Label();
             this.btnConfiguracion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnStock = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCaja = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -59,10 +63,6 @@
             this.AnimacionSidebarBack = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.RadioPanelChart = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.MoverDashboard = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.lblUsuarioActivo = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblUsuarioActivo2 = new System.Windows.Forms.Label();
-            this.linkCerrarCesion = new System.Windows.Forms.LinkLabel();
             this.MenuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
@@ -93,6 +93,48 @@
             this.MenuTop.Name = "MenuTop";
             this.MenuTop.Size = new System.Drawing.Size(1386, 57);
             this.MenuTop.TabIndex = 0;
+            // 
+            // linkCerrarCesion
+            // 
+            this.linkCerrarCesion.AutoSize = true;
+            this.AnimacionSidebar.SetDecoration(this.linkCerrarCesion, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.linkCerrarCesion, BunifuAnimatorNS.DecorationType.None);
+            this.linkCerrarCesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkCerrarCesion.Location = new System.Drawing.Point(595, 22);
+            this.linkCerrarCesion.Name = "linkCerrarCesion";
+            this.linkCerrarCesion.Size = new System.Drawing.Size(106, 20);
+            this.linkCerrarCesion.TabIndex = 18;
+            this.linkCerrarCesion.TabStop = true;
+            this.linkCerrarCesion.Text = "Cerrar Sesión";
+            this.linkCerrarCesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCerrarCesion_LinkClicked);
+            // 
+            // lblUsuarioActivo2
+            // 
+            this.lblUsuarioActivo2.AutoSize = true;
+            this.lblUsuarioActivo2.BackColor = System.Drawing.Color.Transparent;
+            this.AnimacionSidebar.SetDecoration(this.lblUsuarioActivo2, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.lblUsuarioActivo2, BunifuAnimatorNS.DecorationType.None);
+            this.lblUsuarioActivo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioActivo2.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioActivo2.Location = new System.Drawing.Point(391, 11);
+            this.lblUsuarioActivo2.Name = "lblUsuarioActivo2";
+            this.lblUsuarioActivo2.Size = new System.Drawing.Size(175, 31);
+            this.lblUsuarioActivo2.TabIndex = 19;
+            this.lblUsuarioActivo2.Text = "usuarioactivo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.AnimacionSidebar.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(166, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(207, 31);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Logueado como";
             // 
             // Restaurar
             // 
@@ -219,6 +261,20 @@
             this.Sidebar.Quality = 20;
             this.Sidebar.Size = new System.Drawing.Size(270, 695);
             this.Sidebar.TabIndex = 0;
+            // 
+            // lblUsuarioActivo
+            // 
+            this.lblUsuarioActivo.AutoSize = true;
+            this.lblUsuarioActivo.BackColor = System.Drawing.Color.Transparent;
+            this.AnimacionSidebar.SetDecoration(this.lblUsuarioActivo, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.lblUsuarioActivo, BunifuAnimatorNS.DecorationType.None);
+            this.lblUsuarioActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioActivo.ForeColor = System.Drawing.Color.Black;
+            this.lblUsuarioActivo.Location = new System.Drawing.Point(82, 42);
+            this.lblUsuarioActivo.Name = "lblUsuarioActivo";
+            this.lblUsuarioActivo.Size = new System.Drawing.Size(102, 20);
+            this.lblUsuarioActivo.TabIndex = 17;
+            this.lblUsuarioActivo.Text = "usuarioactivo";
             // 
             // btnConfiguracion
             // 
@@ -566,6 +622,7 @@
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInicio.Textcolor = System.Drawing.Color.Black;
             this.btnInicio.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // LineaSidebar
             // 
@@ -677,62 +734,6 @@
             this.MoverDashboard.Horizontal = true;
             this.MoverDashboard.TargetControl = this.MenuTop;
             this.MoverDashboard.Vertical = true;
-            // 
-            // lblUsuarioActivo
-            // 
-            this.lblUsuarioActivo.AutoSize = true;
-            this.lblUsuarioActivo.BackColor = System.Drawing.Color.Transparent;
-            this.AnimacionSidebar.SetDecoration(this.lblUsuarioActivo, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebarBack.SetDecoration(this.lblUsuarioActivo, BunifuAnimatorNS.DecorationType.None);
-            this.lblUsuarioActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioActivo.ForeColor = System.Drawing.Color.Black;
-            this.lblUsuarioActivo.Location = new System.Drawing.Point(82, 42);
-            this.lblUsuarioActivo.Name = "lblUsuarioActivo";
-            this.lblUsuarioActivo.Size = new System.Drawing.Size(102, 20);
-            this.lblUsuarioActivo.TabIndex = 17;
-            this.lblUsuarioActivo.Text = "usuarioactivo";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.AnimacionSidebar.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebarBack.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(166, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(207, 31);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Logueado como";
-            // 
-            // lblUsuarioActivo2
-            // 
-            this.lblUsuarioActivo2.AutoSize = true;
-            this.lblUsuarioActivo2.BackColor = System.Drawing.Color.Transparent;
-            this.AnimacionSidebar.SetDecoration(this.lblUsuarioActivo2, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebarBack.SetDecoration(this.lblUsuarioActivo2, BunifuAnimatorNS.DecorationType.None);
-            this.lblUsuarioActivo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioActivo2.ForeColor = System.Drawing.Color.White;
-            this.lblUsuarioActivo2.Location = new System.Drawing.Point(391, 11);
-            this.lblUsuarioActivo2.Name = "lblUsuarioActivo2";
-            this.lblUsuarioActivo2.Size = new System.Drawing.Size(175, 31);
-            this.lblUsuarioActivo2.TabIndex = 19;
-            this.lblUsuarioActivo2.Text = "usuarioactivo";
-            // 
-            // linkCerrarCesion
-            // 
-            this.linkCerrarCesion.AutoSize = true;
-            this.AnimacionSidebar.SetDecoration(this.linkCerrarCesion, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebarBack.SetDecoration(this.linkCerrarCesion, BunifuAnimatorNS.DecorationType.None);
-            this.linkCerrarCesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkCerrarCesion.Location = new System.Drawing.Point(595, 22);
-            this.linkCerrarCesion.Name = "linkCerrarCesion";
-            this.linkCerrarCesion.Size = new System.Drawing.Size(106, 20);
-            this.linkCerrarCesion.TabIndex = 18;
-            this.linkCerrarCesion.TabStop = true;
-            this.linkCerrarCesion.Text = "Cerrar Sesión";
-            this.linkCerrarCesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCerrarCesion_LinkClicked);
             // 
             // Main
             // 

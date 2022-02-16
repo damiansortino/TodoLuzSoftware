@@ -53,8 +53,12 @@ namespace Design_Dashboard_Modern.Vistas
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panStockInicial = new System.Windows.Forms.Panel();
+            this.tbStockInicial = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panStockInicial.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -185,12 +189,30 @@ namespace Design_Dashboard_Modern.Vistas
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // panStockInicial
+            // 
+            this.panStockInicial.Controls.Add(this.tbStockInicial);
+            this.panStockInicial.Controls.Add(this.label11);
+            resources.ApplyResources(this.panStockInicial, "panStockInicial");
+            this.panStockInicial.Name = "panStockInicial";
+            // 
+            // tbStockInicial
+            // 
+            resources.ApplyResources(this.tbStockInicial, "tbStockInicial");
+            this.tbStockInicial.Name = "tbStockInicial";
+            // 
             // FrmAgregarProducto
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(127)))), ((int)(((byte)(70)))));
             this.CancelButton = this.btnCancelar;
+            this.Controls.Add(this.panStockInicial);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label10);
@@ -218,6 +240,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.Name = "FrmAgregarProducto";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panStockInicial.ResumeLayout(false);
+            this.panStockInicial.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +272,8 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panStockInicial;
+        private System.Windows.Forms.TextBox tbStockInicial;
     }
 }

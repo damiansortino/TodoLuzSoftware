@@ -29,22 +29,20 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void frmStock_Load(object sender, EventArgs e)
         {
-
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
-                //List<string> autocompletadotipomovstock = new List<string>();
+                
                 List<tipoMovimientoStock> tms = DB.tipoMovimientoStock.ToList()
                     .FindAll(x => x.fechaBaja == null);
-                /*
-                foreach (tipoMovimientoStock itemstock in DB.tipoMovimientoStock.ToList())
-                {
-                    if (itemstock.fechaBaja == null) autocompletadotipomovstock.Add(itemstock.nombreTipoMovimientoStock);
-                }
-                */
-                //cboxTipoMovStock.DataSource = autocompletadotipomovstock;
+                List<Producto> listprod = DB.Producto.ToList().FindAll(x=>x.FechaBaja == null);
+
                 cboxTipoMovStock.DataSource = tms;
                 cboxTipoMovStock.DisplayMember = "nombreTipoMovimientoStock";
                 cboxTipoMovStock.ValueMember = "TipoMovimientoStockId";
+
+                cbProducto.DataSource = listprod;
+                cbProducto.DisplayMember = "Nombre";
+                cbProducto.ValueMember = "Id";
             }
         }
 
@@ -82,36 +80,12 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void button4_Click(object sender, EventArgs e)
         {
-            maskedtbCantidad.Text = (int.Parse(maskedtbCantidad.Text) + 1).ToString();
+            tbCantidad.Text = (int.Parse(tbCantidad.Text) + 1).ToString();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            maskedtbCantidad.Text = (int.Parse(maskedtbCantidad.Text) - 1).ToString();
-        }
-
-        private void tbCodigoProductoMovStock_Leave(object sender, EventArgs e)
-        {
-            using (todoluzdbEntities DB = new todoluzdbEntities())
-            {
-                if (maskedtbCantidad.TextLength < 1)
-                {
-
-                }
-                else
-                {
-                    lblStockActual.Text = DB.Stock.ToList().Find(x => x.ProductoId
-                    == DB.Producto.ToList().Find(y => y.Codigo == tbCodigoProductoMovStock.Text.Trim())
-                    .Id).cantidad.ToString();
-                }
-
-            }
-            lblStockActual.Visible = true;
-        }
-
-        private void tbCodigoProductoMovStock_Enter(object sender, EventArgs e)
-        {
-            tbCodigoProductoMovStock.Text = "";
+            tbCantidad.Text = (int.Parse(tbCantidad.Text) - 1).ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -125,16 +99,15 @@ namespace Design_Dashboard_Modern.Vistas
 
                     if (radioButton1.Checked == true)
                     {
-                        actualizar.cantidad = int.Parse(maskedtbCantidad.Text) + int.Parse(lblStockActual.Text);
+                        actualizar.cantidad = int.Parse(tbCantidad.Text) + int.Parse(lblStockActual.Text);
                     }
                     else
                     {
-                        actualizar.cantidad = int.Parse(lblStockActual.Text) - int.Parse(maskedtbCantidad.Text);
+                        actualizar.cantidad = int.Parse(lblStockActual.Text) - int.Parse(tbCantidad.Text);
                     }
 
 
-                    actualizar.ProductoId = DB.Producto.ToList().Find(y =>
-                    y.Codigo == tbCodigoProductoMovStock.Text.Trim()).Id;
+                    actualizar.ProductoId = DB.Producto.Find((int)cbProducto.SelectedValue).Id;
 
                     actualizar.StockId = DB.Stock.ToList().Find(x => x.ProductoId
                     == actualizar.ProductoId).StockId;
@@ -198,20 +171,18 @@ namespace Design_Dashboard_Modern.Vistas
         {
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
-                if ((DB.Producto.ToList().FindAll(x => x.Codigo
-                .Contains(tbCodigoProductoMovStock.Text.Trim())).Count > 0 &&
-                (radioButton1.Checked == true || radioButton2.Checked == true))
-                && (int.Parse(maskedtbCantidad.Text) >= 0))
-
-                {
-                    return true;
-                }
+                if (radioButton1.Checked == true || radioButton2.Checked == true)  return true;
                 else
                 {
                     return false;
                 }
 
             }
+        }
+
+        private void tbCantidad_Leave(object sender, EventArgs e)
+        {
+            if (tbCantidad.TextLength < 1) tbCantidad.Text = "0";
         }
     }
 }
