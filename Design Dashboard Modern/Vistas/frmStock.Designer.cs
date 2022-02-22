@@ -35,6 +35,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.button3 = new System.Windows.Forms.Button();
             this.dgvMuestraStock = new System.Windows.Forms.DataGridView();
             this.panelMovimientosStock = new System.Windows.Forms.Panel();
+            this.cbProducto = new System.Windows.Forms.ComboBox();
+            this.tbCantidad = new System.Windows.Forms.TextBox();
             this.lblStockActual = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.cboxTipoMovStock = new System.Windows.Forms.ComboBox();
-            this.tbCantidad = new System.Windows.Forms.TextBox();
-            this.cbProducto = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraStock)).BeginInit();
             this.panelMovimientosStock.SuspendLayout();
@@ -133,6 +133,29 @@ namespace Design_Dashboard_Modern.Vistas
             this.panelMovimientosStock.Size = new System.Drawing.Size(383, 341);
             this.panelMovimientosStock.TabIndex = 7;
             this.panelMovimientosStock.Visible = false;
+            // 
+            // cbProducto
+            // 
+            this.cbProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbProducto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProducto.FormattingEnabled = true;
+            this.cbProducto.Location = new System.Drawing.Point(3, 93);
+            this.cbProducto.Name = "cbProducto";
+            this.cbProducto.Size = new System.Drawing.Size(377, 28);
+            this.cbProducto.TabIndex = 21;
+            this.cbProducto.SelectionChangeCommitted += new System.EventHandler(this.cbProducto_SelectionChangeCommitted);
+            // 
+            // tbCantidad
+            // 
+            this.tbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCantidad.Location = new System.Drawing.Point(204, 238);
+            this.tbCantidad.Name = "tbCantidad";
+            this.tbCantidad.Size = new System.Drawing.Size(45, 24);
+            this.tbCantidad.TabIndex = 20;
+            this.tbCantidad.Text = "0";
+            this.tbCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbCantidad.Leave += new System.EventHandler(this.tbCantidad_Leave);
             // 
             // lblStockActual
             // 
@@ -293,28 +316,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.cboxTipoMovStock.Name = "cboxTipoMovStock";
             this.cboxTipoMovStock.Size = new System.Drawing.Size(183, 28);
             this.cboxTipoMovStock.TabIndex = 4;
-            // 
-            // tbCantidad
-            // 
-            this.tbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCantidad.Location = new System.Drawing.Point(204, 238);
-            this.tbCantidad.Name = "tbCantidad";
-            this.tbCantidad.Size = new System.Drawing.Size(45, 24);
-            this.tbCantidad.TabIndex = 20;
-            this.tbCantidad.Text = "0";
-            this.tbCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbCantidad.Leave += new System.EventHandler(this.tbCantidad_Leave);
-            // 
-            // cbProducto
-            // 
-            this.cbProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbProducto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProducto.FormattingEnabled = true;
-            this.cbProducto.Location = new System.Drawing.Point(3, 93);
-            this.cbProducto.Name = "cbProducto";
-            this.cbProducto.Size = new System.Drawing.Size(377, 28);
-            this.cbProducto.TabIndex = 21;
             // 
             // label1
             // 

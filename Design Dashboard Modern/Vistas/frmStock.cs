@@ -184,5 +184,17 @@ namespace Design_Dashboard_Modern.Vistas
         {
             if (tbCantidad.TextLength < 1) tbCantidad.Text = "0";
         }
+
+        private void cbProducto_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+
+                lblStockActual.Text = DB.Stock.ToList().Find(x => x.ProductoId == ((Producto)cbProducto.SelectedItem).Id).cantidad.ToString();
+
+            }
+            
+            lblStockActual.Visible = true;
+        }
     }
 }
