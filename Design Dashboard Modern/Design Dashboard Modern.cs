@@ -87,7 +87,7 @@ namespace Design_Dashboard_Modern
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            FrmVentas formventas = new FrmVentas();
+            FrmNuevaVenta formventas = new FrmNuevaVenta();
             AbrirFormHijo(formventas);
         }
 

@@ -193,7 +193,7 @@ namespace Design_Dashboard_Modern.Vistas
                 lblStockActual.Text = DB.Stock.ToList().Find(x => x.ProductoId == ((Producto)cbProducto.SelectedItem).Id).cantidad.ToString();
 
             }
-            
+
             lblStockActual.Visible = true;
         }
     }
