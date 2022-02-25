@@ -71,7 +71,7 @@ namespace Design_Dashboard_Modern.Vistas
                 var lst = (from d in db.Stock
                            join e in db.Producto
                            on d.ProductoId equals e.Id
-                           where e.FechaBaja == null && (e.Nombre.Contains(filtro) || e.Codigo.Contains(filtro))
+                           where e.FechaBaja == null && ((e.Nombre.Contains(filtro) || e.Codigo.Contains(filtro)))||e.Marca.Contains(filtro)
                            orderby e.Id ascending
                            select new
                            {
