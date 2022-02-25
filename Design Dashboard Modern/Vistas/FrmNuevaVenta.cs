@@ -13,6 +13,8 @@ namespace Design_Dashboard_Modern.Vistas
         List<Producto> agregados = new List<Producto>();
         comprobante compdeventa = new comprobante();
         List<detalleFactura> detalles = new List<detalleFactura>();
+        List<movimientoStock> movimientostock = new List<movimientoStock>();
+
         bool usuarioespecial = false;
 
 
@@ -188,6 +190,8 @@ namespace Design_Dashboard_Modern.Vistas
             }
 
             lblSubtotal.Text = suma.ToString();
+
+            lblTotalGeneral.Text = (double.Parse(lblSubtotal.Text) - double.Parse(tbBonifGeneral.Text)).ToString();
         }
 
         private void RellenarCeros()
@@ -309,10 +313,24 @@ namespace Design_Dashboard_Modern.Vistas
                     #endregion
 
                     #region Crear movimiento de stock
-
-
-
-
+                    foreach (detalleFactura item in detalles)
+                    {
+                        movimientoStock movstock = new movimientoStock();
+                        movstock.cantidad = item.cantidad;
+                        movstock.ComprobanteId = item.ComprobanteId;
+                        movstock.descripcion = "Venta";
+                        movstock.entra = false;
+                        movstock.sale = true;
+                        movstock.StockId = DB.Stock.ToList().Find(x => x.ProductoId == item.ProductoId).StockId;
+                        movstock.TipoMovimientoStockId = 1;
+                        movstock.fechaAlta = registroactualizado.fechaAlta;
+                        movimientostock.Add(movstock);
+                    }
+                    foreach (movimientoStock movi in movimientostock)
+                    {
+                        DB.movimientoStock.Add(movi);
+                        DB.SaveChanges();
+                    }
                     #endregion
 
                     #region Actualizar Caja
