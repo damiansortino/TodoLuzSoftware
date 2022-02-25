@@ -88,13 +88,13 @@ namespace Design_Dashboard_Modern.Vistas
 
                             tbCantidad.Text = dgvProductos.CurrentRow.Cells[6].Value.ToString();
                             tbBonificacion.Text = dgvProductos.CurrentRow.Cells[7].Value.ToString();
-                            
+
                             if (detalles.Count > 0)
                             {
                                 btnCompletarVenta.Enabled = true;
                                 btnImprimirPresupuesto.Enabled = true;
                             }
-                                
+
                         }
                     }
                     e.Handled = true;
@@ -106,7 +106,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void RefrescarDGV()
         {
-            
+
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
                 var lst = (from d in detalles
@@ -114,7 +114,7 @@ namespace Design_Dashboard_Modern.Vistas
 
                            on d.ProductoId equals e.Id
                            where e.FechaBaja == null
-                           
+
                            select new
                            {
                                Codigo = e.Codigo,
@@ -125,8 +125,8 @@ namespace Design_Dashboard_Modern.Vistas
                                Precio = e.PrecioCosto + (e.PrecioCosto * e.Rentabilidad) / 100,
                                Cantidad = d.cantidad,
                                Bonificacion = d.bonificacion,
-                               Subtotal = ((e.PrecioCosto + (e.PrecioCosto * e.Rentabilidad) / 100)*(d.cantidad))-d.bonificacion
-                               
+                               Subtotal = ((e.PrecioCosto + (e.PrecioCosto * e.Rentabilidad) / 100) * (d.cantidad)) - d.bonificacion
+
                            }).ToList();
 
                 dgvProductos.DataSource = null;
@@ -134,14 +134,27 @@ namespace Design_Dashboard_Modern.Vistas
 
             }
 
-
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            btnOk.Enabled = false;
-            detalles[dgvProductos.CurrentRow.Index].cantidad = int.Parse(tbCantidad.Text);
-            detalles[dgvProductos.CurrentRow.Index].bonificacion = double.Parse(tbBonificacion.Text);
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+
+                btnOk.Enabled = false;
+                detalles[dgvProductos.CurrentRow.Index].cantidad = int.Parse(tbCantidad.Text);
+                detalles[dgvProductos.CurrentRow.Index].bonificacion = double.Parse(tbBonificacion.Text);
+
+                double precioprod = DB.Producto.Find(detalles[dgvProductos.CurrentRow.Index].ProductoId).PrecioCosto
+                    + (DB.Producto.Find(detalles[dgvProductos.CurrentRow.Index].ProductoId).PrecioCosto
+                    * DB.Producto.Find(detalles[dgvProductos.CurrentRow.Index].ProductoId).Rentabilidad) / 100;
+
+                detalles[dgvProductos.CurrentRow.Index].subtotal =
+                    (detalles[dgvProductos.CurrentRow.Index].cantidad * precioprod)
+                    - double.Parse(detalles[dgvProductos.CurrentRow.Index].bonificacion.ToString());
+
+            }
+
             RefrescarDGV();
         }
 
@@ -158,6 +171,7 @@ namespace Design_Dashboard_Modern.Vistas
             btnEliminarSeleccionado.Enabled = false;
             detalles.RemoveAt(dgvProductos.CurrentRow.Index);
             RefrescarDGV();
+            btnOk.Enabled = false;
         }
 
         private void btnCompletarVenta_Click(object sender, EventArgs e)
@@ -202,19 +216,24 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void tbBonifGeneral_Leave(object sender, EventArgs e)
         {
-            lblTotalGeneral.Text = (double.Parse(lblSubtotal.Text)-double.Parse(tbBonifGeneral.Text)).ToString();
+            lblTotalGeneral.Text = (double.Parse(lblSubtotal.Text) - double.Parse(tbBonifGeneral.Text)).ToString();
         }
 
         private void tbBonifGeneral_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 tbEfectivo.Focus();
                 e.Handled = true;
             }
             else
             {
-                if ((char.IsLetter(e.KeyChar)) && (e.KeyChar == (char)Keys.Back)) e.Handled = true;
+                int codigo = Convert.ToInt32(e.KeyChar);
+                if (codigo == 8) e.Handled = false;
+                else
+                {
+                    if ((char.IsLetter(e.KeyChar)) || (e.KeyChar == (char)Keys.Back)) e.Handled = true;
+                }
             }
         }
 
@@ -238,37 +257,30 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnAceptarVenta_Click(object sender, EventArgs e)
         {
-
-            //trabajar en esto mañana
-
-
-            /*
-            
-            btnAceptarVenta.Enabled = false;
-
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
                 if (ValidarSumas())
                 {
                     #region crear comprobante en base de datos
-                    comprobante comprobante = new comprobante();
-                    comprobante.bonificacion = double.Parse(tbDescuentos.Text);
-                    comprobante.ClienteId = int.Parse(cboxCliente.SelectedValue.ToString());
-                    comprobante.fechaAlta = System.DateTime.Now;
-                    comprobante.importe = double.Parse(lblTotalGeneral.Text);
-                    comprobante.efectivo = double.Parse(tbEfectivo.Text);
-                    comprobante.CtaCte = double.Parse(tbCtaCte.Text);
-                    comprobante.tarjeta = double.Parse(tbTarjetas.Text);
-                    comprobante.TipoComprobanteId = 1;
-                    comprobante.UserId = UsuarioActivo.Id;
-                    DB.comprobante.Add(comprobante);
+
+                    compdeventa.bonificacion = double.Parse(tbBonificacion.Text);
+                    compdeventa.ClienteId = int.Parse(((Cliente)cboxCliente.SelectedValue).Id.ToString());
+                    compdeventa.fechaAlta = System.DateTime.Now;
+                    compdeventa.importe = double.Parse(lblTotalGeneral.Text);
+                    compdeventa.efectivo = double.Parse(tbEfectivo.Text);
+                    compdeventa.CtaCte = double.Parse(tbCtaCte.Text);
+                    compdeventa.tarjeta = double.Parse(tbTarjCredito.Text);
+                    compdeventa.debito = double.Parse(tbDebito.Text);
+                    compdeventa.TipoComprobanteId = 1;
+                    compdeventa.UserId = UsuarioActivo.Id;
+                    DB.comprobante.Add(compdeventa);
                     DB.SaveChanges();
 
                     var registroactualizado = DB.Set<comprobante>().OrderByDescending(t => t.Id).FirstOrDefault();
 
-                    comprobante.codigo = "XV001-" + registroactualizado.Id.ToString();
+                    compdeventa.codigo = "XV001-" + registroactualizado.Id.ToString();
 
-                    DB.Entry(comprobante).State = System.Data.Entity.EntityState.Modified;
+                    DB.Entry(compdeventa).State = System.Data.Entity.EntityState.Modified;
 
                     DB.SaveChanges();
                     #endregion
@@ -286,11 +298,10 @@ namespace Design_Dashboard_Modern.Vistas
                     #region Actualizar stock
                     foreach (detalleFactura alpha in detalles)
                     {
-                        if (DB.Stock.ToList().FindAll(x => x.ProductoId == alpha.ProductoId).Count > 0)
-                        {
-
-                        }
-
+                        Stock actualizarstock = DB.Stock.ToList().Find(x => x.ProductoId == alpha.ProductoId);
+                        actualizarstock.cantidad = actualizarstock.cantidad - alpha.cantidad;
+                        DB.Entry(actualizarstock).State = System.Data.Entity.EntityState.Modified;
+                        DB.SaveChanges();
                     }
 
 
@@ -325,11 +336,110 @@ namespace Design_Dashboard_Modern.Vistas
                 }
 
             }
-            
+
+        }
+
+        private bool ValidarSumas()
+        {
+            double total, efectivo, tarjeta, ctacte, debito;
+
+            total = double.Parse(lblTotalGeneral.Text);
+            efectivo = double.Parse(tbEfectivo.Text);
+            tarjeta = double.Parse(tbTarjCredito.Text);
+            ctacte = double.Parse(tbCtaCte.Text);
+            debito = double.Parse(tbDebito.Text);
 
 
-            */
+            if (total == (efectivo + tarjeta) + (ctacte + debito))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
+        }
+
+        private void tbCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char.IsLetter(e.KeyChar)) || (e.KeyChar == (char)Keys.Back)) e.Handled = true;
+        }
+
+        private void tbBonificacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char.IsLetter(e.KeyChar)) || (e.KeyChar == (char)Keys.Back)) e.Handled = true;
+        }
+
+        private void tbEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                tbDebito.Focus();
+                e.Handled = true;
+            }
+            else
+            {
+                int codigo = Convert.ToInt32(e.KeyChar);
+                if (codigo == 8) e.Handled = false;
+                else
+                {
+                    if ((char.IsLetter(e.KeyChar)) || (e.KeyChar == (char)Keys.Back)) e.Handled = true;
+                }
+            }
+        }
+
+        private void tbDebito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                tbTarjCredito.Focus();
+                e.Handled = true;
+            }
+            else
+            {
+                int codigo = Convert.ToInt32(e.KeyChar);
+                if (codigo == 8) e.Handled = false;
+                else
+                {
+                    if ((char.IsLetter(e.KeyChar)) || (e.KeyChar == (char)Keys.Back)) e.Handled = true;
+                }
+            }
+        }
+
+        private void tbTarjCredito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                tbCtaCte.Focus();
+                e.Handled = true;
+            }
+            else
+            {
+                int codigo = Convert.ToInt32(e.KeyChar);
+                if (codigo == 8) e.Handled = false;
+                else
+                {
+                    if ((char.IsLetter(e.KeyChar)) || (e.KeyChar == (char)Keys.Back)) e.Handled = true;
+                }
+            }
+        }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            popupBuscaProd buscarprod = new popupBuscaProd();
+            buscarprod.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPegar_Click(object sender, EventArgs e)
+        {
+            tbcodigo.Text = Clipboard.GetText();
+            tbcodigo.Focus();
         }
     }
 }

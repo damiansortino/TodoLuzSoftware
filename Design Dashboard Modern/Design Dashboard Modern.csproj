@@ -107,12 +107,6 @@
     <Compile Include="Models\Producto.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Stock.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -194,6 +188,12 @@
     <Compile Include="Vistas\FrmProductos.Designer.cs">
       <DependentUpon>FrmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\popupBuscaProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\popupBuscaProd.Designer.cs">
+      <DependentUpon>popupBuscaProd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\popupEditarTipoMovStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +255,9 @@
     <EmbeddedResource Include="Vistas\frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\popupBuscaProd.resx">
+      <DependentUpon>popupBuscaProd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\popupEditarTipoMovStock.resx">
       <DependentUpon>popupEditarTipoMovStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +292,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\inicio_tl.jpg" />
+    <None Include="Resources\backlogin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -299,9 +306,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\inicio_tl.jpg" />
-    <None Include="Resources\backlogin.jpg" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

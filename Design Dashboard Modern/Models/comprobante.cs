@@ -16,15 +16,16 @@ namespace Design_Dashboard_Modern.Models
     {
         public int Id { get; set; }
         public int TipoComprobanteId { get; set; }
-        public Nullable<int> ClienteId { get; set; }
+        public int ClienteId { get; set; }
         public Nullable<int> UserId { get; set; }
         public string codigo { get; set; }
-        public double importe { get; set; }
+        public Nullable<double> importe { get; set; }
         public double bonificacion { get; set; }
         public System.DateTime fechaAlta { get; set; }
         public Nullable<System.DateTime> fechaBaja { get; set; }
-        public double efectivo { get; set; }
-        public double tarjeta { get; set; }
-        public double CtaCte { get; set; }
+        public Nullable<double> efectivo { get; set; }
+        public Nullable<double> tarjeta { get; set; }
+        public Nullable<double> CtaCte { get; set; }
+        public Nullable<double> debito { get; set; }
     }
 }

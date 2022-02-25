@@ -15,17 +15,17 @@ namespace Design_Dashboard_Modern.Models
     public partial class Usuario
     {
         public int Id { get; set; }
+        public string ApellidoyNombre { get; set; }
+        public string DNI { get; set; }
+        public string FechadeNac { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
         public string UserName { get; set; }
         public string Pass { get; set; }
         public string Email { get; set; }
         public Nullable<bool> EmailConfirmed { get; set; }
         public System.DateTime FechaAlta { get; set; }
         public Nullable<System.DateTime> FechaBaja { get; set; }
-        public string ApellidoyNombre { get; set; }
-        public string DNI { get; set; }
-        public string FechadeNac { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
         public string TipoUser { get; set; }
     }
 }

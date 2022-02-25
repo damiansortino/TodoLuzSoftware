@@ -66,6 +66,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnAceptarVenta = new System.Windows.Forms.Button();
             this.btnAgregarMasProductos = new System.Windows.Forms.Button();
             this.lblSaldo = new System.Windows.Forms.Label();
+            this.btnPegar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelFormadePago.SuspendLayout();
@@ -109,6 +110,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnBuscarProducto.TabIndex = 3;
             this.btnBuscarProducto.Text = "buscar producto...";
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
             // dgvProductos
             // 
@@ -177,7 +179,7 @@ namespace Design_Dashboard_Modern.Vistas
             // btnEliminarSeleccionado
             // 
             this.btnEliminarSeleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarSeleccionado.Location = new System.Drawing.Point(732, 132);
+            this.btnEliminarSeleccionado.Location = new System.Drawing.Point(749, 249);
             this.btnEliminarSeleccionado.Name = "btnEliminarSeleccionado";
             this.btnEliminarSeleccionado.Size = new System.Drawing.Size(175, 32);
             this.btnEliminarSeleccionado.TabIndex = 11;
@@ -188,16 +190,17 @@ namespace Design_Dashboard_Modern.Vistas
             // tbCantidad
             // 
             this.tbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCantidad.Location = new System.Drawing.Point(845, 175);
+            this.tbCantidad.Location = new System.Drawing.Point(862, 147);
             this.tbCantidad.Name = "tbCantidad";
             this.tbCantidad.Size = new System.Drawing.Size(41, 26);
             this.tbCantidad.TabIndex = 12;
+            this.tbCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCantidad_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(758, 178);
+            this.label5.Location = new System.Drawing.Point(775, 150);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 20);
             this.label5.TabIndex = 13;
@@ -207,7 +210,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(732, 209);
+            this.label6.Location = new System.Drawing.Point(749, 181);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 20);
             this.label6.TabIndex = 15;
@@ -216,16 +219,17 @@ namespace Design_Dashboard_Modern.Vistas
             // tbBonificacion
             // 
             this.tbBonificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbBonificacion.Location = new System.Drawing.Point(845, 206);
+            this.tbBonificacion.Location = new System.Drawing.Point(862, 178);
             this.tbBonificacion.Name = "tbBonificacion";
             this.tbBonificacion.Size = new System.Drawing.Size(121, 26);
             this.tbBonificacion.TabIndex = 14;
+            this.tbBonificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbBonificacion_KeyPress);
             // 
             // btnOk
             // 
             this.btnOk.Enabled = false;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(844, 238);
+            this.btnOk.Location = new System.Drawing.Point(861, 210);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(42, 32);
             this.btnOk.TabIndex = 17;
@@ -237,7 +241,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.btnCompletarVenta.Enabled = false;
             this.btnCompletarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompletarVenta.Location = new System.Drawing.Point(732, 315);
+            this.btnCompletarVenta.Location = new System.Drawing.Point(732, 360);
             this.btnCompletarVenta.Name = "btnCompletarVenta";
             this.btnCompletarVenta.Size = new System.Drawing.Size(296, 32);
             this.btnCompletarVenta.TabIndex = 18;
@@ -249,7 +253,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.btnImprimirPresupuesto.Enabled = false;
             this.btnImprimirPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimirPresupuesto.Location = new System.Drawing.Point(732, 365);
+            this.btnImprimirPresupuesto.Location = new System.Drawing.Point(732, 410);
             this.btnImprimirPresupuesto.Name = "btnImprimirPresupuesto";
             this.btnImprimirPresupuesto.Size = new System.Drawing.Size(296, 32);
             this.btnImprimirPresupuesto.TabIndex = 19;
@@ -345,6 +349,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbEfectivo.Name = "tbEfectivo";
             this.tbEfectivo.Size = new System.Drawing.Size(126, 26);
             this.tbEfectivo.TabIndex = 27;
+            this.tbEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEfectivo_KeyPress);
             // 
             // label14
             // 
@@ -363,6 +368,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbDebito.Name = "tbDebito";
             this.tbDebito.Size = new System.Drawing.Size(126, 26);
             this.tbDebito.TabIndex = 29;
+            this.tbDebito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDebito_KeyPress);
             // 
             // label15
             // 
@@ -381,6 +387,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbTarjCredito.Name = "tbTarjCredito";
             this.tbTarjCredito.Size = new System.Drawing.Size(126, 26);
             this.tbTarjCredito.TabIndex = 31;
+            this.tbTarjCredito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTarjCredito_KeyPress);
             // 
             // label16
             // 
@@ -422,7 +429,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.panelFormadePago.Controls.Add(this.tbEfectivo);
             this.panelFormadePago.Location = new System.Drawing.Point(9, 449);
             this.panelFormadePago.Name = "panelFormadePago";
-            this.panelFormadePago.Size = new System.Drawing.Size(1029, 297);
+            this.panelFormadePago.Size = new System.Drawing.Size(1029, 288);
             this.panelFormadePago.TabIndex = 35;
             this.panelFormadePago.Visible = false;
             // 
@@ -459,12 +466,24 @@ namespace Design_Dashboard_Modern.Vistas
             this.lblSaldo.Text = "El cliente seleccionado tiene un saldo de $";
             this.lblSaldo.Visible = false;
             // 
+            // btnPegar
+            // 
+            this.btnPegar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPegar.Location = new System.Drawing.Point(716, 94);
+            this.btnPegar.Name = "btnPegar";
+            this.btnPegar.Size = new System.Drawing.Size(62, 32);
+            this.btnPegar.TabIndex = 36;
+            this.btnPegar.Text = "pegar";
+            this.btnPegar.UseVisualStyleBackColor = true;
+            this.btnPegar.Click += new System.EventHandler(this.btnPegar_Click);
+            // 
             // FrmNuevaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
             this.ClientSize = new System.Drawing.Size(1084, 749);
+            this.Controls.Add(this.btnPegar);
             this.Controls.Add(this.panelFormadePago);
             this.Controls.Add(this.btnImprimirPresupuesto);
             this.Controls.Add(this.btnCompletarVenta);
@@ -535,5 +554,6 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label lblSaldo;
         private System.Windows.Forms.Button btnAgregarMasProductos;
         private System.Windows.Forms.Button btnAceptarVenta;
+        private System.Windows.Forms.Button btnPegar;
     }
 }

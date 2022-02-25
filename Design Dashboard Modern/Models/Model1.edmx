@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="todoluzdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="todoluzdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Caja">
           <Key>
             <PropertyRef Name="CajaId" />
@@ -36,16 +36,17 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipoComprobanteId" Type="int" Nullable="false" />
-          <Property Name="ClienteId" Type="int" />
+          <Property Name="ClienteId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" />
           <Property Name="codigo" Type="nvarchar(max)" />
-          <Property Name="importe" Type="float" Nullable="false" />
+          <Property Name="importe" Type="float" />
           <Property Name="bonificacion" Type="float" Nullable="false" />
           <Property Name="fechaAlta" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="fechaBaja" Type="datetime2" Precision="7" />
-          <Property Name="efectivo" Type="float" Nullable="false" />
-          <Property Name="tarjeta" Type="float" Nullable="false" />
-          <Property Name="CtaCte" Type="float" Nullable="false" />
+          <Property Name="efectivo" Type="float" />
+          <Property Name="tarjeta" Type="float" />
+          <Property Name="CtaCte" Type="float" />
+          <Property Name="debito" Type="float" />
         </EntityType>
         <EntityType Name="detalleFactura">
           <Key>
@@ -178,7 +179,7 @@
           <Property Name="TipoUser" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_comprobante_Cliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
@@ -189,10 +190,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_comprobante_tipoComprobante_TipoComprobanteId">
-          <End Role="tipoComprobante" Type="Self.tipoComprobante" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_comprobante_tipoComprobante">
+          <End Role="tipoComprobante" Type="Self.tipoComprobante" Multiplicity="1" />
           <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipoComprobante">
@@ -215,7 +214,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_detalleFactura_comprobante_ComprobanteId">
+        <Association Name="FK_detalleFactura_comprobante">
           <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
           <End Role="detalleFactura" Type="Self.detalleFactura" Multiplicity="*" />
           <ReferentialConstraint>
@@ -253,18 +252,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_movimientoCaja_comprobante_ComprobanteId">
-          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
-          <End Role="movimientoCaja" Type="Self.movimientoCaja" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="comprobante">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="movimientoCaja">
-              <PropertyRef Name="ComprobanteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId">
           <End Role="tipoMovimientoCaja" Type="Self.tipoMovimientoCaja" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -276,18 +263,6 @@
             </Principal>
             <Dependent Role="movimientoCaja">
               <PropertyRef Name="tipoMovimientoCajaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_movimientoStock_comprobante_ComprobanteId">
-          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
-          <End Role="movimientoStock" Type="Self.movimientoStock" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="comprobante">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="movimientoStock">
-              <PropertyRef Name="ComprobanteId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -319,7 +294,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_stock_Producto">
+        <Association Name="FK_Stock_Producto">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
           <ReferentialConstraint>
@@ -331,37 +306,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="todoluzdbModelStoreContainer">
           <EntitySet Name="Caja" EntityType="Self.Caja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
@@ -381,7 +325,7 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="comprobante" EntitySet="comprobante" />
           </AssociationSet>
-          <AssociationSet Name="FK_comprobante_tipoComprobante_TipoComprobanteId" Association="Self.FK_comprobante_tipoComprobante_TipoComprobanteId">
+          <AssociationSet Name="FK_comprobante_tipoComprobante" Association="Self.FK_comprobante_tipoComprobante">
             <End Role="tipoComprobante" EntitySet="tipoComprobante" />
             <End Role="comprobante" EntitySet="comprobante" />
           </AssociationSet>
@@ -389,7 +333,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="comprobante" EntitySet="comprobante" />
           </AssociationSet>
-          <AssociationSet Name="FK_detalleFactura_comprobante_ComprobanteId" Association="Self.FK_detalleFactura_comprobante_ComprobanteId">
+          <AssociationSet Name="FK_detalleFactura_comprobante" Association="Self.FK_detalleFactura_comprobante">
             <End Role="comprobante" EntitySet="comprobante" />
             <End Role="detalleFactura" EntitySet="detalleFactura" />
           </AssociationSet>
@@ -401,17 +345,9 @@
             <End Role="Caja" EntitySet="Caja" />
             <End Role="movimientoCaja" EntitySet="movimientoCaja" />
           </AssociationSet>
-          <AssociationSet Name="FK_movimientoCaja_comprobante_ComprobanteId" Association="Self.FK_movimientoCaja_comprobante_ComprobanteId">
-            <End Role="comprobante" EntitySet="comprobante" />
-            <End Role="movimientoCaja" EntitySet="movimientoCaja" />
-          </AssociationSet>
           <AssociationSet Name="FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId" Association="Self.FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId">
             <End Role="tipoMovimientoCaja" EntitySet="tipoMovimientoCaja" />
             <End Role="movimientoCaja" EntitySet="movimientoCaja" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientoStock_comprobante_ComprobanteId" Association="Self.FK_movimientoStock_comprobante_ComprobanteId">
-            <End Role="comprobante" EntitySet="comprobante" />
-            <End Role="movimientoStock" EntitySet="movimientoStock" />
           </AssociationSet>
           <AssociationSet Name="FK_movimientoStock_stock_StockId" Association="Self.FK_movimientoStock_stock_StockId">
             <End Role="Stock" EntitySet="Stock" />
@@ -421,12 +357,13 @@
             <End Role="tipoMovimientoStock" EntitySet="tipoMovimientoStock" />
             <End Role="movimientoStock" EntitySet="movimientoStock" />
           </AssociationSet>
-          <AssociationSet Name="FK_stock_Producto" Association="Self.FK_stock_Producto">
+          <AssociationSet Name="FK_Stock_Producto" Association="Self.FK_Stock_Producto">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="Stock" EntitySet="Stock" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="todoluzdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -438,7 +375,7 @@
           <Property Name="fechaCaja" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="fechaCierreCaja" Type="DateTime" Precision="7" />
           <Property Name="montoCaja" Type="Double" Nullable="false" />
-          </EntityType>
+        </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="Id" />
@@ -461,16 +398,17 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TipoComprobanteId" Type="Int32" Nullable="false" />
-          <Property Name="ClienteId" Type="Int32" />
+          <Property Name="ClienteId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" />
           <Property Name="codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="importe" Type="Double" Nullable="false" />
+          <Property Name="importe" Type="Double" />
           <Property Name="bonificacion" Type="Double" Nullable="false" />
           <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="fechaBaja" Type="DateTime" Precision="7" />
-          <Property Name="efectivo" Type="Double" Nullable="false" />
-          <Property Name="tarjeta" Type="Double" Nullable="false" />
-          <Property Name="CtaCte" Type="Double" Nullable="false" />
+          <Property Name="efectivo" Type="Double" />
+          <Property Name="tarjeta" Type="Double" />
+          <Property Name="CtaCte" Type="Double" />
+          <Property Name="debito" Type="Double" />
           </EntityType>
         <EntityType Name="detalleFactura">
           <Key>
@@ -484,7 +422,7 @@
           <Property Name="fechaBaja" Type="DateTime" Precision="7" />
           <Property Name="ProductoId" Type="Int32" Nullable="false" />
           <Property Name="ComprobanteId" Type="Int32" />
-          </EntityType>
+        </EntityType>
         <EntityType Name="medioPago">
           <Key>
             <PropertyRef Name="Id" />
@@ -526,7 +464,7 @@
           <Property Name="StockId" Type="Int32" Nullable="false" />
           <Property Name="ComprobanteId" Type="Int32" />
           <Property Name="TipoMovimientoStockId" Type="Int32" Nullable="false" />
-          </EntityType>
+        </EntityType>
         <EntityType Name="Producto">
           <Key>
             <PropertyRef Name="Id" />
@@ -550,7 +488,7 @@
           <Property Name="StockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cantidad" Type="Int32" Nullable="false" />
           <Property Name="ProductoId" Type="Int32" Nullable="false" />
-          </EntityType>
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -589,18 +527,18 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApellidoyNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DNI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechadeNac" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="EmailConfirmed" Type="Boolean" />
           <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FechaBaja" Type="DateTime" Precision="3" />
-          <Property Name="ApellidoyNombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="DNI" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="FechadeNac" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="TipoUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TipoUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <Association Name="FK_movimientoCaja_caja_CajaId">
           <End Role="Caja" Type="Self.Caja" Multiplicity="1">
@@ -617,7 +555,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_comprobante_Cliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
@@ -628,10 +566,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_comprobante_tipoComprobante_TipoComprobanteId">
-          <End Role="tipoComprobante" Type="Self.tipoComprobante" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_comprobante_tipoComprobante">
+          <End Role="tipoComprobante" Type="Self.tipoComprobante" Multiplicity="1" />
           <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipoComprobante">
@@ -654,7 +590,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_detalleFactura_comprobante_ComprobanteId">
+        <Association Name="FK_detalleFactura_comprobante">
           <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
           <End Role="detalleFactura" Type="Self.detalleFactura" Multiplicity="*" />
           <ReferentialConstraint>
@@ -662,30 +598,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="detalleFactura">
-              <PropertyRef Name="ComprobanteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_movimientoCaja_comprobante_ComprobanteId">
-          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
-          <End Role="movimientoCaja" Type="Self.movimientoCaja" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="comprobante">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="movimientoCaja">
-              <PropertyRef Name="ComprobanteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_movimientoStock_comprobante_ComprobanteId">
-          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
-          <End Role="movimientoStock" Type="Self.movimientoStock" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="comprobante">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="movimientoStock">
               <PropertyRef Name="ComprobanteId" />
             </Dependent>
           </ReferentialConstraint>
@@ -744,7 +656,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_stock_Producto">
+        <Association Name="FK_Stock_Producto">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
           <ReferentialConstraint>
@@ -779,7 +691,7 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="comprobante" EntitySet="comprobante" />
           </AssociationSet>
-          <AssociationSet Name="FK_comprobante_tipoComprobante_TipoComprobanteId" Association="Self.FK_comprobante_tipoComprobante_TipoComprobanteId">
+          <AssociationSet Name="FK_comprobante_tipoComprobante" Association="Self.FK_comprobante_tipoComprobante">
             <End Role="tipoComprobante" EntitySet="tipoComprobante" />
             <End Role="comprobante" EntitySet="comprobante" />
           </AssociationSet>
@@ -787,17 +699,9 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="comprobante" EntitySet="comprobante" />
           </AssociationSet>
-          <AssociationSet Name="FK_detalleFactura_comprobante_ComprobanteId" Association="Self.FK_detalleFactura_comprobante_ComprobanteId">
+          <AssociationSet Name="FK_detalleFactura_comprobante" Association="Self.FK_detalleFactura_comprobante">
             <End Role="comprobante" EntitySet="comprobante" />
             <End Role="detalleFactura" EntitySet="detalleFactura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientoCaja_comprobante_ComprobanteId" Association="Self.FK_movimientoCaja_comprobante_ComprobanteId">
-            <End Role="comprobante" EntitySet="comprobante" />
-            <End Role="movimientoCaja" EntitySet="movimientoCaja" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientoStock_comprobante_ComprobanteId" Association="Self.FK_movimientoStock_comprobante_ComprobanteId">
-            <End Role="comprobante" EntitySet="comprobante" />
-            <End Role="movimientoStock" EntitySet="movimientoStock" />
           </AssociationSet>
           <AssociationSet Name="FK_detalleFactura_Producto" Association="Self.FK_detalleFactura_Producto">
             <End Role="Producto" EntitySet="Producto" />
@@ -815,52 +719,11 @@
             <End Role="tipoMovimientoStock" EntitySet="tipoMovimientoStock" />
             <End Role="movimientoStock" EntitySet="movimientoStock" />
           </AssociationSet>
-          <AssociationSet Name="FK_stock_Producto" Association="Self.FK_stock_Producto">
+          <AssociationSet Name="FK_Stock_Producto" Association="Self.FK_Stock_Producto">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="Stock" EntitySet="Stock" />
           </AssociationSet>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(todoluzdbModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(todoluzdbModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -909,6 +772,7 @@
                 <ScalarProperty Name="efectivo" ColumnName="efectivo" />
                 <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
                 <ScalarProperty Name="CtaCte" ColumnName="CtaCte" />
+                <ScalarProperty Name="debito" ColumnName="debito" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1037,46 +901,22 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="todoluzdbModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="TipoUser" ColumnName="TipoUser" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-                <ScalarProperty Name="FechadeNac" ColumnName="FechadeNac" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="ApellidoyNombre" ColumnName="ApellidoyNombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ApellidoyNombre" ColumnName="ApellidoyNombre" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="FechadeNac" ColumnName="FechadeNac" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Pass" ColumnName="Pass" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
                 <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
                 <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="TipoUser" ColumnName="TipoUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="todoluzdbModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="todoluzdbModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="todoluzdbModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="todoluzdbModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="todoluzdbModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="todoluzdbModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="todoluzdbModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="todoluzdbModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="todoluzdbModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -108,41 +108,41 @@ namespace Design_Dashboard_Modern
         {
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
-
                 lblUsuarioActivo.Text = UsuarioActivo.ApellidoyNombre;
                 lblUsuarioActivo2.Text = DB.Usuario.Find(UsuarioActivo.Id).UserName;
+                lblTipoUsuario.Text = UsuarioActivo.TipoUsuario;
 
-                if (UsuarioActivo.TipoUsuario == "Ventas")
+                if (UsuarioActivo.TipoUsuario != "Administrador")
                 {
                     btnCaja.Visible = false;
                     btnConfiguracion.Visible = false;
                     btnCtasCtes.Visible = false;
-                    btnInicio.Visible = false;
+                    btnInicio.Visible = true;
+                    btnProductos.Visible = false;
                     btnVerVentas.Visible = false;
                     btnVentas.Visible = false;
+                    btnClientes.Visible = false;
+                    btnStock.Visible = false;
+                }
+
+                if (UsuarioActivo.TipoUsuario == "Ventas")
+                {
+                    btnInicio.Visible = true;
+                    btnVentas.Visible = true;
+                    btnVerVentas.Visible = true;
+                    btnProductos.Visible = true;
+                    btnVerVentas.Enabled = false; //eliminar esta línea cuando se implemente la funcionalidad
+
                 }
 
                 if (UsuarioActivo.TipoUsuario == "Carga de Productos")
                 {
-                    btnCaja.Visible = false;
-                    btnConfiguracion.Visible = false;
-                    btnCtasCtes.Visible = false;
-                    btnInicio.Visible = false;
-                    btnVerVentas.Visible = false;
-                    btnVentas.Visible = false;
+                    btnInicio.Visible = true;
+                    btnProductos.Visible = true;
                 }
 
-                /*
-                if (UsuarioActivo.TipoUsuario == "Ventas")
-                {
-                    btnCaja.Visible = false;
-                    btnConfiguracion.Visible = false;
-                    btnCtasCtes.Visible = false;
-                    btnInicio.Visible = false;
-                    btnVerVentas.Visible = false;
-                    btnVentas.Visible = false;
-                }
-                */
+
+
 
 
 
