@@ -44,6 +44,7 @@
             this.MenuSidebar = new System.Windows.Forms.PictureBox();
             this.SidebarWrapper = new System.Windows.Forms.Panel();
             this.Sidebar = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.lblUsuarioActivo = new System.Windows.Forms.Label();
             this.btnConfiguracion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnStock = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -63,7 +64,6 @@
             this.AnimacionSidebarBack = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.RadioPanelChart = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.MoverDashboard = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.MenuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
@@ -263,6 +263,20 @@
             this.Sidebar.Quality = 20;
             this.Sidebar.Size = new System.Drawing.Size(270, 695);
             this.Sidebar.TabIndex = 0;
+            // 
+            // lblTipoUsuario
+            // 
+            this.lblTipoUsuario.AutoSize = true;
+            this.lblTipoUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.AnimacionSidebar.SetDecoration(this.lblTipoUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.lblTipoUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.lblTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoUsuario.ForeColor = System.Drawing.Color.Black;
+            this.lblTipoUsuario.Location = new System.Drawing.Point(142, 62);
+            this.lblTipoUsuario.Name = "lblTipoUsuario";
+            this.lblTipoUsuario.Size = new System.Drawing.Size(113, 20);
+            this.lblTipoUsuario.TabIndex = 20;
+            this.lblTipoUsuario.Text = "tipo de usuario";
             // 
             // lblUsuarioActivo
             // 
@@ -508,6 +522,7 @@
             this.btnVerVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerVentas.Textcolor = System.Drawing.Color.Black;
             this.btnVerVentas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerVentas.Click += new System.EventHandler(this.btnVerVentas_Click);
             // 
             // btnVentas
             // 
@@ -736,20 +751,6 @@
             this.MoverDashboard.Horizontal = true;
             this.MoverDashboard.TargetControl = this.MenuTop;
             this.MoverDashboard.Vertical = true;
-            // 
-            // lblTipoUsuario
-            // 
-            this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.AnimacionSidebar.SetDecoration(this.lblTipoUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebarBack.SetDecoration(this.lblTipoUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.lblTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lblTipoUsuario.Location = new System.Drawing.Point(142, 62);
-            this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(113, 20);
-            this.lblTipoUsuario.TabIndex = 20;
-            this.lblTipoUsuario.Text = "tipo de usuario";
             // 
             // Main
             // 

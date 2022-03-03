@@ -162,5 +162,11 @@ namespace Design_Dashboard_Modern
             frmHome home = new frmHome();
             AbrirFormHijo(home);
         }
+
+        private void btnVerVentas_Click(object sender, EventArgs e)
+        {
+            frmVerVentas verventas = new frmVerVentas();
+            AbrirFormHijo(verventas);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Design_Dashboard_Modern.Vistas
         }
 
         public FrmProductos(int a)
-        {   
+        {
             bandera = a;
             InitializeComponent();
         }
