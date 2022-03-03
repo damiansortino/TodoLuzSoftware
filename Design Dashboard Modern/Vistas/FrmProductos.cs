@@ -8,27 +8,32 @@ namespace Design_Dashboard_Modern.Vistas
 {
     public partial class FrmProductos : Form
     {
+        int bandera = 0;
         public FrmProductos()
         {
             InitializeComponent();
         }
 
+        public FrmProductos(int a)
+        {   
+            bandera = a;
+            InitializeComponent();
+        }
+
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            /*
-            using (todoluzdbEntities DB = new todoluzdbEntities())
+            if (bandera == 0)
             {
-                foreach (Producto item in DB.Producto.ToList())
-                {
-                    if(DB.Stock.ToList().FindAll(x=>x.ProductoId == item.Id).Count>0)
-                }
+                Refrescar();
+                pnBotonesCrud.Visible = true;
             }
-            */
+            else
+            {
+                Refrescar();
+                btnCopiarCodigo.Visible = true;
+                btnCerrar.Visible = true;
+            }
 
-
-
-            Refrescar();
-            pnBotonesCrud.Visible = true;
         }
 
         #region Helper
@@ -48,6 +53,7 @@ namespace Design_Dashboard_Modern.Vistas
                                IdProducto = e.Id,
                                Codigo = e.Codigo,
                                Nombre = e.Nombre,
+                               Descripción = e.Descripcion,
                                Marca = e.Marca,
                                Modelo = e.Modelo,
                                Color = e.Color,
@@ -71,7 +77,7 @@ namespace Design_Dashboard_Modern.Vistas
                 var lst = (from d in db.Stock
                            join e in db.Producto
                            on d.ProductoId equals e.Id
-                           where e.FechaBaja == null && ((e.Nombre.Contains(filtro) || e.Codigo.Contains(filtro)))||e.Marca.Contains(filtro)
+                           where e.FechaBaja == null && ((e.Nombre.Contains(filtro) || e.Codigo.Contains(filtro))) || e.Marca.Contains(filtro)
                            orderby e.Id ascending
                            select new
                            {
@@ -111,12 +117,6 @@ namespace Design_Dashboard_Modern.Vistas
             FrmAgregarProducto agregar = new FrmAgregarProducto();
             agregar.ShowDialog();
             Refrescar();
-        }
-
-        private void FrmProductos_Enter(object sender, EventArgs e)
-        {
-            Refrescar();
-            pnBotonesCrud.Visible = true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -170,6 +170,17 @@ namespace Design_Dashboard_Modern.Vistas
                 e.Handled = true;
                 btnBuscar.PerformClick();
             }
+        }
+
+        private void btnCopiarCodigo_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(Buscar.Rows[Buscar.CurrentRow.Index].Cells[1].Value.ToString());
+            this.Close();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

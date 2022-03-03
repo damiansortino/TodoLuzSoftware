@@ -188,12 +188,6 @@
     <Compile Include="Vistas\FrmProductos.Designer.cs">
       <DependentUpon>FrmProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\popupBuscaProd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\popupBuscaProd.Designer.cs">
-      <DependentUpon>popupBuscaProd.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\popupEditarTipoMovStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,12 +199,6 @@
     </Compile>
     <Compile Include="Vistas\popupNuevoTipoMovStock.Designer.cs">
       <DependentUpon>popupNuevoTipoMovStock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmVentas.Designer.cs">
-      <DependentUpon>FrmVentas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Design Dashboard Modern.resx">
       <DependentUpon>Design Dashboard Modern.cs</DependentUpon>
@@ -255,17 +243,11 @@
     <EmbeddedResource Include="Vistas\frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\popupBuscaProd.resx">
-      <DependentUpon>popupBuscaProd.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\popupEditarTipoMovStock.resx">
       <DependentUpon>popupEditarTipoMovStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\popupNuevoTipoMovStock.resx">
       <DependentUpon>popupNuevoTipoMovStock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmVentas.resx">
-      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -275,6 +257,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Design_Dashboard_Modern.Models.Producto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

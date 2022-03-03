@@ -37,6 +37,8 @@ namespace Design_Dashboard_Modern.Vistas
                 cboxCliente.DisplayMember = "NombreyApellido";
 
 
+
+
             }
 
         }
@@ -445,7 +447,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            popupBuscaProd buscarprod = new popupBuscaProd();
+            FrmProductos buscarprod = new FrmProductos(1);
             buscarprod.ShowDialog();
         }
 

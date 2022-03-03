@@ -86,25 +86,25 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 100);
+            this.label2.Location = new System.Drawing.Point(5, 147);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(252, 20);
+            this.label2.Size = new System.Drawing.Size(167, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Ingrese el código del producto";
+            this.label2.Text = "código del producto";
             // 
             // tbcodigo
             // 
             this.tbcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbcodigo.Location = new System.Drawing.Point(263, 100);
+            this.tbcodigo.Location = new System.Drawing.Point(178, 147);
             this.tbcodigo.Name = "tbcodigo";
-            this.tbcodigo.Size = new System.Drawing.Size(438, 26);
+            this.tbcodigo.Size = new System.Drawing.Size(523, 26);
             this.tbcodigo.TabIndex = 2;
             this.tbcodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbcodigo_KeyPress);
             // 
             // btnBuscarProducto
             // 
             this.btnBuscarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProducto.Location = new System.Drawing.Point(404, 62);
+            this.btnBuscarProducto.Location = new System.Drawing.Point(178, 109);
             this.btnBuscarProducto.Name = "btnBuscarProducto";
             this.btnBuscarProducto.Size = new System.Drawing.Size(162, 32);
             this.btnBuscarProducto.TabIndex = 3;
@@ -126,7 +126,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvProductos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(717, 311);
+            this.dgvProductos.Size = new System.Drawing.Size(717, 260);
             this.dgvProductos.TabIndex = 4;
             this.dgvProductos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProductos_CellMouseClick);
             // 
@@ -171,9 +171,9 @@ namespace Design_Dashboard_Modern.Vistas
             // panel1
             // 
             this.panel1.Controls.Add(this.dgvProductos);
-            this.panel1.Location = new System.Drawing.Point(9, 132);
+            this.panel1.Location = new System.Drawing.Point(9, 178);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(717, 311);
+            this.panel1.Size = new System.Drawing.Size(717, 260);
             this.panel1.TabIndex = 9;
             // 
             // btnEliminarSeleccionado
@@ -469,11 +469,11 @@ namespace Design_Dashboard_Modern.Vistas
             // btnPegar
             // 
             this.btnPegar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPegar.Location = new System.Drawing.Point(716, 94);
+            this.btnPegar.Location = new System.Drawing.Point(583, 109);
             this.btnPegar.Name = "btnPegar";
-            this.btnPegar.Size = new System.Drawing.Size(62, 32);
+            this.btnPegar.Size = new System.Drawing.Size(118, 32);
             this.btnPegar.TabIndex = 36;
-            this.btnPegar.Text = "pegar";
+            this.btnPegar.Text = "pegar código";
             this.btnPegar.UseVisualStyleBackColor = true;
             this.btnPegar.Click += new System.EventHandler(this.btnPegar_Click);
             // 
