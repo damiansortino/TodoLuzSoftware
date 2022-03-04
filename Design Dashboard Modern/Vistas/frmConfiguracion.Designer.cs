@@ -116,7 +116,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvMuestraUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMuestraUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(88)))), ((int)(((byte)(86)))));
             this.dgvMuestraUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMuestraUsuarios.Location = new System.Drawing.Point(209, 101);
+            this.dgvMuestraUsuarios.Location = new System.Drawing.Point(189, 101);
             this.dgvMuestraUsuarios.MultiSelect = false;
             this.dgvMuestraUsuarios.Name = "dgvMuestraUsuarios";
             this.dgvMuestraUsuarios.ReadOnly = true;

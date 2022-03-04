@@ -81,6 +81,7 @@ namespace Design_Dashboard_Modern.Vistas
                            orderby e.Id ascending
                            select new
                            {
+                               IdProducto = e.Id,
                                Codigo = e.Codigo,
                                Nombre = e.Nombre,
                                Marca = e.Marca,
@@ -91,6 +92,8 @@ namespace Design_Dashboard_Modern.Vistas
                            }).ToList();
 
                 Buscar.DataSource = lst;
+                Buscar.Columns[0].Visible = false;
+
             }
             Buscar.Visible = true;
         }
@@ -182,5 +185,7 @@ namespace Design_Dashboard_Modern.Vistas
         {
             this.Close();
         }
+
+        
     }
 }

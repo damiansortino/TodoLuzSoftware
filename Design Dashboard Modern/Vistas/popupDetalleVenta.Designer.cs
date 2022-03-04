@@ -32,28 +32,31 @@ namespace Design_Dashboard_Modern.Vistas
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
+            this.lblDebito = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblVendedor = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.lblEfectivo = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblCtaCte = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblTarjetaCredito = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lblTotalGeneral = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lblComprobante = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 39);
+            this.label1.Location = new System.Drawing.Point(62, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 22);
             this.label1.TabIndex = 0;
@@ -63,7 +66,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(55, 9);
+            this.label3.Location = new System.Drawing.Point(42, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 22);
             this.label3.TabIndex = 2;
@@ -79,81 +82,83 @@ namespace Design_Dashboard_Modern.Vistas
             this.label4.TabIndex = 3;
             this.label4.Text = "Débito";
             // 
-            // label5
+            // lblCliente
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(143, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 22);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "cliente";
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Location = new System.Drawing.Point(139, 71);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(80, 22);
+            this.lblCliente.TabIndex = 4;
+            this.lblCliente.Text = "cliente";
             // 
-            // dataGridView1
+            // dgvDetalles
             // 
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(44, 116);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(716, 212);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvDetalles.AllowUserToResizeColumns = false;
+            this.dgvDetalles.AllowUserToResizeRows = false;
+            this.dgvDetalles.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvDetalles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalles.Location = new System.Drawing.Point(44, 116);
+            this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.ReadOnly = true;
+            this.dgvDetalles.RowHeadersVisible = false;
+            this.dgvDetalles.Size = new System.Drawing.Size(716, 212);
+            this.dgvDetalles.TabIndex = 5;
             // 
-            // label6
+            // lblDebito
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(261, 372);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 24);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "total";
+            this.lblDebito.AutoSize = true;
+            this.lblDebito.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDebito.Location = new System.Drawing.Point(261, 372);
+            this.lblDebito.Name = "lblDebito";
+            this.lblDebito.Size = new System.Drawing.Size(70, 24);
+            this.lblDebito.TabIndex = 6;
+            this.lblDebito.Text = "total";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(56, 67);
+            this.label7.Location = new System.Drawing.Point(605, 71);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 22);
             this.label7.TabIndex = 7;
             this.label7.Text = "Vendedor";
             // 
-            // label8
+            // lblVendedor
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(144, 67);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 22);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Vendedor";
+            this.lblVendedor.AutoSize = true;
+            this.lblVendedor.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVendedor.Location = new System.Drawing.Point(693, 71);
+            this.lblVendedor.Name = "lblVendedor";
+            this.lblVendedor.Size = new System.Drawing.Size(90, 22);
+            this.lblVendedor.TabIndex = 8;
+            this.lblVendedor.Text = "Vendedor";
             // 
-            // button1
+            // btnCerrar
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(705, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 32);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Cerrar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCerrar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(705, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(83, 32);
+            this.btnCerrar.TabIndex = 9;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // label2
+            // lblEfectivo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(261, 342);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 24);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "total";
+            this.lblEfectivo.AutoSize = true;
+            this.lblEfectivo.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEfectivo.Location = new System.Drawing.Point(261, 342);
+            this.lblEfectivo.Name = "lblEfectivo";
+            this.lblEfectivo.Size = new System.Drawing.Size(70, 24);
+            this.lblEfectivo.TabIndex = 11;
+            this.lblEfectivo.Text = "total";
             // 
             // label9
             // 
@@ -175,15 +180,15 @@ namespace Design_Dashboard_Modern.Vistas
             this.label10.TabIndex = 10;
             this.label10.Text = "Cta Cte";
             // 
-            // label11
+            // lblCtaCte
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(261, 402);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 24);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "total";
+            this.lblCtaCte.AutoSize = true;
+            this.lblCtaCte.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCtaCte.Location = new System.Drawing.Point(261, 402);
+            this.lblCtaCte.Name = "lblCtaCte";
+            this.lblCtaCte.Size = new System.Drawing.Size(70, 24);
+            this.lblCtaCte.TabIndex = 11;
+            this.lblCtaCte.Text = "total";
             // 
             // label13
             // 
@@ -195,15 +200,15 @@ namespace Design_Dashboard_Modern.Vistas
             this.label13.TabIndex = 10;
             this.label13.Text = "Tarj. de Crédito";
             // 
-            // label14
+            // lblTarjetaCredito
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(261, 433);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(70, 24);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "total";
+            this.lblTarjetaCredito.AutoSize = true;
+            this.lblTarjetaCredito.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTarjetaCredito.Location = new System.Drawing.Point(261, 433);
+            this.lblTarjetaCredito.Name = "lblTarjetaCredito";
+            this.lblTarjetaCredito.Size = new System.Drawing.Size(70, 24);
+            this.lblTarjetaCredito.TabIndex = 11;
+            this.lblTarjetaCredito.Text = "total";
             // 
             // label12
             // 
@@ -215,36 +220,70 @@ namespace Design_Dashboard_Modern.Vistas
             this.label12.TabIndex = 10;
             this.label12.Text = "total";
             // 
-            // label15
+            // lblTotalGeneral
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(675, 366);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(70, 24);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "total";
+            this.lblTotalGeneral.AutoSize = true;
+            this.lblTotalGeneral.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalGeneral.Location = new System.Drawing.Point(675, 366);
+            this.lblTotalGeneral.Name = "lblTotalGeneral";
+            this.lblTotalGeneral.Size = new System.Drawing.Size(70, 24);
+            this.lblTotalGeneral.TabIndex = 11;
+            this.lblTotalGeneral.Text = "total";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(139, 9);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(60, 22);
+            this.lblFecha.TabIndex = 12;
+            this.lblFecha.Text = "Fecha";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(2, 40);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(120, 22);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "Comprobante";
+            // 
+            // lblComprobante
+            // 
+            this.lblComprobante.AutoSize = true;
+            this.lblComprobante.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComprobante.Location = new System.Drawing.Point(139, 40);
+            this.lblComprobante.Name = "lblComprobante";
+            this.lblComprobante.Size = new System.Drawing.Size(120, 22);
+            this.lblComprobante.TabIndex = 14;
+            this.lblComprobante.Text = "Comprobante";
             // 
             // popupDetalleVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.CancelButton = this.btnCerrar;
             this.ClientSize = new System.Drawing.Size(800, 466);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblComprobante);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.lblTarjetaCredito);
+            this.Controls.Add(this.lblCtaCte);
+            this.Controls.Add(this.lblTotalGeneral);
+            this.Controls.Add(this.lblEfectivo);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.lblVendedor);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblDebito);
+            this.Controls.Add(this.dgvDetalles);
+            this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -252,7 +291,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.Name = "popupDetalleVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "popupDetalleVenta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.popupDetalleVenta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,19 +303,22 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.DataGridView dgvDetalles;
+        private System.Windows.Forms.Label lblDebito;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblVendedor;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label lblEfectivo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblCtaCte;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblTarjetaCredito;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblTotalGeneral;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblComprobante;
     }
 }

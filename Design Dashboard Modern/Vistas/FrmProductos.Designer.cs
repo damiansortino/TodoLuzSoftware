@@ -209,13 +209,13 @@ namespace Design_Dashboard_Modern.Vistas
             this.Buscar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Buscar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(88)))), ((int)(((byte)(86)))));
             this.Buscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Buscar.Location = new System.Drawing.Point(3, 12);
+            this.Buscar.Location = new System.Drawing.Point(3, 17);
             this.Buscar.MultiSelect = false;
             this.Buscar.Name = "Buscar";
             this.Buscar.ReadOnly = true;
             this.Buscar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Buscar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Buscar.Size = new System.Drawing.Size(1069, 640);
+            this.Buscar.Size = new System.Drawing.Size(1069, 544);
             this.Buscar.TabIndex = 0;
             this.Buscar.TabStop = false;
             this.Buscar.Visible = false;
