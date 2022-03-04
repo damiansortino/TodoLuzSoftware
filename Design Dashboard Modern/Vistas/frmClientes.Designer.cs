@@ -40,16 +40,21 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // dgvMuestraClientes
             // 
+            this.dgvMuestraClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMuestraClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvMuestraClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMuestraClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMuestraClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMuestraClientes.Location = new System.Drawing.Point(0, 0);
             this.dgvMuestraClientes.MultiSelect = false;
             this.dgvMuestraClientes.Name = "dgvMuestraClientes";
             this.dgvMuestraClientes.ReadOnly = true;
             this.dgvMuestraClientes.RowHeadersVisible = false;
+            this.dgvMuestraClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvMuestraClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMuestraClientes.Size = new System.Drawing.Size(1044, 275);
             this.dgvMuestraClientes.TabIndex = 0;
+            this.dgvMuestraClientes.TabStop = false;
             // 
             // panel1
             // 

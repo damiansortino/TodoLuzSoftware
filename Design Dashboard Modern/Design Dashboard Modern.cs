@@ -131,8 +131,6 @@ namespace Design_Dashboard_Modern
                     btnVentas.Visible = true;
                     btnVerVentas.Visible = true;
                     btnProductos.Visible = true;
-                    btnVerVentas.Enabled = false; //eliminar esta línea cuando se implemente la funcionalidad
-
                 }
 
                 if (UsuarioActivo.TipoUsuario == "Carga de Productos")

@@ -54,7 +54,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvVerVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvVerVentas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvVerVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVerVentas.Location = new System.Drawing.Point(0, 320);
+            this.dgvVerVentas.Location = new System.Drawing.Point(0, 308);
             this.dgvVerVentas.MultiSelect = false;
             this.dgvVerVentas.Name = "dgvVerVentas";
             this.dgvVerVentas.ReadOnly = true;
@@ -66,6 +66,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvVerVentas.Size = new System.Drawing.Size(786, 429);
             this.dgvVerVentas.TabIndex = 0;
             this.dgvVerVentas.TabStop = false;
+            this.dgvVerVentas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVerVentas_MouseClick);
             // 
             // btnVentasDia
             // 
@@ -107,6 +108,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbFiltro.Name = "tbFiltro";
             this.tbFiltro.Size = new System.Drawing.Size(312, 26);
             this.tbFiltro.TabIndex = 5;
+            this.tbFiltro.Visible = false;
             // 
             // btnBuscar
             // 
@@ -117,6 +119,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "buscar venta";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Visible = false;
             // 
             // cboxFiltros
             // 
@@ -132,9 +135,11 @@ namespace Design_Dashboard_Modern.Vistas
             this.cboxFiltros.Name = "cboxFiltros";
             this.cboxFiltros.Size = new System.Drawing.Size(151, 28);
             this.cboxFiltros.TabIndex = 7;
+            this.cboxFiltros.Visible = false;
             // 
             // btnReimprimir
             // 
+            this.btnReimprimir.Enabled = false;
             this.btnReimprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReimprimir.Location = new System.Drawing.Point(13, 7);
             this.btnReimprimir.Name = "btnReimprimir";
@@ -145,6 +150,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             // btnVerDetalle
             // 
+            this.btnVerDetalle.Enabled = false;
             this.btnVerDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerDetalle.Location = new System.Drawing.Point(13, 91);
             this.btnVerDetalle.Name = "btnVerDetalle";
@@ -162,6 +168,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnAnular.TabIndex = 8;
             this.btnAnular.Text = "anular esta venta";
             this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // panCrud
             // 
@@ -172,6 +179,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.panCrud.Name = "panCrud";
             this.panCrud.Size = new System.Drawing.Size(308, 131);
             this.panCrud.TabIndex = 11;
+            this.panCrud.Visible = false;
             // 
             // dtpFiltro
             // 
@@ -202,6 +210,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.label1.Size = new System.Drawing.Size(272, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "Seleccione un filtro de búsqueda";
+            this.label1.Visible = false;
             // 
             // label2
             // 

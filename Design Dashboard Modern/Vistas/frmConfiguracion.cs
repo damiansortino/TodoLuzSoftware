@@ -13,6 +13,30 @@ namespace Design_Dashboard_Modern.Vistas
         private void frmConfiguracion_Load(object sender, System.EventArgs e)
         {
             RefrescarTipoMov();
+            RefrescarUsuarios();
+
+        }
+
+        private void RefrescarUsuarios()
+        {
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+                var lst = (from d in DB.Usuario
+                           where d.FechaBaja == null
+                           orderby d.Id descending
+                           select new
+                           {
+                               Nombre = d.ApellidoyNombre,
+                               Username = d.UserName,
+                               TipodeUsuario = d.TipoUser,
+                               DNI = d.DNI,
+                               FechadeNacimiento = d.FechadeNac,
+                               Teléfono = d.Telefono,
+                               Direccion = d.Direccion
+                           }).ToList();
+                dgvMuestraUsuarios.DataSource = null;
+                dgvMuestraUsuarios.DataSource = lst;
+            }
         }
 
         private void btnAgregarMovStock_Click(object sender, System.EventArgs e)
@@ -61,6 +85,11 @@ namespace Design_Dashboard_Modern.Vistas
         {
             btnBorrarMovStock.Enabled = true;
             btnModificarMovStock.Enabled = true;
+        }
+
+        private void btnAgregaUsuario_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

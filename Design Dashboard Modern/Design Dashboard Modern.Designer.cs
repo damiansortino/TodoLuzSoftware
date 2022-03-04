@@ -763,6 +763,7 @@
             this.AnimacionSidebarBack.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
