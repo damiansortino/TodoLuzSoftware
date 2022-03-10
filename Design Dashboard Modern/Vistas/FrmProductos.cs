@@ -186,6 +186,6 @@ namespace Design_Dashboard_Modern.Vistas
             this.Close();
         }
 
-        
+
     }
 }

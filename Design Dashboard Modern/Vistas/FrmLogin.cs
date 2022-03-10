@@ -24,36 +24,35 @@ namespace Design_Dashboard_Modern.Vistas
             {
                 string spass = Encrypt.GetSHA256(tbContraseña.Text.Trim());
                 var lst = from d in DB.Usuario
-                          where d.UserName == tbUsuario.Text && d.Pass == spass
+                          where (d.UserName == tbUsuario.Text && d.Pass == spass)
                           select d;
 
 
                 if (lst.Count() > 0)
                 {
                     Usuario usuariolog = DB.Usuario.ToList().Find(x => x.UserName == tbUsuario.Text);
-                    UsuarioActivo.ApellidoyNombre = usuariolog.ApellidoyNombre;
-                    UsuarioActivo.Id = usuariolog.Id;
-                    UsuarioActivo.TipoUsuario = usuariolog.TipoUser;
 
-                    this.Hide();
-                    Main programa = new Main();
-                    programa.FormClosed += (s, args) => this.Close();
-                    programa.Show();
+                    if (usuariolog.EmailConfirmed != false)
+                    {
+                        UsuarioActivo.ApellidoyNombre = usuariolog.ApellidoyNombre;
+                        UsuarioActivo.Id = usuariolog.Id;
+                        UsuarioActivo.TipoUsuario = usuariolog.TipoUser;
 
-                    /*
-                    activo.ApellidoyNombre = usuariolog.ApellidoyNombre;
-                    activo.Id = usuariolog.Id;
-                    activo.TipoUsuario = usuariolog.TipoUser;
-
-                    MessageBox.Show("Inicio correcto con usuario " + activo.ApellidoyNombre);
-                    */
+                        this.Hide();
+                        Main programa = new Main();
+                        programa.FormClosed += (s, args) => this.Close();
+                        programa.Show();
+                    }
+                    else
+                    {
+                        popupBlanqueoClave blanquear = new popupBlanqueoClave(usuariolog.Id);
+                        blanquear.ShowDialog();
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Usuario No encontrado");
                 }
-
-
             }
         }
 

@@ -89,7 +89,43 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnAgregaUsuario_Click(object sender, System.EventArgs e)
         {
+            frmAgregarUsuario agregarusuario = new frmAgregarUsuario();
+            agregarusuario.ShowDialog();
+            RefrescarUsuarios();
+        }
 
+        private void btnEliminaUsuario_Click(object sender, System.EventArgs e)
+        {
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+                Usuario usuarioelim = DB.Usuario.ToList().Find(x => x.UserName
+                == (string)dgvMuestraUsuarios.CurrentRow.Cells[1].Value);
+
+                usuarioelim.FechaBaja = System.DateTime.Now;
+                DB.Entry(usuarioelim).State = System.Data.Entity.EntityState.Modified;
+                DB.SaveChanges();
+
+                RefrescarUsuarios();
+                MessageBox.Show("Usuario eliminado Correctamente");
+
+            }
+        }
+
+        private void btnBlanquearClave_Click(object sender, System.EventArgs e)
+        {
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+                Usuario userblanquear = DB.Usuario.ToList().Find(x => x.UserName
+                == (string)dgvMuestraUsuarios.CurrentRow.Cells[1].Value);
+                userblanquear.EmailConfirmed = false;
+                userblanquear.Pass = Encrypt.GetSHA256(userblanquear.DNI.Substring(userblanquear.DNI.Length-4
+                    , 4));
+
+                DB.Entry(userblanquear).State = System.Data.Entity.EntityState.Modified;
+                DB.SaveChanges();
+                MessageBox.Show("El usuario ha sido blanqueado correctamente" +
+                    ", deberá cambiar su contraseña en el próximo ingreso");
+            }
         }
     }
 }

@@ -265,7 +265,10 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbContraseñaMaestra.PasswordChar = '*';
             this.tbContraseñaMaestra.Size = new System.Drawing.Size(154, 26);
             this.tbContraseñaMaestra.TabIndex = 28;
+            this.tbContraseñaMaestra.Text = "obligatorio";
             this.tbContraseñaMaestra.Visible = false;
+            this.tbContraseñaMaestra.Enter += new System.EventHandler(this.tbContraseñaMaestra_Enter);
+            this.tbContraseñaMaestra.Leave += new System.EventHandler(this.tbContraseñaMaestra_Leave);
             // 
             // lblContraseñaMaestra
             // 

@@ -113,5 +113,15 @@ namespace Design_Dashboard_Modern.Vistas
                 tbContraseñaMaestra.Visible = false;
             }
         }
+
+        private void tbContraseñaMaestra_Enter(object sender, EventArgs e)
+        {
+            tbContraseña.Clear();
+        }
+
+        private void tbContraseñaMaestra_Leave(object sender, EventArgs e)
+        {
+            if (tbContraseñaMaestra.Text != "TodoLuz12") tbContraseñaMaestra.Clear();
+        }
     }
 }

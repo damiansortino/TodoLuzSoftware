@@ -37,7 +37,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvMuestraUsuarios = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.btnEliminaUsuario = new System.Windows.Forms.Button();
-            this.btnModificaUsuario = new System.Windows.Forms.Button();
+            this.btnBlanquearClave = new System.Windows.Forms.Button();
             this.btnAgregaUsuario = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraTiposMovStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuestraUsuarios)).BeginInit();
@@ -123,7 +123,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvMuestraUsuarios.RowHeadersVisible = false;
             this.dgvMuestraUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvMuestraUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMuestraUsuarios.Size = new System.Drawing.Size(750, 186);
+            this.dgvMuestraUsuarios.Size = new System.Drawing.Size(750, 248);
             this.dgvMuestraUsuarios.TabIndex = 9;
             this.dgvMuestraUsuarios.TabStop = false;
             // 
@@ -131,7 +131,7 @@ namespace Design_Dashboard_Modern.Vistas
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(544, 9);
+            this.label2.Location = new System.Drawing.Point(531, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 20);
             this.label2.TabIndex = 8;
@@ -143,25 +143,27 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnEliminaUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminaUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminaUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminaUsuario.Location = new System.Drawing.Point(644, 55);
+            this.btnEliminaUsuario.Location = new System.Drawing.Point(632, 55);
             this.btnEliminaUsuario.Name = "btnEliminaUsuario";
-            this.btnEliminaUsuario.Size = new System.Drawing.Size(94, 40);
+            this.btnEliminaUsuario.Size = new System.Drawing.Size(151, 40);
             this.btnEliminaUsuario.TabIndex = 7;
-            this.btnEliminaUsuario.Text = "Borrar";
+            this.btnEliminaUsuario.Text = "Eliminar Usuario";
             this.btnEliminaUsuario.UseVisualStyleBackColor = false;
+            this.btnEliminaUsuario.Click += new System.EventHandler(this.btnEliminaUsuario_Click);
             // 
-            // btnModificaUsuario
+            // btnBlanquearClave
             // 
-            this.btnModificaUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(207)))), ((int)(((byte)(77)))));
-            this.btnModificaUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificaUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificaUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificaUsuario.Location = new System.Drawing.Point(536, 55);
-            this.btnModificaUsuario.Name = "btnModificaUsuario";
-            this.btnModificaUsuario.Size = new System.Drawing.Size(102, 40);
-            this.btnModificaUsuario.TabIndex = 6;
-            this.btnModificaUsuario.Text = "Modificar";
-            this.btnModificaUsuario.UseVisualStyleBackColor = false;
+            this.btnBlanquearClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(207)))), ((int)(((byte)(77)))));
+            this.btnBlanquearClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBlanquearClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlanquearClave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBlanquearClave.Location = new System.Drawing.Point(482, 55);
+            this.btnBlanquearClave.Name = "btnBlanquearClave";
+            this.btnBlanquearClave.Size = new System.Drawing.Size(144, 40);
+            this.btnBlanquearClave.TabIndex = 6;
+            this.btnBlanquearClave.Text = "Blanquear Clave";
+            this.btnBlanquearClave.UseVisualStyleBackColor = false;
+            this.btnBlanquearClave.Click += new System.EventHandler(this.btnBlanquearClave_Click);
             // 
             // btnAgregaUsuario
             // 
@@ -169,7 +171,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.btnAgregaUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregaUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregaUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgregaUsuario.Location = new System.Drawing.Point(429, 55);
+            this.btnAgregaUsuario.Location = new System.Drawing.Point(375, 55);
             this.btnAgregaUsuario.Name = "btnAgregaUsuario";
             this.btnAgregaUsuario.Size = new System.Drawing.Size(101, 40);
             this.btnAgregaUsuario.TabIndex = 5;
@@ -186,7 +188,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.Controls.Add(this.dgvMuestraUsuarios);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEliminaUsuario);
-            this.Controls.Add(this.btnModificaUsuario);
+            this.Controls.Add(this.btnBlanquearClave);
             this.Controls.Add(this.btnAgregaUsuario);
             this.Controls.Add(this.dgvMuestraTiposMovStock);
             this.Controls.Add(this.label1);
@@ -214,7 +216,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.DataGridView dgvMuestraUsuarios;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnEliminaUsuario;
-        private System.Windows.Forms.Button btnModificaUsuario;
+        private System.Windows.Forms.Button btnBlanquearClave;
         private System.Windows.Forms.Button btnAgregaUsuario;
     }
 }
