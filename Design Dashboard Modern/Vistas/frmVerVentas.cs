@@ -56,7 +56,7 @@ namespace Design_Dashboard_Modern.Vistas
                 if (v == "todas") dgvVerVentas.DataSource = lst;
                 if (v == "dia") dgvVerVentas.DataSource = lst.FindAll(x => x.Fecha.Date == DateTime.Now.Date);
                 if (v == "mes") dgvVerVentas.DataSource = lst.FindAll(x => x.Fecha.Month == DateTime.Now.Month);
-                if (v == "semana") dgvVerVentas.DataSource = lst.FindAll(x => x.Fecha.Day >= DateTime.Now.Day - 7);
+                if (v == "semana") dgvVerVentas.DataSource = lst.FindAll(x => (x.Fecha.Date == DateTime.Now.Date) || (x.Fecha.Date > DateTime.Today.AddDays(-8)));
             }
             panCrud.Visible = false;
         }

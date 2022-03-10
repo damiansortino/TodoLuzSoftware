@@ -38,6 +38,7 @@ namespace Design_Dashboard_Modern.Vistas
                             nuevo.Telefono = tbTelefono.Text;
                             nuevo.TipoUser = cbTipoUser.Text;
                             nuevo.FechaAlta = System.DateTime.Now;
+                            nuevo.EmailConfirmed = true;
 
                             DB.Usuario.Add(nuevo);
                             DB.SaveChanges();
@@ -73,6 +74,7 @@ namespace Design_Dashboard_Modern.Vistas
                     nuevo.Telefono = tbTelefono.Text;
                     nuevo.TipoUser = cbTipoUser.Text;
                     nuevo.FechaAlta = System.DateTime.Now;
+                    nuevo.EmailConfirmed = true;
 
                     DB.Usuario.Add(nuevo);
                     DB.SaveChanges();

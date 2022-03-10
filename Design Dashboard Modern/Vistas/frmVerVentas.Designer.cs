@@ -63,7 +63,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvVerVentas.RowTemplate.ReadOnly = true;
             this.dgvVerVentas.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvVerVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVerVentas.Size = new System.Drawing.Size(786, 429);
+            this.dgvVerVentas.Size = new System.Drawing.Size(786, 334);
             this.dgvVerVentas.TabIndex = 0;
             this.dgvVerVentas.TabStop = false;
             this.dgvVerVentas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVerVentas_MouseClick);

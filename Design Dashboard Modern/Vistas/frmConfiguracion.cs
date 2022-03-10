@@ -118,7 +118,7 @@ namespace Design_Dashboard_Modern.Vistas
                 Usuario userblanquear = DB.Usuario.ToList().Find(x => x.UserName
                 == (string)dgvMuestraUsuarios.CurrentRow.Cells[1].Value);
                 userblanquear.EmailConfirmed = false;
-                userblanquear.Pass = Encrypt.GetSHA256(userblanquear.DNI.Substring(userblanquear.DNI.Length-4
+                userblanquear.Pass = Encrypt.GetSHA256(userblanquear.DNI.Substring(userblanquear.DNI.Length - 4
                     , 4));
 
                 DB.Entry(userblanquear).State = System.Data.Entity.EntityState.Modified;

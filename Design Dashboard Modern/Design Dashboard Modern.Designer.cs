@@ -407,6 +407,7 @@
             this.btnCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCaja.Textcolor = System.Drawing.Color.Black;
             this.btnCaja.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
             // 
             // btnCtasCtes
             // 

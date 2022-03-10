@@ -128,6 +128,18 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioActivo.cs" />
+    <Compile Include="Vistas\frmCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmCaja.Designer.cs">
+      <DependentUpon>frmCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\popupAbrirCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\popupAbrirCaja.Designer.cs">
+      <DependentUpon>popupAbrirCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\popupBlanqueoClave.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +249,9 @@
     <EmbeddedResource Include="Vistas\frmAgregarUsuario.resx">
       <DependentUpon>frmAgregarUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmCaja.resx">
+      <DependentUpon>frmCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmVerVentas.resx">
       <DependentUpon>frmVerVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\popupAbrirCaja.resx">
+      <DependentUpon>popupAbrirCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\popupBlanqueoClave.resx">
       <DependentUpon>popupBlanqueoClave.cs</DependentUpon>

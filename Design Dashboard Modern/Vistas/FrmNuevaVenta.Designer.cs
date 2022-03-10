@@ -350,6 +350,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbEfectivo.Size = new System.Drawing.Size(126, 26);
             this.tbEfectivo.TabIndex = 27;
             this.tbEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEfectivo_KeyPress);
+            this.tbEfectivo.Leave += new System.EventHandler(this.tbEfectivo_Leave);
             // 
             // label14
             // 

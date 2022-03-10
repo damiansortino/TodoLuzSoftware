@@ -27,20 +27,58 @@ namespace Design_Dashboard_Modern.Vistas
         {
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
-                vendedores = DB.Usuario.ToList().FindAll(x => x.FechaBaja == null);
-                clientes = DB.Cliente.ToList().FindAll(x => x.fechaBaja == null);
+                if (CajaAbierta())
+                {
+                    vendedores = DB.Usuario.ToList().FindAll(x => x.FechaBaja == null);
+                    clientes = DB.Cliente.ToList().FindAll(x => x.fechaBaja == null);
 
-                cboxUsuario.DataSource = vendedores;
-                cboxCliente.DataSource = clientes;
+                    cboxUsuario.DataSource = vendedores;
+                    cboxCliente.DataSource = clientes;
 
-                cboxUsuario.DisplayMember = "ApellidoyNombre";
-                cboxCliente.DisplayMember = "NombreyApellido";
+                    cboxUsuario.DisplayMember = "ApellidoyNombre";
+                    cboxCliente.DisplayMember = "NombreyApellido";
 
+                }
+                else
+                {
+                    MessageBox.Show("No hay una caja abierta, deberá iniciar una caja para poder realizar la venta");
 
+                    popupAbrirCaja abrircaja = new popupAbrirCaja();
+                    abrircaja.ShowDialog();
+                    if (CajaAbierta())
+                    {
+                        vendedores = DB.Usuario.ToList().FindAll(x => x.FechaBaja == null);
+                        clientes = DB.Cliente.ToList().FindAll(x => x.fechaBaja == null);
 
+                        cboxUsuario.DataSource = vendedores;
+                        cboxCliente.DataSource = clientes;
 
+                        cboxUsuario.DisplayMember = "ApellidoyNombre";
+                        cboxCliente.DisplayMember = "NombreyApellido";
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
             }
 
+        }
+
+        private bool CajaAbierta()
+        {
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+                List<Caja> abiertas = DB.Caja.ToList().FindAll(x => x.fechaCaja == DateTime.Now.Date && x.fechaCierreCaja == null);
+                if (abiertas.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         private void tbcodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -263,6 +301,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnAceptarVenta_Click(object sender, EventArgs e)
         {
+            
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
                 if (ValidarSumas())
@@ -278,7 +317,7 @@ namespace Design_Dashboard_Modern.Vistas
                     compdeventa.tarjeta = double.Parse(tbTarjCredito.Text);
                     compdeventa.debito = double.Parse(tbDebito.Text);
                     compdeventa.TipoComprobanteId = 1;
-                    compdeventa.UserId = UsuarioActivo.Id;
+                    compdeventa.UserId = ((Usuario)cboxUsuario.SelectedItem).Id;
                     DB.comprobante.Add(compdeventa);
                     DB.SaveChanges();
 
@@ -337,12 +376,27 @@ namespace Design_Dashboard_Modern.Vistas
 
                     #region Actualizar Caja
 
+                    Caja ultimacaja = DB.Caja.ToList().Find(x => x.fechaCaja == DateTime.Now.Date && (x.fechaCierreCaja == null));
+                    ultimacaja.montoCaja = ultimacaja.montoCaja + double.Parse(tbEfectivo.Text);
 
-
+                    DB.Entry(ultimacaja).State = System.Data.Entity.EntityState.Modified;
+                    DB.SaveChanges();
 
                     #endregion
 
                     #region Crear movimiento de Caja
+
+                    movimientoCaja nuevomovcaja = new movimientoCaja();
+                    nuevomovcaja.CajaId = ultimacaja.CajaId;
+                    nuevomovcaja.ComprobanteId = registroactualizado.Id;
+                    nuevomovcaja.entra = true;
+                    nuevomovcaja.sale = false;
+                    nuevomovcaja.fechaAlta = registroactualizado.fechaAlta;
+                    nuevomovcaja.importe = double.Parse(tbEfectivo.Text);
+                    nuevomovcaja.observaciones = "Venta";
+                    nuevomovcaja.tipoMovimientoCajaId = 2;
+                    DB.movimientoCaja.Add(nuevomovcaja);
+                    DB.SaveChanges();
 
                     #endregion
 
@@ -395,6 +449,7 @@ namespace Design_Dashboard_Modern.Vistas
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
+                if (tbEfectivo.TextLength < 1) tbEfectivo.Text = "0";
                 tbDebito.Focus();
                 e.Handled = true;
             }
@@ -451,15 +506,15 @@ namespace Design_Dashboard_Modern.Vistas
             buscarprod.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnPegar_Click(object sender, EventArgs e)
         {
             tbcodigo.Text = Clipboard.GetText();
             tbcodigo.Focus();
+        }
+
+        private void tbEfectivo_Leave(object sender, EventArgs e)
+        {
+            if (tbEfectivo.TextLength < 1) tbEfectivo.Text = "0";
         }
     }
 }

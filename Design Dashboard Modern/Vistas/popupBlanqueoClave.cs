@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Design_Dashboard_Modern.Models;
+using System;
 using System.Windows.Forms;
-using Design_Dashboard_Modern.Models;
 
 namespace Design_Dashboard_Modern.Vistas
 {
@@ -49,7 +49,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private bool ComprobarCampos()
         {
-            if((Encrypt.GetSHA256(tbPass1.Text.Trim()) == Encrypt.GetSHA256(tbPass2.Text.Trim()))&&tbPass1.Text.Length>=4)
+            if ((Encrypt.GetSHA256(tbPass1.Text.Trim()) == Encrypt.GetSHA256(tbPass2.Text.Trim())) && tbPass1.Text.Length >= 4)
             {
                 return true;
             }
