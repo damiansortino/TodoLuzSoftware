@@ -217,7 +217,8 @@ namespace Design_Dashboard_Modern.Vistas
             "Administrador",
             "Ventas",
             "Caja",
-            "Carga de Productos"});
+            "Carga de Productos",
+            "Master"});
             this.cbTipoUser.Location = new System.Drawing.Point(171, 371);
             this.cbTipoUser.Name = "cbTipoUser";
             this.cbTipoUser.Size = new System.Drawing.Size(302, 28);
@@ -268,17 +269,18 @@ namespace Design_Dashboard_Modern.Vistas
             this.tbContraseñaMaestra.Text = "obligatorio";
             this.tbContraseñaMaestra.Visible = false;
             this.tbContraseñaMaestra.Enter += new System.EventHandler(this.tbContraseñaMaestra_Enter);
+            this.tbContraseñaMaestra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbContraseñaMaestra_KeyPress);
             this.tbContraseñaMaestra.Leave += new System.EventHandler(this.tbContraseñaMaestra_Leave);
             // 
             // lblContraseñaMaestra
             // 
             this.lblContraseñaMaestra.AutoSize = true;
             this.lblContraseñaMaestra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseñaMaestra.Location = new System.Drawing.Point(88, 424);
+            this.lblContraseñaMaestra.Location = new System.Drawing.Point(134, 424);
             this.lblContraseñaMaestra.Name = "lblContraseñaMaestra";
-            this.lblContraseñaMaestra.Size = new System.Drawing.Size(154, 20);
+            this.lblContraseñaMaestra.Size = new System.Drawing.Size(108, 20);
             this.lblContraseñaMaestra.TabIndex = 27;
-            this.lblContraseñaMaestra.Text = "Contraseña Maestra";
+            this.lblContraseñaMaestra.Text = "Llave Maestra";
             this.lblContraseñaMaestra.Visible = false;
             // 
             // frmAgregarUsuario

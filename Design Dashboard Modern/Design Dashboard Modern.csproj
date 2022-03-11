@@ -212,6 +212,12 @@
     <Compile Include="Vistas\frmVerVentas.Designer.cs">
       <DependentUpon>frmVerVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\popupCambiarTipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\popupCambiarTipoUsuario.Designer.cs">
+      <DependentUpon>popupCambiarTipoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\popupDetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\popupBlanqueoClave.resx">
       <DependentUpon>popupBlanqueoClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\popupCambiarTipoUsuario.resx">
+      <DependentUpon>popupCambiarTipoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\popupDetalleVenta.resx">
       <DependentUpon>popupDetalleVenta.cs</DependentUpon>

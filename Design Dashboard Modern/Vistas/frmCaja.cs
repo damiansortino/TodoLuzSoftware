@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Design_Dashboard_Modern.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Design_Dashboard_Modern.Models;
 
 namespace Design_Dashboard_Modern.Vistas
 {
     public partial class frmCaja : Form
     {
         Caja cajaabierta = new Caja();
-        
+
         public frmCaja()
         {
             InitializeComponent();
@@ -54,7 +54,7 @@ namespace Design_Dashboard_Modern.Vistas
                 dgvVerCaja.DataSource = lst;
 
             }
-            
+
         }
 
         private bool CajaAbierta()

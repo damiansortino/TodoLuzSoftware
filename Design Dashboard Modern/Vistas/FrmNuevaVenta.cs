@@ -301,7 +301,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnAceptarVenta_Click(object sender, EventArgs e)
         {
-            
+
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
                 if (ValidarSumas())

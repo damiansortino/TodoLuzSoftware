@@ -32,10 +32,14 @@ namespace Design_Dashboard_Modern.Vistas
                                DNI = d.DNI,
                                FechadeNacimiento = d.FechadeNac,
                                Teléfono = d.Telefono,
-                               Direccion = d.Direccion
+                               Direccion = d.Direccion,
+                               Id = d.Id
+
                            }).ToList();
                 dgvMuestraUsuarios.DataSource = null;
                 dgvMuestraUsuarios.DataSource = lst;
+                dgvMuestraUsuarios.Columns[7].Visible = false;
+
             }
         }
 
@@ -96,6 +100,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnEliminaUsuario_Click(object sender, System.EventArgs e)
         {
+
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
                 Usuario usuarioelim = DB.Usuario.ToList().Find(x => x.UserName
@@ -126,6 +131,13 @@ namespace Design_Dashboard_Modern.Vistas
                 MessageBox.Show("El usuario ha sido blanqueado correctamente" +
                     ", deberá cambiar su contraseña en el próximo ingreso");
             }
+        }
+
+        private void btnCambiarTipoUser_Click(object sender, System.EventArgs e)
+        {
+            popupCambiarTipoUsuario cambiousuario = new popupCambiarTipoUsuario((int)dgvMuestraUsuarios.CurrentRow.Cells[7].Value);
+            cambiousuario.ShowDialog();
+            RefrescarUsuarios();
         }
     }
 }

@@ -125,5 +125,10 @@ namespace Design_Dashboard_Modern.Vistas
         {
             if (tbContraseñaMaestra.Text != "TodoLuz12") tbContraseñaMaestra.Clear();
         }
+
+        private void tbContraseñaMaestra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }
