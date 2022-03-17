@@ -33,6 +33,8 @@ namespace Design_Dashboard_Modern.Vistas
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblEfectivo = new System.Windows.Forms.Label();
+            this.btnCerrarCaja = new System.Windows.Forms.Button();
+            this.btnMovCaja = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerCaja)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +48,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.dgvVerCaja.ReadOnly = true;
             this.dgvVerCaja.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvVerCaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVerCaja.Size = new System.Drawing.Size(891, 498);
+            this.dgvVerCaja.Size = new System.Drawing.Size(811, 498);
             this.dgvVerCaja.TabIndex = 0;
             this.dgvVerCaja.TabStop = false;
             // 
@@ -83,12 +85,36 @@ namespace Design_Dashboard_Modern.Vistas
             this.lblEfectivo.TabIndex = 3;
             this.lblEfectivo.Text = "Efectivo disponible";
             // 
+            // btnCerrarCaja
+            // 
+            this.btnCerrarCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarCaja.Location = new System.Drawing.Point(853, 83);
+            this.btnCerrarCaja.Name = "btnCerrarCaja";
+            this.btnCerrarCaja.Size = new System.Drawing.Size(177, 32);
+            this.btnCerrarCaja.TabIndex = 4;
+            this.btnCerrarCaja.Text = "Cerrar Caja";
+            this.btnCerrarCaja.UseVisualStyleBackColor = true;
+            this.btnCerrarCaja.Click += new System.EventHandler(this.btnCerrarCaja_Click);
+            // 
+            // btnMovCaja
+            // 
+            this.btnMovCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMovCaja.Location = new System.Drawing.Point(853, 135);
+            this.btnMovCaja.Name = "btnMovCaja";
+            this.btnMovCaja.Size = new System.Drawing.Size(177, 32);
+            this.btnMovCaja.TabIndex = 5;
+            this.btnMovCaja.Text = "Movimiento de Caja";
+            this.btnMovCaja.UseVisualStyleBackColor = true;
+            this.btnMovCaja.Click += new System.EventHandler(this.btnMovCaja_Click);
+            // 
             // frmCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1084, 749);
+            this.Controls.Add(this.btnMovCaja);
+            this.Controls.Add(this.btnCerrarCaja);
             this.Controls.Add(this.lblEfectivo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -109,5 +135,7 @@ namespace Design_Dashboard_Modern.Vistas
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblEfectivo;
+        private System.Windows.Forms.Button btnCerrarCaja;
+        private System.Windows.Forms.Button btnMovCaja;
     }
 }

@@ -30,8 +30,10 @@ namespace Design_Dashboard_Modern.Vistas
 
                 if (lst.Count() > 0)
                 {
-                    Usuario usuariolog = DB.Usuario.ToList().Find(x => x.UserName == tbUsuario.Text);
 
+                    Usuario usuariolog = DB.Usuario.ToList().Find(x => x.UserName.ToUpper() == tbUsuario.Text.ToUpper());
+                    
+                    
                     if (usuariolog.EmailConfirmed != false)
                     {
                         UsuarioActivo.ApellidoyNombre = usuariolog.ApellidoyNombre;
@@ -69,6 +71,11 @@ namespace Design_Dashboard_Modern.Vistas
                 btnIngresar.PerformClick();
                 e.Handled = true;
             }
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

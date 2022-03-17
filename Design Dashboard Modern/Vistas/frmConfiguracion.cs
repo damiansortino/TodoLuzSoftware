@@ -149,7 +149,7 @@ namespace Design_Dashboard_Modern.Vistas
                 DB.Entry(userblanquear).State = System.Data.Entity.EntityState.Modified;
                 DB.SaveChanges();
                 MessageBox.Show("El usuario ha sido blanqueado correctamente" +
-                    ", deberá cambiar su contraseña en el próximo ingreso");
+                    ", su contraseña son los últimos 4 dígitos de su DNI");
             }
         }
 

@@ -132,6 +132,7 @@ namespace Design_Dashboard_Modern
                     btnVentas.Visible = true;
                     btnClientes.Visible = true;
                     btnConfiguracion.Visible = true;
+                    btnCaja.Visible = true;
                 }
 
                 if (UsuarioActivo.TipoUsuario == "Ventas")
@@ -148,12 +149,7 @@ namespace Design_Dashboard_Modern
                     btnProductos.Visible = true;
                 }
 
-
-
-
-
-
-                //agregar límites de funcionalidad.
+                //agregar aquí los límites de funcionalidad.
 
             }
 

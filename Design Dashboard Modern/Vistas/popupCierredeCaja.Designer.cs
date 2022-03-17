@@ -131,6 +131,7 @@ namespace Design_Dashboard_Modern.Vistas
             this.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "popupCierredeCaja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "popupCierredeCaja";
             this.Load += new System.EventHandler(this.popupCierredeCaja_Load);
             this.ResumeLayout(false);

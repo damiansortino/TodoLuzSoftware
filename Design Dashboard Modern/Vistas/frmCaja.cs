@@ -17,30 +17,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void frmCaja_Load(object sender, System.EventArgs e)
         {
-            using (todoluzdbEntities DB = new todoluzdbEntities())
-            {
-                if (CajaAbierta())
-                {
-                    cajaabierta = DB.Caja.ToList().Find(x => x.fechaCaja == DateTime.Now.Date && x.fechaCierreCaja == null);
-                    lblEfectivo.Text = cajaabierta.montoCaja.ToString();
-                    RefrescarMovimientos();
-
-                }
-                else
-                {
-                    if (CajaSinCerrar())
-                    {
-                        MessageBox.Show("Debe cerrar la caja anterior para poder continuar");
-                        CerrarCaja();
-                    }
-
-                    MessageBox.Show("La caja no está abierta todavía");
-                    AbrirCaja();
-                    cajaabierta = DB.Caja.ToList().Find(x => x.fechaCaja == DateTime.Now.Date && x.fechaCierreCaja == null);
-                    lblEfectivo.Text = cajaabierta.montoCaja.ToString();
-                    ComprobarCajas();
-                }
-            }
+            ComprobarCajas();
 
         }
 
@@ -51,6 +28,7 @@ namespace Design_Dashboard_Modern.Vistas
                 if (CajaAbierta())
                 {
                     RefrescarMovimientos();
+                    RefrescarBotones();
                 }
                 else
                 {
@@ -66,6 +44,15 @@ namespace Design_Dashboard_Modern.Vistas
                 }
             }
 
+        }
+
+        private void RefrescarBotones()
+        {
+            if (!CajaAbierta())
+            {
+                btnCerrarCaja.Enabled = false;
+            }
+                            
         }
 
         private void AbrirCaja()
@@ -111,6 +98,8 @@ namespace Design_Dashboard_Modern.Vistas
                            {
                                Fecha = d.fechaAlta,
                                Importe = d.importe,
+                               Entra = d.entra, 
+                               Sale = d.sale,
                                Movimiento = d.observaciones
                            }).ToList();
 
@@ -137,6 +126,25 @@ namespace Design_Dashboard_Modern.Vistas
                     return false;
                 }
             }
+        }
+
+        private void btnCerrarCaja_Click(object sender, EventArgs e)
+        {
+            CerrarCaja();
+            this.Close();
+        }
+
+        private void btnMovCaja_Click(object sender, EventArgs e)
+        {
+            MovimientodeCaja(cajaabierta.CajaId);
+            RefrescarMovimientos();
+            RefrescarBotones();
+        }
+
+        private void MovimientodeCaja(int id)
+        {
+            popupMovimientodeCaja nuevomovcaja = new popupMovimientodeCaja(id);
+            nuevomovcaja.ShowDialog();
         }
     }
 }
