@@ -1,4 +1,5 @@
 ﻿using Design_Dashboard_Modern.Models;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,7 +15,26 @@ namespace Design_Dashboard_Modern.Vistas
         {
             RefrescarTipoMov();
             RefrescarUsuarios();
+            RefrescarTipoMovCaja();
 
+            if (UsuarioActivo.TipoUsuario != "Master")
+            {
+                btnModMovCaja.Visible = false;
+                btnEliminiarMovCaja.Visible = false;
+            }
+
+
+        }
+
+        private void RefrescarTipoMovCaja()
+        {
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+                dgvMuestraMovCaja.DataSource = null;
+                dgvMuestraMovCaja.DataSource = DB.tipoMovimientoCaja.ToList();
+                dgvMuestraMovCaja.Columns[0].Visible = false;
+                dgvMuestraMovCaja.Columns[1].HeaderText = "Movimiento";
+            }
         }
 
         private void RefrescarUsuarios()
@@ -138,6 +158,20 @@ namespace Design_Dashboard_Modern.Vistas
             popupCambiarTipoUsuario cambiousuario = new popupCambiarTipoUsuario((int)dgvMuestraUsuarios.CurrentRow.Cells[7].Value);
             cambiousuario.ShowDialog();
             RefrescarUsuarios();
+        }
+
+        private void btnAgregarMovCaja_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                popupNuevoTipoMovCaja agregarmovcaja = new popupNuevoTipoMovCaja();
+                agregarmovcaja.ShowDialog();
+                RefrescarTipoMovCaja();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error agregando de movimiento de caja");
+            }
         }
     }
 }

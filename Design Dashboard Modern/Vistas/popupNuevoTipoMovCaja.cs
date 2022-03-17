@@ -4,30 +4,30 @@ using System.Windows.Forms;
 
 namespace Design_Dashboard_Modern.Vistas
 {
-    public partial class popupNuevoTipoMovStock : Form
+    public partial class popupNuevoTipoMovCaja : Form
     {
-        public popupNuevoTipoMovStock()
+        public popupNuevoTipoMovCaja()
         {
             InitializeComponent();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
-                tipoMovimientoStock nuevomovstock = new tipoMovimientoStock();
-                nuevomovstock.nombreTipoMovimientoStock = tbNombreMovStock.Text;
+                tipoMovimientoCaja nuevomovcaja = new tipoMovimientoCaja();
+                nuevomovcaja.nombreTipoMovimientoCaja = tbNombreMovCaja.Text;
 
-                DB.tipoMovimientoStock.Add(nuevomovstock);
+                DB.tipoMovimientoCaja.Add(nuevomovcaja);
                 DB.SaveChanges();
                 MessageBox.Show("Tipo de movimiento agregado correctamente");
                 this.Close();
             }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

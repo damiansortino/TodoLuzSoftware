@@ -28,20 +28,84 @@ namespace Design_Dashboard_Modern.Vistas
                 }
                 else
                 {
+                    if (CajaSinCerrar())
+                    {
+                        MessageBox.Show("Debe cerrar la caja anterior para poder continuar");
+                        CerrarCaja();
+                    }
+
                     MessageBox.Show("La caja no está abierta todavía");
+                    AbrirCaja();
+                    cajaabierta = DB.Caja.ToList().Find(x => x.fechaCaja == DateTime.Now.Date && x.fechaCierreCaja == null);
+                    lblEfectivo.Text = cajaabierta.montoCaja.ToString();
+                    ComprobarCajas();
                 }
             }
 
+        }
+
+        private void ComprobarCajas()
+        {
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+                if (CajaAbierta())
+                {
+                    RefrescarMovimientos();
+                }
+                else
+                {
+                    if (CajaSinCerrar())
+                    {
+                        MessageBox.Show("Debe cerrar la caja anterior para poder continuar");
+                        CerrarCaja();
+                    }
+
+                    MessageBox.Show("La caja no está abierta todavía");
+                    AbrirCaja();
+                    ComprobarCajas();
+                }
+            }
+
+        }
+
+        private void AbrirCaja()
+        {
+            popupAbrirCaja abrircaja = new popupAbrirCaja();
+            abrircaja.ShowDialog();
+        }
+
+        private void CerrarCaja()
+        {
+            popupCierredeCaja cerrar = new popupCierredeCaja();
+            cerrar.ShowDialog();
+
+        }
+
+        private bool CajaSinCerrar()
+        {
+            Caja registroactual = new Caja();
+
+            using (todoluzdbEntities DB = new todoluzdbEntities())
+            {
+                registroactual = DB.Set<Caja>().OrderByDescending(t => t.CajaId).FirstOrDefault();
+                if (registroactual.fechaCierreCaja == null) return true;
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         private void RefrescarMovimientos()
         {
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
+                Caja ultimcaja = DB.Set<Caja>().OrderByDescending(t => t.CajaId).FirstOrDefault();
+
                 var lst = (from d in DB.movimientoCaja
                            join e in DB.Caja
                            on d.CajaId equals e.CajaId
-                           where d.fechaBaja == null
+                           where d.fechaBaja == null && e.CajaId == ultimcaja.CajaId
                            orderby d.MovimientoCajaId
                            select new
                            {
@@ -52,7 +116,9 @@ namespace Design_Dashboard_Modern.Vistas
 
                 dgvVerCaja.DataSource = null;
                 dgvVerCaja.DataSource = lst;
-
+                
+                cajaabierta = DB.Caja.ToList().Find(x => x.fechaCaja == DateTime.Now.Date && x.fechaCierreCaja == null);
+                lblEfectivo.Text = cajaabierta.montoCaja.ToString();
             }
 
         }

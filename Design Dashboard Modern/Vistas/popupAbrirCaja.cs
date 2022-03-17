@@ -48,6 +48,7 @@ namespace Design_Dashboard_Modern.Vistas
             }
 
             MessageBox.Show("La caja fue abierta correctamente con un importe de $ " + importecaja);
+            this.Close();
         }
 
         private void tbImporte_KeyPress(object sender, KeyPressEventArgs e)

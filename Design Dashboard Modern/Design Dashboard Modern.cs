@@ -112,7 +112,7 @@ namespace Design_Dashboard_Modern
                 lblUsuarioActivo2.Text = DB.Usuario.Find(UsuarioActivo.Id).UserName;
                 lblTipoUsuario.Text = UsuarioActivo.TipoUsuario;
 
-                if (UsuarioActivo.TipoUsuario != "Administrador")
+                if (UsuarioActivo.TipoUsuario != "Master")
                 {
                     btnCaja.Visible = false;
                     btnConfiguracion.Visible = false;
@@ -123,6 +123,15 @@ namespace Design_Dashboard_Modern
                     btnVentas.Visible = false;
                     btnClientes.Visible = false;
                     btnStock.Visible = false;
+                }
+
+                if (UsuarioActivo.TipoUsuario == "Administrador")
+                {
+                    btnProductos.Visible = true;
+                    btnVerVentas.Visible = true;
+                    btnVentas.Visible = true;
+                    btnClientes.Visible = true;
+                    btnConfiguracion.Visible = true;
                 }
 
                 if (UsuarioActivo.TipoUsuario == "Ventas")

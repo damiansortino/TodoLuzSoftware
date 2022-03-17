@@ -218,6 +218,12 @@
     <Compile Include="Vistas\popupCambiarTipoUsuario.Designer.cs">
       <DependentUpon>popupCambiarTipoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\popupCierredeCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\popupCierredeCaja.Designer.cs">
+      <DependentUpon>popupCierredeCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\popupDetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,12 @@
     </Compile>
     <Compile Include="Vistas\popupEditarTipoMovStock.Designer.cs">
       <DependentUpon>popupEditarTipoMovStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\popupNuevoTipoMovCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\popupNuevoTipoMovCaja.Designer.cs">
+      <DependentUpon>popupNuevoTipoMovCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\popupNuevoTipoMovStock.cs">
       <SubType>Form</SubType>
@@ -294,11 +306,17 @@
     <EmbeddedResource Include="Vistas\popupCambiarTipoUsuario.resx">
       <DependentUpon>popupCambiarTipoUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\popupCierredeCaja.resx">
+      <DependentUpon>popupCierredeCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\popupDetalleVenta.resx">
       <DependentUpon>popupDetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\popupEditarTipoMovStock.resx">
       <DependentUpon>popupEditarTipoMovStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\popupNuevoTipoMovCaja.resx">
+      <DependentUpon>popupNuevoTipoMovCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\popupNuevoTipoMovStock.resx">
       <DependentUpon>popupNuevoTipoMovStock.cs</DependentUpon>
