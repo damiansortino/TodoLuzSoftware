@@ -87,8 +87,18 @@ namespace Design_Dashboard_Modern
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            FrmNuevaVenta formventas = new FrmNuevaVenta();
-            AbrirFormHijo(formventas);
+            try
+            {
+                FrmNuevaVenta formventas = new FrmNuevaVenta();
+                AbrirFormHijo(formventas);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error, no se abrió caja. Recuerde que debe iniciar la caja para poder realizar ventas.");
+                frmHome home = new frmHome();
+                AbrirFormHijo(home);
+            }
+            
         }
 
         private void btnClientes_Click(object sender, EventArgs e)

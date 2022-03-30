@@ -47,7 +47,7 @@ namespace Design_Dashboard_Modern.Vistas
                            join e in db.Producto
                            on d.ProductoId equals e.Id
                            where e.FechaBaja == null
-                           orderby e.Id ascending
+                           orderby e.Id descending
                            select new
                            {
                                IdProducto = e.Id,
