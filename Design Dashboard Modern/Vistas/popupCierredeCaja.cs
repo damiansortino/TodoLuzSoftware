@@ -60,13 +60,13 @@ namespace Design_Dashboard_Modern.Vistas
                     DB.SaveChanges();
 
                     movimientoCaja movcaja = new movimientoCaja();
-                    
+
                     movcaja.CajaId = abierta.CajaId;
                     movcaja.fechaAlta = DateTime.Now;
                     movcaja.observaciones = "Cierre de Caja";
                     movcaja.tipoMovimientoCajaId = 3;
-                                        
-                    if(faltantesobrante == "sobrante de: ")
+
+                    if (faltantesobrante == "sobrante de: ")
                     {
                         movcaja.importe = double.Parse(importedif);
                         movcaja.entra = true;
@@ -74,7 +74,7 @@ namespace Design_Dashboard_Modern.Vistas
                     }
                     else
                     {
-                        if(faltantesobrante == "faltante de: ")
+                        if (faltantesobrante == "faltante de: ")
                         {
                             movcaja.importe = double.Parse(importedif);
                             movcaja.sale = true;

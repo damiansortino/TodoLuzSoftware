@@ -98,7 +98,7 @@ namespace Design_Dashboard_Modern
                 frmHome home = new frmHome();
                 AbrirFormHijo(home);
             }
-            
+
         }
 
         private void btnClientes_Click(object sender, EventArgs e)

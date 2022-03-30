@@ -52,7 +52,7 @@ namespace Design_Dashboard_Modern.Vistas
             {
                 btnCerrarCaja.Enabled = false;
             }
-                            
+
         }
 
         private void AbrirCaja()
@@ -98,14 +98,14 @@ namespace Design_Dashboard_Modern.Vistas
                            {
                                Fecha = d.fechaAlta,
                                Importe = d.importe,
-                               Entra = d.entra, 
+                               Entra = d.entra,
                                Sale = d.sale,
                                Movimiento = d.observaciones
                            }).ToList();
 
                 dgvVerCaja.DataSource = null;
                 dgvVerCaja.DataSource = lst;
-                
+
                 cajaabierta = DB.Caja.ToList().Find(x => x.fechaCaja == DateTime.Now.Date && x.fechaCierreCaja == null);
                 lblEfectivo.Text = cajaabierta.montoCaja.ToString();
             }

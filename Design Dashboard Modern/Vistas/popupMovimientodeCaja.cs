@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using Design_Dashboard_Modern.Models;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Design_Dashboard_Modern.Models;
 
 namespace Design_Dashboard_Modern.Vistas
 {
@@ -46,7 +40,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if ((rbtnEntra.Checked == true || rbtnSale.Checked == true) && tbImporte.TextLength>0)
+            if ((rbtnEntra.Checked == true || rbtnSale.Checked == true) && tbImporte.TextLength > 0)
             {
                 GenerarMovCaja();
                 ActualizarCaja();
@@ -64,7 +58,7 @@ namespace Design_Dashboard_Modern.Vistas
             using (todoluzdbEntities DB = new todoluzdbEntities())
             {
                 Caja actualizar = DB.Caja.Find(idCaja);
-                if(rbtnEntra.Checked == true)
+                if (rbtnEntra.Checked == true)
                 {
                     actualizar.montoCaja = double.Parse(tbImporte.Text) + actualizar.montoCaja;
                 }
@@ -72,7 +66,7 @@ namespace Design_Dashboard_Modern.Vistas
                 {
                     actualizar.montoCaja = actualizar.montoCaja - double.Parse(tbImporte.Text);
                 }
-                
+
                 DB.Entry(actualizar).State = System.Data.Entity.EntityState.Modified;
 
                 DB.SaveChanges();
@@ -89,8 +83,8 @@ namespace Design_Dashboard_Modern.Vistas
                 nmc.importe = double.Parse(tbImporte.Text);
                 nmc.tipoMovimientoCajaId = (int)cboxTipoMov.SelectedValue;
                 nmc.observaciones = DB.tipoMovimientoCaja.Find(nmc.tipoMovimientoCajaId).nombreTipoMovimientoCaja;
-                                
-                if(rbtnEntra.Checked == true)
+
+                if (rbtnEntra.Checked == true)
                 {
                     nmc.entra = true;
                     nmc.sale = false;

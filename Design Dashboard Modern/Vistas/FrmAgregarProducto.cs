@@ -151,6 +151,12 @@ namespace Design_Dashboard_Modern.Vistas
                             db.Entry(modif).State = System.Data.Entity.EntityState.Modified;
                             db.SaveChanges();
                         }
+                        else
+                        {
+                            modif.Codigo = modif.Id.ToString();
+                            db.Entry(modif).State = System.Data.Entity.EntityState.Modified;
+                            db.SaveChanges();
+                        }
 
                         Stock stockproducto = db.Stock.ToList().Find(x => x.ProductoId == id);
                         stockproducto.cantidad = int.Parse(tbStockInicial.Text);

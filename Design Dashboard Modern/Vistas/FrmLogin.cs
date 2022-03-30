@@ -32,8 +32,8 @@ namespace Design_Dashboard_Modern.Vistas
                 {
 
                     Usuario usuariolog = DB.Usuario.ToList().Find(x => x.UserName.ToUpper() == tbUsuario.Text.ToUpper());
-                    
-                    
+
+
                     if (usuariolog.EmailConfirmed != false)
                     {
                         UsuarioActivo.ApellidoyNombre = usuariolog.ApellidoyNombre;
