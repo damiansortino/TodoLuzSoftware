@@ -270,11 +270,11 @@
             this.lblTipoUsuario.BackColor = System.Drawing.Color.Transparent;
             this.AnimacionSidebar.SetDecoration(this.lblTipoUsuario, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.lblTipoUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.lblTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lblTipoUsuario.Location = new System.Drawing.Point(142, 62);
+            this.lblTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoUsuario.ForeColor = System.Drawing.Color.Chartreuse;
+            this.lblTipoUsuario.Location = new System.Drawing.Point(127, 62);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(113, 20);
+            this.lblTipoUsuario.Size = new System.Drawing.Size(128, 20);
             this.lblTipoUsuario.TabIndex = 20;
             this.lblTipoUsuario.Text = "tipo de usuario";
             // 
@@ -286,7 +286,7 @@
             this.AnimacionSidebarBack.SetDecoration(this.lblUsuarioActivo, BunifuAnimatorNS.DecorationType.None);
             this.lblUsuarioActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioActivo.ForeColor = System.Drawing.Color.Black;
-            this.lblUsuarioActivo.Location = new System.Drawing.Point(66, 42);
+            this.lblUsuarioActivo.Location = new System.Drawing.Point(66, 31);
             this.lblUsuarioActivo.Name = "lblUsuarioActivo";
             this.lblUsuarioActivo.Size = new System.Drawing.Size(102, 20);
             this.lblUsuarioActivo.TabIndex = 17;
@@ -664,7 +664,7 @@
             this.AnimacionSidebarBack.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(64, 11);
+            this.label2.Location = new System.Drawing.Point(64, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 31);
             this.label2.TabIndex = 6;

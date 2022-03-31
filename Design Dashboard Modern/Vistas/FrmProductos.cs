@@ -52,13 +52,14 @@ namespace Design_Dashboard_Modern.Vistas
                            {
                                IdProducto = e.Id,
                                Codigo = e.Codigo,
+                               Precio = e.PrecioCosto + (e.PrecioCosto * e.Rentabilidad) / 100,
+                               Disponible = d.cantidad,
                                Nombre = e.Nombre,
                                Descripción = e.Descripcion,
                                Marca = e.Marca,
                                Modelo = e.Modelo,
-                               Color = e.Color,
-                               Precio = e.PrecioCosto + (e.PrecioCosto * e.Rentabilidad) / 100,
-                               Disponible = d.cantidad
+                               Color = e.Color
+
                            }).ToList();
 
 
@@ -83,12 +84,13 @@ namespace Design_Dashboard_Modern.Vistas
                            {
                                IdProducto = e.Id,
                                Codigo = e.Codigo,
+                               Precio = e.PrecioCosto + (e.PrecioCosto * e.Rentabilidad) / 100,
+                               Disponible = d.cantidad,
                                Nombre = e.Nombre,
                                Marca = e.Marca,
                                Modelo = e.Modelo,
-                               Color = e.Color,
-                               Precio = e.PrecioCosto + (e.PrecioCosto * e.Rentabilidad) / 100,
-                               Disponible = d.cantidad
+                               Color = e.Color
+
                            }).ToList();
 
                 Buscar.DataSource = lst;
@@ -124,11 +126,20 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            int id = (int)Buscar.CurrentRow.Cells[0].Value;
+            try
+            {
+                int id = (int)Buscar.CurrentRow.Cells[0].Value;
 
-            FrmAgregarProducto modificar = new FrmAgregarProducto(id);
-            modificar.ShowDialog();
-            Refrescar();
+                FrmAgregarProducto modificar = new FrmAgregarProducto(id);
+                modificar.ShowDialog();
+                Refrescar();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error, debe seleccionar un producto primero para modificar");
+            }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -153,7 +164,14 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            BuscaFiltro(tbFiltro.Text.Trim());
+            if (tbFiltro.TextLength < 1)
+            {
+                MessageBox.Show("Debe escribir algún criterio de búsqueda primero");
+            }
+            else
+            {
+                BuscaFiltro(tbFiltro.Text.Trim());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -260,7 +260,7 @@ namespace Design_Dashboard_Modern.Vistas
 
         private void tbBonifGeneral_Leave(object sender, EventArgs e)
         {
-            if (tbBonifGeneral.TextLength < 1) tbBonifGeneral.Text = "0"; 
+            if (tbBonifGeneral.TextLength < 1) tbBonifGeneral.Text = "0";
             lblTotalGeneral.Text = (double.Parse(lblSubtotal.Text) - double.Parse(tbBonifGeneral.Text)).ToString();
         }
 
